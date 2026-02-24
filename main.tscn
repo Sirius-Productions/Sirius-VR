@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cvuly6s3nweo0"]
+
+[ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://bha44jqbjtwjv" path="res://scenes/waiting_room/waiting_room.tscn" id="2_0xm2m"]
+
+[node name="Main" type="Node" unique_id=706084751]
+
+[node name="StartXR" parent="." unique_id=545109858 instance=ExtResource("1_ig7tw")]
+
+[node name="WaitingRoom" parent="." unique_id=1119867074 instance=ExtResource("2_0xm2m")]

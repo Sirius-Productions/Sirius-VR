@@ -11,8 +11,30 @@ config_version=5
 [application]
 
 config/name="Sirius VR"
+run/main_scene="uid://cvuly6s3nweo0"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+XRToolsUserSettings="*uid://bqgb8i74tm0t"
+XRToolsRumbleManager="*uid://by853dk86g1qw"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://addons/": "gray",
+"res://android/": "gray",
+"res://assets/": "green",
+"res://player_controller/": "yellow",
+"res://scenes/": "red",
+"res://scenes/niveaux_enfants/": "blue",
+"res://scripts/": "purple"
+}
 
 [physics]
 
@@ -23,3 +45,11 @@ config/icon="res://icon.svg"
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
+
+[xr]
+
+openxr/enabled=true
+openxr/reference_space=2
+shaders/enabled=true
+openxr/extensions/meta/color_space/starting_color_space=3
