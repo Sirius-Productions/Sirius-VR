@@ -1,0 +1,75 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://r51wsngor07t"
+path="res://.godot/imported/toothless_rigged_fk.glb-e735bb3f8e560958185ad73fbbe553cf.scn"
+
+[deps]
+
+source_file="res://assets/meshes/toothless/toothless_rigged_fk.glb"
+dest_files=["res://.godot/imported/toothless_rigged_fk.glb-e735bb3f8e560958185ad73fbbe553cf.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"tooth_outline": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/meshes/toothless/tooth_outline.tres",
+"use_external/path": "uid://c5cropvgpg6x3"
+},
+"tooth_outline.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/meshes/toothless/tooth_outline.001.tres",
+"use_external/path": "uid://cheakr4mewxvx"
+},
+"toothless_ spine_sd": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/meshes/toothless/toothless_ spine_sd.tres",
+"use_external/path": "uid://cd5c8fa5boc5e"
+},
+"toothless_eyes_outline_sd": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/meshes/toothless/toothless_eyes_outline_sd.tres",
+"use_external/path": "uid://72ltoqb77bp6"
+},
+"toothless_eyes_sd": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/meshes/toothless/toothless_eyes_sd.tres",
+"use_external/path": "uid://bnx6jwanarcug"
+},
+"toothless_sd": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/meshes/toothless/toothless_sd.tres",
+"use_external/path": "uid://85lygo157wcw"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

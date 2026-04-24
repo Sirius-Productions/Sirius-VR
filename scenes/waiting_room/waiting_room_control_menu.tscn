@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d0smcyeo8m7qg" path="res://scenes/waiting_room/waiting_room_control_menu.gd" id="1_f0tod"]
 
-[node name="WaitingRoomControlMenu" type="Control" unique_id=353756725]
+[node name="WaitingRoomControlMenu" type="Control" unique_id=68605552]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,6 +10,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f0tod")
+labyrinth_scene = "uid://c11d7np3m7dd6"
+metadata/_custom_type_script = "uid://tsv4hf630tej"
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1724584702]
 layout_mode = 1
