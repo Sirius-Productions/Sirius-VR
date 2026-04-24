@@ -572,7 +572,7 @@ func _estimate_body_forward_dir() -> Vector3:
 		var cross = forward.cross(hands_forward).normalized()
 		var angle = clamp(acos(dot) * body_forward_mix, 0.0, 0.33 * PI)
 		forward = forward.rotated(cross, angle)
-
+	
 	return forward
 
 

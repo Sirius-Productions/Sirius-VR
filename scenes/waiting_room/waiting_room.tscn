@@ -1,3 +1,29 @@
 [gd_scene format=3 uid="uid://bha44jqbjtwjv"]
 
-[node name="WaitingRoom" type="Node3D" unique_id=1119867074]
+[ext_resource type="PackedScene" uid="uid://yxxn5vnnxth" path="res://scenes/custom_scene_base.tscn" id="1_1yeck"]
+[ext_resource type="PackedScene" uid="uid://c4obc7q7kp6pk" path="res://assets/meshes/waiting_room/waiting_room.blend" id="2_676s3"]
+[ext_resource type="Script" uid="uid://bv5rcfuldk0he" path="res://scenes/waiting_room/waiting_room_script.gd" id="3_qax70"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_676s3"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_qax70"]
+sky_material = SubResource("ProceduralSkyMaterial_676s3")
+
+[sub_resource type="Environment" id="Environment_qax70"]
+background_mode = 2
+sky = SubResource("Sky_qax70")
+ambient_light_source = 3
+tonemap_mode = 2
+
+[node name="WaitingRoomLevel" unique_id=311686013 instance=ExtResource("1_1yeck")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="1" unique_id=315474683]
+environment = SubResource("Environment_qax70")
+
+[node name="waiting_room" parent="." index="2" unique_id=2135418354 instance=ExtResource("2_676s3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.602)
+
+[node name="WaitingRoomScript" type="Node" parent="." index="3" unique_id=1862460646]
+script = ExtResource("3_qax70")

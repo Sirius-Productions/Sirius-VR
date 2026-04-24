@@ -90,6 +90,7 @@ static func get_fade_node() -> XRToolsFade:
 ## Set the fade level on the fade instance
 static func set_fade(p_whom : Variant, p_color : Color) -> void:
 	# In the future this use of groups should be replaced by static instances.
+	print("fade set by: ", p_whom)
 	var tree := Engine.get_main_loop() as SceneTree
 	for node in tree.get_nodes_in_group("fade_mesh"):
 		var fade := node as XRToolsFade

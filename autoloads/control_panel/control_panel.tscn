@@ -1,0 +1,274 @@
+[gd_scene format=3 uid="uid://ciwq32853yxn1"]
+
+[ext_resource type="Script" uid="uid://d1dcbjlu1jmic" path="res://autoloads/control_panel/control_panel.gd" id="1_ohye5"]
+[ext_resource type="Script" uid="uid://dfiv7c61jj6lk" path="res://autoloads/control_panel/preview_camera.gd" id="2_fklet"]
+[ext_resource type="Script" uid="uid://1gv52w517875" path="res://autoloads/control_panel/camera_controller.gd" id="3_f8cgh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4mnaq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0bkqp"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color(0.4252543, 0.17460537, 0.12548828, 0.39215687)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.42352942, 0.1764706, 0.1254902, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uq08x"]
+bg_color = Color(0.73326236, 0.3592791, 0.24638003, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_f8cgh"]
+font_size = 12
+font_color = Color(0.73333335, 0.36078432, 0.24705882, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0bkqp"]
+font_size = 12
+font_color = Color(0.73333335, 0.36078432, 0.24705882, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f8cgh"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color(0.18402117, 0.24934608, 0.4498781, 0.39215687)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.18431373, 0.2509804, 0.4509804, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abtbr"]
+bg_color = Color(0.28233582, 0.3701567, 0.6281579, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_abtbr"]
+font_size = 12
+font_color = Color(0.28235295, 0.36862746, 0.627451, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="ControlPanel" type="Node" unique_id=1102085332]
+script = ExtResource("1_ohye5")
+
+[node name="ControlPanelWindow" type="Window" parent="." unique_id=964276077]
+oversampling_override = 1.0
+mode = 2
+title = "Paneau de Contrôle"
+initial_position = 3
+size = Vector2i(1920, 1080)
+current_screen = 0
+
+[node name="ControlPanelSplit" type="HSplitContainer" parent="ControlPanelWindow" unique_id=125239964]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offsets = PackedInt32Array(465)
+split_offset = 465
+
+[node name="ControlPanelMenu" type="Control" parent="ControlPanelWindow/ControlPanelSplit" unique_id=1995408983]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="ControlPanelWindow/ControlPanelSplit/ControlPanelMenu" unique_id=238772218]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Labyrinthe" type="Button" parent="ControlPanelWindow/ControlPanelSplit/ControlPanelMenu/ColorRect" unique_id=230940485]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 68.0
+offset_top = 124.0
+offset_right = 235.0
+offset_bottom = 155.0
+text = "Aller Labyrinthe"
+
+[node name="Bleues" type="Button" parent="ControlPanelWindow/ControlPanelSplit/ControlPanelMenu/ColorRect" unique_id=675105972]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 68.0
+offset_top = 200.0
+offset_right = 235.0
+offset_bottom = 231.0
+text = "Ouvrir portes bleues"
+
+[node name="Rouges" type="Button" parent="ControlPanelWindow/ControlPanelSplit/ControlPanelMenu/ColorRect" unique_id=1269574535]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 64.0
+offset_top = 288.0
+offset_right = 231.0
+offset_bottom = 319.0
+text = "Ouvrir portes rouges"
+
+[node name="Vertes" type="Button" parent="ControlPanelWindow/ControlPanelSplit/ControlPanelMenu/ColorRect" unique_id=322476123]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 68.0
+offset_top = 404.0
+offset_right = 235.0
+offset_bottom = 435.0
+text = "Ouvrir portes vertes"
+
+[node name="PreviewCamera" type="Control" parent="ControlPanelWindow/ControlPanelSplit" unique_id=12986334]
+layout_mode = 2
+script = ExtResource("2_fklet")
+
+[node name="ViewprotContainer" type="SubViewportContainer" parent="ControlPanelWindow/ControlPanelSplit/PreviewCamera" unique_id=593811531]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="ControlPanelWindow/ControlPanelSplit/PreviewCamera/ViewprotContainer" unique_id=792980433]
+handle_input_locally = false
+size = Vector2i(1443, 1080)
+render_target_update_mode = 4
+
+[node name="CameraController" type="CharacterBody3D" parent="ControlPanelWindow/ControlPanelSplit/PreviewCamera/ViewprotContainer/SubViewport" unique_id=843333840]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("3_f8cgh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ControlPanelWindow/ControlPanelSplit/PreviewCamera/ViewprotContainer/SubViewport/CameraController" unique_id=935961241]
+shape = SubResource("SphereShape3D_4mnaq")
+
+[node name="CameraRotation" type="Node3D" parent="ControlPanelWindow/ControlPanelSplit/PreviewCamera/ViewprotContainer/SubViewport/CameraController" unique_id=259952202]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.51817, 0)
+
+[node name="Camera3D" type="Camera3D" parent="ControlPanelWindow/ControlPanelSplit/PreviewCamera/ViewprotContainer/SubViewport/CameraController/CameraRotation" unique_id=1676039565]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Zoom" type="MarginContainer" parent="ControlPanelWindow/ControlPanelSplit/PreviewCamera" unique_id=546907355]
+visible = false
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 89.0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ControlPanelWindow/ControlPanelSplit/PreviewCamera/Zoom" unique_id=1256961399]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ZoomBar" type="ProgressBar" parent="ControlPanelWindow/ControlPanelSplit/PreviewCamera/Zoom/VBoxContainer" unique_id=737669420]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_0bkqp")
+theme_override_styles/fill = SubResource("StyleBoxFlat_uq08x")
+min_value = 25.0
+max_value = 300.0
+value = 75.0
+exp_edit = true
+fill_mode = 3
+show_percentage = false
+
+[node name="ZoomValueLabel" type="Label" parent="ControlPanelWindow/ControlPanelSplit/PreviewCamera/Zoom/VBoxContainer" unique_id=2082092220]
+unique_name_in_owner = true
+layout_mode = 2
+text = "50 FOV"
+label_settings = SubResource("LabelSettings_f8cgh")
+
+[node name="ZoomLabel" type="Label" parent="ControlPanelWindow/ControlPanelSplit/PreviewCamera/Zoom/VBoxContainer" unique_id=90217008]
+layout_mode = 2
+text = "ZOOM"
+label_settings = SubResource("LabelSettings_0bkqp")
+
+[node name="Speed" type="MarginContainer" parent="ControlPanelWindow/ControlPanelSplit/PreviewCamera" unique_id=1472860474]
+visible = false
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ControlPanelWindow/ControlPanelSplit/PreviewCamera/Speed" unique_id=1537836455]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="SpeedBar" type="ProgressBar" parent="ControlPanelWindow/ControlPanelSplit/PreviewCamera/Speed/VBoxContainer" unique_id=2002301310]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_f8cgh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_abtbr")
+min_value = 0.5
+value = 5.0
+exp_edit = true
+fill_mode = 3
+show_percentage = false
+
+[node name="SpeedValueLabel" type="Label" parent="ControlPanelWindow/ControlPanelSplit/PreviewCamera/Speed/VBoxContainer" unique_id=1311152483]
+unique_name_in_owner = true
+layout_mode = 2
+text = "5.0 m/s"
+label_settings = SubResource("LabelSettings_abtbr")
+horizontal_alignment = 2
+
+[node name="SpeedLabel" type="Label" parent="ControlPanelWindow/ControlPanelSplit/PreviewCamera/Speed/VBoxContainer" unique_id=110225994]
+layout_mode = 2
+text = "SPEED"
+label_settings = SubResource("LabelSettings_abtbr")
+horizontal_alignment = 2
+
+[connection signal="gui_input" from="ControlPanelWindow/ControlPanelSplit/PreviewCamera" to="ControlPanelWindow/ControlPanelSplit/PreviewCamera" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ControlPanelWindow/ControlPanelSplit/PreviewCamera" to="ControlPanelWindow/ControlPanelSplit/PreviewCamera" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ControlPanelWindow/ControlPanelSplit/PreviewCamera" to="ControlPanelWindow/ControlPanelSplit/PreviewCamera" method="_on_mouse_exited"]

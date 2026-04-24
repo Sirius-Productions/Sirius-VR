@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://yxxn5vnnxth"]
+
+[ext_resource type="PackedScene" uid="uid://qbmx03iibuuu" path="res://addons/godot-xr-tools/staging/scene_base.tscn" id="1_tl272"]
+[ext_resource type="PackedScene" uid="uid://btknduttnmoxf" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="2_prvyc"]
+[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="3_1it70"]
+[ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="4_w4q5x"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="5_2xpa5"]
+[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="6_guyyd"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="7_7vmd6"]
+[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="8_640tq"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="9_hfspf"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_x0d8l"]
+radius = 0.3
+height = 1.8
+
+[node name="CustomSceneBase" unique_id=311686013 groups=["scene_base"] instance=ExtResource("1_tl272")]
+
+[node name="VRCommonShaderCache" parent="XROrigin3D/XRCamera3D" index="0" unique_id=1179012785 instance=ExtResource("2_prvyc")]
+
+[node name="LeftHand" parent="XROrigin3D" index="1"]
+pose = &"grip"
+
+[node name="LeftHand" parent="XROrigin3D/LeftHand" index="0" unique_id=1696142797 instance=ExtResource("3_1it70")]
+
+[node name="FunctionTeleport" parent="XROrigin3D/LeftHand" index="1" unique_id=483352963 instance=ExtResource("4_w4q5x")]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, -0.07071068, -0.07071068)
+
+[node name="FunctionPickup" parent="XROrigin3D/LeftHand" index="2" unique_id=389741786 instance=ExtResource("5_2xpa5")]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
+
+[node name="RightHand" parent="XROrigin3D" index="2"]
+pose = &"grip"
+
+[node name="RightHand" parent="XROrigin3D/RightHand" index="0" unique_id=657636777 instance=ExtResource("6_guyyd")]
+
+[node name="FunctionPickup" parent="XROrigin3D/RightHand" index="1" unique_id=1639529088 instance=ExtResource("5_2xpa5")]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
+
+[node name="MovementDirect" parent="XROrigin3D/RightHand" index="2" unique_id=762808587 instance=ExtResource("7_7vmd6")]
+
+[node name="MovementTurn" parent="XROrigin3D/RightHand" index="3" unique_id=1217431799 instance=ExtResource("8_640tq")]
+turn_mode = 2
+
+[node name="PlayerBody" parent="XROrigin3D" index="3" unique_id=1246795368 instance=ExtResource("9_hfspf")]
+player_calibrate_height = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D" index="4" unique_id=569727159]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+mesh = SubResource("CapsuleMesh_x0d8l")

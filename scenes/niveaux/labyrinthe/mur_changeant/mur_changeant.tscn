@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cu1ft2t8kq43t"]
+
+[ext_resource type="Script" uid="uid://dry6a3jhcht2j" path="res://scenes/niveaux/labyrinthe/mur_changeant/mur_changeant.gd" id="1_afx6d"]
+[ext_resource type="Material" uid="uid://doa1jko6igydq" path="res://scenes/niveaux/labyrinthe/materiel_mur/murs.tres" id="1_gmsmq"]
+
+[sub_resource type="Animation" id="Animation_afx6d"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_0q3o3"]
+resource_name = "fermer"
+length = 5.0
+step = 0.0333333
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 0, 0),
+"points": PackedFloat32Array(-5, -0.24764125, -0.06810134, 0.6, 0.165, -4.561, -0.36666662, 0, 0.7046179, 0, 0, -1, -2.273, 0, 0),
+"times": PackedFloat32Array(0, 1.9333333, 5)
+}
+
+[sub_resource type="Animation" id="Animation_760ak"]
+resource_name = "ouvrir"
+length = 5.0
+step = 0.0333333
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 0, 0),
+"points": PackedFloat32Array(0, -0.24764027, 0.06810495, 0.6, -0.16500941, -0.052761387, -0.36666662, 0, 0.7046179, 0, -5, -1, 2.2726297, 0, 0),
+"times": PackedFloat32Array(0, 1.9542, 5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0q3o3"]
+_data = {
+&"RESET": SubResource("Animation_afx6d"),
+&"fermer": SubResource("Animation_0q3o3"),
+&"ouvrir": SubResource("Animation_760ak")
+}
+
+[node name="MurChangeant" type="Node3D" unique_id=889320792]
+script = ExtResource("1_afx6d")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=5347129]
+size = Vector3(0.4, 5, 2)
+material = ExtResource("1_gmsmq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=282531147]
+libraries/ = SubResource("AnimationLibrary_0q3o3")
