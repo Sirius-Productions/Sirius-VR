@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d1h07duoiopn4"]
 
-[ext_resource type="Script" uid="uid://bc0c5pn54xfi7" path="res://scenes/levels/labyrinth_v2/control_menus/right_side_control_menu.gd" id="1_sw2m2"]
+[ext_resource type="Theme" uid="uid://dkxs3pgftnuqw" path="res://resources/themes/player_menu_theme.theme" id="1_mwkqh"]
+[ext_resource type="Script" uid="uid://tsv4hf630tej" path="res://scripts/custom_nodes/left_side_control_panel_menu.gd" id="1_njqds"]
 [ext_resource type="FontFile" uid="uid://cnuh3n6ycdjpk" path="res://assets/fonts/prompt/Prompt-Black.ttf" id="2_0g87f"]
 [ext_resource type="FontFile" uid="uid://dlw3r21lagkeq" path="res://assets/fonts/prompt/Prompt-Medium.ttf" id="3_hkjou"]
 [ext_resource type="Script" uid="uid://cicxjntyb7pjh" path="res://scenes/levels/labyrinth_v2/control_menus/player_position_map.gd" id="3_sw2m2"]
@@ -31,15 +32,16 @@ corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
-[node name="LabyrinthRightMenu" type="Control" unique_id=887836922]
+[node name="LabyrinthControlMenu" type="Control" unique_id=1322640464]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_sw2m2")
-metadata/_custom_type_script = "uid://coqxxn0mao5ig"
+theme = ExtResource("1_mwkqh")
+script = ExtResource("1_njqds")
+metadata/_custom_type_script = "uid://tsv4hf630tej"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=40808939]
 layout_mode = 1
@@ -62,105 +64,97 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 15
 
-[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1637304064]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=748304990]
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=776717234]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1237784626]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1398658981]
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1633725512]
+layout_mode = 2
+text = "Cadza"
+
+[node name="Button2" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=591512168]
+layout_mode = 2
+text = "Cadza"
+
+[node name="Button3" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=404907276]
+layout_mode = 2
+text = "Cadza"
+
+[node name="LabyrinthMap" type="MarginContainer" parent="MarginContainer/HBoxContainer" unique_id=1960100659]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("3_sw2m2")
+player_position = Vector2(0.5, 0.5)
+
+[node name="ExitRoom" type="TextureRect" parent="MarginContainer/HBoxContainer/LabyrinthMap" unique_id=600000129]
+layout_mode = 2
+texture = ExtResource("8_mwkqh")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="LabyrinthMapTexture" type="TextureRect" parent="MarginContainer/HBoxContainer/LabyrinthMap" unique_id=765461777]
+layout_mode = 2
+texture = ExtResource("5_p1nsd")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ObjectsPositionPoints" type="Control" parent="MarginContainer/HBoxContainer/LabyrinthMap" unique_id=1278414505]
+layout_mode = 2
+script = ExtResource("6_p1nsd")
+
+[node name="PlayerPoint" type="TextureRect" parent="MarginContainer/HBoxContainer/LabyrinthMap" unique_id=273089826]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("8_njqds")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=776717234]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1398658981]
 layout_mode = 2
 size_flags_vertical = 0
 text = "Radar"
 label_settings = SubResource("LabelSettings_hkjou")
 uppercase = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=201130441]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2" unique_id=201130441]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1866813399]
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=1866813399]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_0g87f")
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=752377045]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=752377045]
 layout_mode = 2
 text = "Joueur"
 label_settings = SubResource("LabelSettings_5xy6a")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=2127126885]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2" unique_id=2127126885]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2" unique_id=2086498828]
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer2" unique_id=2086498828]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_hkjou")
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2" unique_id=141213759]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer2" unique_id=141213759]
 layout_mode = 2
 text = "Objets"
 label_settings = SubResource("LabelSettings_5xy6a")
-
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/VBoxContainer" unique_id=2115374573]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="LabyrinthMap" type="Control" parent="MarginContainer/VBoxContainer/AspectRatioContainer" unique_id=343885449]
-unique_name_in_owner = true
-layout_mode = 2
-script = ExtResource("3_sw2m2")
-player_position = Vector2(0.5, 0.5)
-
-[node name="ExitRoom" type="TextureRect" parent="MarginContainer/VBoxContainer/AspectRatioContainer/LabyrinthMap" unique_id=600000129]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_mwkqh")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="LabyrinthMapTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/AspectRatioContainer/LabyrinthMap" unique_id=765461777]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_p1nsd")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="ObjectsPositionPoints" type="Control" parent="MarginContainer/VBoxContainer/AspectRatioContainer/LabyrinthMap" unique_id=1278414505]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("6_p1nsd")
-
-[node name="PlayerPoint" type="TextureRect" parent="MarginContainer/VBoxContainer/AspectRatioContainer/LabyrinthMap" unique_id=273089826]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_left = 517.0
-offset_top = 517.0
-offset_right = 533.0
-offset_bottom = 533.0
-pivot_offset_ratio = Vector2(0.5, 0.5)
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("8_njqds")
-expand_mode = 1
-stretch_mode = 5

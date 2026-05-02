@@ -10,6 +10,7 @@ signal information_sent(info: Dictionary[String, Variant])
 @onready var camera_3d: Camera3D = %Camera3D
 @onready var right_side_container: TabContainer = %RightSideContainer
 @onready var secondary_control_panel_menu: Control = %SecondaryControlPanelMenu
+@onready var camera_rotation: Node3D = %CameraRotation
 
 
 var custom_right_side_panel: bool = false:
@@ -64,11 +65,20 @@ func change_secondary_panel_menu(new_menu: Control, enable: bool = true) -> void
 		custom_right_side_panel = true
 
 
+func fullscreen_left_side_menu() -> void:
+	right_side_container.hide()
+
+
+func disable_fullscreen() -> void:
+	right_side_container.show()
+
+
 func set_camera_controller_position(to: Vector3) -> void:
 	camera_controller.global_position = to
 
 func set_camera_controller_rotation(to: Vector3) -> void:
-	camera_controller.global_rotation = to
+	camera_rotation.rotation.y = to.y
+	camera_3d.rotation.x = to.x
 
 func set_camerra_controller_fov(new_fov: float = 75.0) -> void:
 	camera_3d.fov = new_fov

@@ -13,6 +13,7 @@ extends Node3D
 func _ready() -> void:
 	menu_viewport.hide()
 	PlayerManager.menu_closed.connect(_hide_menu)
+	PlayerManager.settings_changed.connect(_update_settings)
 	_update_settings()
 
 

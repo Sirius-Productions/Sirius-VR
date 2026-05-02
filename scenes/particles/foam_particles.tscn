@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://w2doaetlmlaq"]
+
+[ext_resource type="Texture2D" uid="uid://bvm30cp07wpd5" path="res://assets/textures/smoke_texture.png" id="1_003qp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vqptv"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.4506483, 0.4506483, 0.45064825, 1)
+albedo_texture = ExtResource("1_003qp")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+proximity_fade_enabled = true
+proximity_fade_distance = 0.5
+
+[sub_resource type="Gradient" id="Gradient_vqptv"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.12162162, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.91764706, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_003qp"]
+gradient = SubResource("Gradient_vqptv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vqptv"]
+emission_shape_scale = Vector3(0.369, 1, 1)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.0
+emission_ring_radius = 0.91
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+gravity = Vector3(0, 1, 0)
+color = Color(1, 1, 1, 0.2509804)
+color_ramp = SubResource("GradientTexture1D_003qp")
+
+[sub_resource type="QuadMesh" id="QuadMesh_vqptv"]
+size = Vector2(0.2, 0.2)
+
+[node name="FoamParticles" type="GPUParticles3D" unique_id=1056915693]
+material_override = SubResource("StandardMaterial3D_vqptv")
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_vqptv")
+draw_pass_1 = SubResource("QuadMesh_vqptv")

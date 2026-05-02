@@ -4,8 +4,8 @@
 [ext_resource type="Material" uid="uid://dnwpcvepswf5j" path="res://resources/sky_materials/night_time_sky.tres" id="2_eccc5"]
 [ext_resource type="Material" uid="uid://doa1jko6igydq" path="res://resources/materiels/materiel_mur/murs.tres" id="2_hwde8"]
 [ext_resource type="Script" uid="uid://cg505yk8i210u" path="res://scenes/levels/labyrinth_v2/labyrinth_v2.gd" id="2_i81g1"]
+[ext_resource type="PackedScene" uid="uid://by1ahikc0fxe2" path="res://scenes/levels/labyrinth_v2/doors/door_base.tscn" id="9_hwde8"]
 [ext_resource type="Material" uid="uid://b60ncxecqhht5" path="res://resources/materiels/concrete/concrete.tres" id="9_tmdj6"]
-[ext_resource type="PackedScene" uid="uid://c8xsmbobwcp8v" path="res://scenes/levels/labyrinth_v2/control_menus/left_side_control_menu.tscn" id="12_jrbwi"]
 [ext_resource type="Script" uid="uid://bv5rcfuldk0he" path="res://scenes/waiting_room/waiting_room_script.gd" id="12_v4sj2"]
 [ext_resource type="PackedScene" uid="uid://d1h07duoiopn4" path="res://scenes/levels/labyrinth_v2/control_menus/right_side_control_menu.tscn" id="13_eccc5"]
 [ext_resource type="PackedScene" uid="uid://b58eaehod7m06" path="res://assets/objects/torch/torch.tscn" id="15_wyykx"]
@@ -87,42 +87,40 @@ node_connections = [&"output", 0, &"Grip", &"Grip", 0, &"Trigger", &"Grip", 1, &
 shading_mode = 0
 albedo_color = Color(0.99, 0.25013998, 0.23760001, 1)
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_i81g1"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_qm5aj"]
+viewport_path = NodePath("Viewport")
 
-[sub_resource type="Sky" id="Sky_5wd6c"]
-sky_material = SubResource("ProceduralSkyMaterial_i81g1")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q2l6h"]
+resource_local_to_scene = true
+transparency = 1
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_qm5aj")
 
-[sub_resource type="Environment" id="Environment_c3kv3"]
-background_mode = 2
-sky = SubResource("Sky_5wd6c")
-ambient_light_source = 2
-ambient_light_color = Color(1, 1, 1, 1)
+[sub_resource type="QuadMesh" id="QuadMesh_qfnjq"]
+resource_local_to_scene = true
+size = Vector2(1.5, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3tmf7"]
+viewport_path = NodePath("PlayerMenu/MenuViewport/Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rttci"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = SubResource("ViewportTexture_3tmf7")
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_qm5aj")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bwkdr"]
+resource_local_to_scene = true
+size = Vector3(1.5, 1, 0.02)
 
 [node name="LabyrinthLevelV2" unique_id=311686013 instance=ExtResource("1_sdhpa")]
 
-[node name="LevelScript" type="Node" parent="." index="0" unique_id=1594994476]
-script = ExtResource("2_i81g1")
-
-[node name="DebugSun" type="DirectionalLight3D" parent="LevelScript" index="0" unique_id=1327946553]
-transform = Transform3D(0.8660254, -0.35355344, 0.35355344, 0, 0.7071068, 0.7071068, -0.50000006, -0.61237246, 0.61237246, 0, 12.726381, 0)
-visible = false
-
-[node name="ControlPanelMenuLoader" type="Node" parent="." index="1" unique_id=90925847]
-unique_name_in_owner = true
-script = ExtResource("12_v4sj2")
-left_side_control_menu = ExtResource("12_jrbwi")
-camera_position = Vector3(0, 20, 0)
-camera_projection = 1
-controller_can_rotate_view = false
-use_custom_right_side_panel = true
-right_side_scene = ExtResource("13_eccc5")
-metadata/_custom_type_script = "uid://bv5rcfuldk0he"
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="2" unique_id=1299066497]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0" unique_id=1299066497]
 environment = SubResource("Environment_wyykx")
 
-[node name="Sun" type="DirectionalLight3D" parent="." index="3" unique_id=225390464]
-transform = Transform3D(0.8528783, 0.25882444, 0.453441, 0.1245015, 0.74260575, -0.6580549, -0.5070485, 0.61769474, 0.6011281, 0, 2.763462, 0)
+[node name="Sun" type="DirectionalLight3D" parent="." index="1" unique_id=225390464]
+transform = Transform3D(0.8528783, 0.25882432, 0.45344096, 0.1245015, 0.7426057, -0.6580548, -0.5070485, 0.61769474, 0.6011282, 0, 2.763462, 0)
 light_energy = 0.0
 
 [node name="Moon" type="DirectionalLight3D" parent="Sun" index="0" unique_id=841126726]
@@ -131,6 +129,22 @@ light_color = Color(0.60118496, 0.7379556, 0.9028571, 1)
 light_energy = 0.05
 shadow_enabled = true
 shadow_blur = 10.0
+
+[node name="LevelScript" type="Node" parent="." index="2" unique_id=1594994476]
+script = ExtResource("2_i81g1")
+
+[node name="DebugSun" type="DirectionalLight3D" parent="LevelScript" index="0" unique_id=1327946553]
+transform = Transform3D(0.8660254, -0.35355344, 0.35355344, 0, 0.7071068, 0.7071068, -0.50000006, -0.61237246, 0.61237246, 0, 12.726381, 0)
+visible = false
+
+[node name="ControlPanelMenuLoader" type="Node" parent="." index="3" unique_id=90925847]
+unique_name_in_owner = true
+script = ExtResource("12_v4sj2")
+left_side_control_menu = ExtResource("13_eccc5")
+camera_position = Vector3(0, 20, 0)
+camera_projection = 1
+controller_can_rotate_view = false
+metadata/_custom_type_script = "uid://bv5rcfuldk0he"
 
 [node name="XROrigin3D" parent="." index="4" unique_id=272371564]
 metadata/_edit_lock_ = true
@@ -147,767 +161,792 @@ surface_material_override/0 = SubResource("StandardMaterial3D_eccc5")
 [node name="PlayerMenu" parent="." index="5" unique_id=78160560]
 metadata/_edit_lock_ = true
 
-[node name="Labyrinthe" type="Node3D" parent="." index="6" unique_id=1345889245]
+[node name="MenuViewport" parent="PlayerMenu" index="0" unique_id=442761183]
+material = SubResource("StandardMaterial3D_q2l6h")
 
-[node name="Torch" parent="Labyrinthe" index="0" unique_id=1758411067 instance=ExtResource("15_wyykx")]
-transform = Transform3D(1, 0, 0, 0, 0.87090516, -0.49145108, 0, 0.49145108, 0.87090516, -0.6604109, 1.2212569, -2.7168045)
+[node name="Viewport" parent="PlayerMenu/MenuViewport" index="0"]
+size = Vector2i(900, 600)
 
-[node name="VerticalWalls" type="CSGCombiner3D" parent="Labyrinthe" index="1" unique_id=1865715161]
+[node name="Screen" parent="PlayerMenu/MenuViewport" index="1"]
+mesh = SubResource("QuadMesh_qfnjq")
+surface_material_override/0 = SubResource("StandardMaterial3D_rttci")
+
+[node name="StaticBody3D" parent="PlayerMenu/MenuViewport" index="2"]
+collision_layer = 5242880
+screen_size = Vector2(1.5, 1)
+viewport_size = Vector2(900, 600)
+
+[node name="CollisionShape3D" parent="PlayerMenu/MenuViewport/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_bwkdr")
+
+[node name="Labyrinth" type="Node3D" parent="." index="6" unique_id=1345889245]
+
+[node name="Walls" type="Node3D" parent="Labyrinth" index="0" unique_id=35616415]
+
+[node name="VerticalWalls" type="CSGCombiner3D" parent="Labyrinth/Walls" index="0" unique_id=1865715161]
 material_override = ExtResource("2_hwde8")
 use_collision = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="0" unique_id=464747400]
+[node name="CSGBox3D" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="0" unique_id=464747400]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2.5, 4.5)
 size = Vector3(0.5, 6, 15.5)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="1" unique_id=385838938]
+[node name="CSGBox3D3" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="1" unique_id=385838938]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 2.5, -28.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D8" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="2" unique_id=953860973]
+[node name="CSGBox3D8" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="2" unique_id=953860973]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 2.5, -24)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D11" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="3" unique_id=398196047]
+[node name="CSGBox3D11" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="3" unique_id=398196047]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 2.5, -6)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D9" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="4" unique_id=1343679650]
+[node name="CSGBox3D9" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="4" unique_id=1343679650]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 2.5, -16.5)
 size = Vector3(0.5, 6, 9.5)
 
-[node name="CSGBox3D10" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="5" unique_id=814392781]
+[node name="CSGBox3D10" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="5" unique_id=814392781]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 2.5, -13.5)
 size = Vector3(0.5, 6, 9.5)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="6" unique_id=455321466]
+[node name="CSGBox3D4" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="6" unique_id=455321466]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2.5, -25.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D12" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="7" unique_id=1400663562]
+[node name="CSGBox3D12" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="7" unique_id=1400663562]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2.5, -19.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D13" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="8" unique_id=1796432313]
+[node name="CSGBox3D13" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="8" unique_id=1796432313]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2.5, -28.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D19" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="9" unique_id=685826158]
+[node name="CSGBox3D19" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="9" unique_id=685826158]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.5, -16.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D33" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="10" unique_id=1354246728]
+[node name="CSGBox3D33" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="10" unique_id=1354246728]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -10.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D34" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="11" unique_id=560027415]
+[node name="CSGBox3D34" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="11" unique_id=560027415]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2.5, -10.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D35" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="12" unique_id=201601138]
+[node name="CSGBox3D35" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="12" unique_id=201601138]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2.5, -13.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D31" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="13" unique_id=1096956327]
+[node name="CSGBox3D31" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="13" unique_id=1096956327]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.5, -13.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D20" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="14" unique_id=1159683854]
+[node name="CSGBox3D20" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="14" unique_id=1159683854]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -19.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D21" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="15" unique_id=1433283592]
+[node name="CSGBox3D21" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="15" unique_id=1433283592]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.5, -16.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D22" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="16" unique_id=805750353]
+[node name="CSGBox3D22" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="16" unique_id=805750353]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 2.5, -28.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D23" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="17" unique_id=1736275829]
+[node name="CSGBox3D23" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="17" unique_id=1736275829]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 2.5, -25.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D26" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="18" unique_id=621739500]
+[node name="CSGBox3D26" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="18" unique_id=621739500]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 2.5, -16.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D28" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="19" unique_id=598529564]
+[node name="CSGBox3D28" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="19" unique_id=598529564]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2.5, -13.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D42" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="20" unique_id=1708396496]
+[node name="CSGBox3D42" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="20" unique_id=1708396496]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, -10.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D43" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="21" unique_id=1278584553]
+[node name="CSGBox3D43" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="21" unique_id=1278584553]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2.5, -7.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D56" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="22" unique_id=1050483940]
+[node name="CSGBox3D56" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="22" unique_id=1050483940]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 2.5, 10.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D57" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="23" unique_id=153984854]
+[node name="CSGBox3D57" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="23" unique_id=153984854]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 2.5, 25.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D58" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="24" unique_id=1145615314]
+[node name="CSGBox3D58" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="24" unique_id=1145615314]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 2.5, 25.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D59" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="25" unique_id=1046151485]
+[node name="CSGBox3D59" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="25" unique_id=1046151485]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 2.5, 28.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D60" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="26" unique_id=703034644]
+[node name="CSGBox3D60" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="26" unique_id=703034644]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 2.5, 19.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D61" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="27" unique_id=219413933]
+[node name="CSGBox3D61" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="27" unique_id=219413933]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.5, 16.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D62" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="28" unique_id=1992310656]
+[node name="CSGBox3D62" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="28" unique_id=1992310656]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.5, 10.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D63" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="29" unique_id=55361134]
+[node name="CSGBox3D63" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="29" unique_id=55361134]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2.5, 7.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D64" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="30" unique_id=407636195]
+[node name="CSGBox3D64" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="30" unique_id=407636195]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2.5, 16.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D65" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="31" unique_id=1825367054]
+[node name="CSGBox3D65" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="31" unique_id=1825367054]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.5, 22.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D66" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="32" unique_id=1150046550]
+[node name="CSGBox3D66" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="32" unique_id=1150046550]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.5, 28.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D67" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="33" unique_id=1712802106]
+[node name="CSGBox3D67" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="33" unique_id=1712802106]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2.5, 13.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D68" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="34" unique_id=1589707828]
+[node name="CSGBox3D68" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="34" unique_id=1589707828]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2.5, 13.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D69" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="35" unique_id=641406854]
+[node name="CSGBox3D69" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="35" unique_id=641406854]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 2.5, 16.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D70" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="36" unique_id=624524350]
+[node name="CSGBox3D70" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="36" unique_id=624524350]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2.5, 22.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D71" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="37" unique_id=430409263]
+[node name="CSGBox3D71" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="37" unique_id=430409263]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 2.5, 28.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D72" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="38" unique_id=1311093381]
+[node name="CSGBox3D72" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="38" unique_id=1311093381]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2.5, 25.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D73" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="39" unique_id=683362060]
+[node name="CSGBox3D73" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="39" unique_id=683362060]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 2.5, 22.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D74" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="40" unique_id=1515400014]
+[node name="CSGBox3D74" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="40" unique_id=1515400014]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 2.5, 19.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D75" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="41" unique_id=841313908]
+[node name="CSGBox3D75" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="41" unique_id=841313908]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 2.5, 13.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D76" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="42" unique_id=1364008607]
+[node name="CSGBox3D76" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="42" unique_id=1364008607]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 2.5, -1.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D46" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="43" unique_id=1976738051]
+[node name="CSGBox3D46" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="43" unique_id=1976738051]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.5, -4.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D47" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="44" unique_id=1363182574]
+[node name="CSGBox3D47" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="44" unique_id=1363182574]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2.5, 7.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D44" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="45" unique_id=997781383]
+[node name="CSGBox3D44" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="45" unique_id=997781383]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 2.5, -7.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D45" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="46" unique_id=183598502]
+[node name="CSGBox3D45" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="46" unique_id=183598502]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 2.5, -4.5)
 size = Vector3(0.5, 6, 9.5)
 
-[node name="CSGBox3D27" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="47" unique_id=942240615]
+[node name="CSGBox3D27" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="47" unique_id=942240615]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 2.5, -12)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D38" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="48" unique_id=1707890893]
+[node name="CSGBox3D38" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="48" unique_id=1707890893]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 2.5, -3)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D39" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="49" unique_id=260254714]
+[node name="CSGBox3D39" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="49" unique_id=260254714]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.5, -9)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D40" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="50" unique_id=1545893401]
+[node name="CSGBox3D40" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="50" unique_id=1545893401]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.5, -3)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D48" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="51" unique_id=252842778]
+[node name="CSGBox3D48" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="51" unique_id=252842778]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.5, 3)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D49" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="52" unique_id=1113697963]
+[node name="CSGBox3D49" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="52" unique_id=1113697963]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2.5, 6)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D77" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="53" unique_id=17757181]
+[node name="CSGBox3D77" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="53" unique_id=17757181]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.5, 9)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D89" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="54" unique_id=808546288]
+[node name="CSGBox3D89" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="54" unique_id=808546288]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 12)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D78" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="55" unique_id=1695678933]
+[node name="CSGBox3D78" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="55" unique_id=1695678933]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 2.5, 10.5)
 size = Vector3(0.5, 6, 9.5)
 
-[node name="CSGBox3D85" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="56" unique_id=436425655]
+[node name="CSGBox3D85" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="56" unique_id=436425655]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2.5, 18)
 size = Vector3(0.5, 6, 12.5)
 
-[node name="CSGBox3D79" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="57" unique_id=882717836]
+[node name="CSGBox3D79" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="57" unique_id=882717836]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2.5, 16.5)
 size = Vector3(0.5, 6, 9.5)
 
-[node name="CSGBox3D84" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="58" unique_id=1660405701]
+[node name="CSGBox3D84" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="58" unique_id=1660405701]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 2.5, 24)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D80" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="59" unique_id=69986266]
+[node name="CSGBox3D80" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="59" unique_id=69986266]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 2.5, 25.5)
 size = Vector3(0.5, 6, 9.5)
 
-[node name="CSGBox3D81" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="60" unique_id=109412725]
+[node name="CSGBox3D81" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="60" unique_id=109412725]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 2.5, 7.5)
 size = Vector3(0.5, 6, 9.5)
 
-[node name="CSGBox3D82" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="61" unique_id=1916324323]
+[node name="CSGBox3D82" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="61" unique_id=1916324323]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 2.5, 0)
 size = Vector3(0.5, 6, 12.5)
 
-[node name="CSGBox3D83" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="62" unique_id=2111344255]
+[node name="CSGBox3D83" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="62" unique_id=2111344255]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 2.5, 10.5)
 size = Vector3(0.5, 6, 15.5)
 
-[node name="CSGBox3D50" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="63" unique_id=1234924512]
+[node name="CSGBox3D50" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="63" unique_id=1234924512]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2.5, 3)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D51" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="64" unique_id=1448886064]
+[node name="CSGBox3D51" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="64" unique_id=1448886064]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2.5, 3)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D52" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="65" unique_id=273261842]
+[node name="CSGBox3D52" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="65" unique_id=273261842]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, 24)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D53" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="66" unique_id=2042559342]
+[node name="CSGBox3D53" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="66" unique_id=2042559342]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.5, 27)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D54" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="67" unique_id=518900520]
+[node name="CSGBox3D54" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="67" unique_id=518900520]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.5, 24)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D86" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="68" unique_id=671383844]
+[node name="CSGBox3D86" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="68" unique_id=671383844]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 27)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D55" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="69" unique_id=255234200]
+[node name="CSGBox3D55" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="69" unique_id=255234200]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 2.5, 10.5)
 size = Vector3(0.5, 6, 15.5)
 
-[node name="CSGBox3D87" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="70" unique_id=1980965512]
+[node name="CSGBox3D87" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="70" unique_id=1980965512]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 2.5, 16.5)
 size = Vector3(0.5, 6, 15.5)
 
-[node name="CSGBox3D88" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="71" unique_id=1357718518]
+[node name="CSGBox3D88" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="71" unique_id=1357718518]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2.5, 18)
 size = Vector3(0.5, 6, 12.5)
 
-[node name="CSGBox3D41" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="72" unique_id=540834525]
+[node name="CSGBox3D41" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="72" unique_id=540834525]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2.5, 0)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D24" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="73" unique_id=1639696557]
+[node name="CSGBox3D24" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="73" unique_id=1639696557]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 2.5, -22.5)
 size = Vector3(0.5, 6, 9.5)
 
-[node name="CSGBox3D30" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="74" unique_id=1770648186]
+[node name="CSGBox3D30" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="74" unique_id=1770648186]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2.5, -25.5)
 size = Vector3(0.5, 6, 9.5)
 
-[node name="CSGBox3D25" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="75" unique_id=482792409]
+[node name="CSGBox3D25" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="75" unique_id=482792409]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 2.5, -24)
 size = Vector3(0.5, 6, 12.5)
 
-[node name="CSGBox3D29" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="76" unique_id=457694749]
+[node name="CSGBox3D29" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="76" unique_id=457694749]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, -21)
 size = Vector3(0.5, 6, 12.5)
 
-[node name="CSGBox3D32" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="77" unique_id=1134723563]
+[node name="CSGBox3D32" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="77" unique_id=1134723563]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2.5, -16.5)
 size = Vector3(0.5, 6, 15.5)
 
-[node name="CSGBox3D14" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="78" unique_id=59479973]
+[node name="CSGBox3D14" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="78" unique_id=59479973]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.5, -24)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D15" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="79" unique_id=654314329]
+[node name="CSGBox3D15" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="79" unique_id=654314329]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -27)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D16" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="80" unique_id=151774770]
+[node name="CSGBox3D16" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="80" unique_id=151774770]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.5, -27)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D17" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="81" unique_id=553242663]
+[node name="CSGBox3D17" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="81" unique_id=553242663]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.5, -24)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D18" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="82" unique_id=1193618627]
+[node name="CSGBox3D18" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="82" unique_id=1193618627]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 2.5, -21)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="83" unique_id=1504160640]
+[node name="CSGBox3D5" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="83" unique_id=1504160640]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2.5, -25.5)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="84" unique_id=1219891032]
+[node name="CSGBox3D6" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="84" unique_id=1219891032]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2.5, -21)
 size = Vector3(0.5, 6, 12.5)
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="85" unique_id=954064076]
+[node name="CSGBox3D7" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="85" unique_id=954064076]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 2.5, -15)
 size = Vector3(0.5, 6, 18.5)
 
-[node name="CSGBox3D36" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="86" unique_id=1472242120]
+[node name="CSGBox3D36" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="86" unique_id=1472242120]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2.5, -12)
 size = Vector3(0.5, 6, 12.5)
 
-[node name="CSGBox3D37" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="87" unique_id=2039377943]
+[node name="CSGBox3D37" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="87" unique_id=2039377943]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2.5, -7.5)
 size = Vector3(0.5, 6, 9.5)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="88" unique_id=895758126]
+[node name="CSGBox3D2" type="CSGBox3D" parent="Labyrinth/Walls/VerticalWalls" index="88" unique_id=895758126]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 2.5, 4.5)
 size = Vector3(0.5, 6, 15.5)
 
-[node name="HorizontalWalls" type="CSGCombiner3D" parent="Labyrinthe" index="2" unique_id=772361298]
+[node name="HorizontalWalls" type="CSGCombiner3D" parent="Labyrinth/Walls" index="1" unique_id=772361298]
 material_override = ExtResource("2_hwde8")
 use_collision = true
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="0" unique_id=1101773684]
+[node name="CSGBox3D7" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="0" unique_id=1101773684]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.5, 2.5, -3)
 size = Vector3(0.5, 6, 15.5)
 
-[node name="CSGBox3D12" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="1" unique_id=1408933586]
+[node name="CSGBox3D12" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="1" unique_id=1408933586]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15, 2.5, -6.556708e-08)
 size = Vector3(0.5, 6, 12.5)
 
-[node name="CSGBox3D13" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="2" unique_id=713337018]
+[node name="CSGBox3D13" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="2" unique_id=713337018]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -22.5, 2.5, -6)
 size = Vector3(0.5, 6, 9.5)
 
-[node name="CSGBox3D9" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="3" unique_id=1090543578]
+[node name="CSGBox3D9" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="3" unique_id=1090543578]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3, 2.5, -6)
 size = Vector3(0.5, 6, 18.5)
 
-[node name="CSGBox3D10" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="4" unique_id=82211590]
+[node name="CSGBox3D10" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="4" unique_id=82211590]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 2.5, -9)
 size = Vector3(0.5, 6, 18.5)
 
-[node name="CSGBox3D8" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="5" unique_id=181904653]
+[node name="CSGBox3D8" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="5" unique_id=181904653]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6, 2.5, -1.9670125e-07)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D15" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="6" unique_id=1723441493]
+[node name="CSGBox3D15" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="6" unique_id=1723441493]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.5, 2.5, 2.9999998)
 size = Vector3(0.5, 6, 9.5)
 
-[node name="CSGBox3D11" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="7" unique_id=1300552207]
+[node name="CSGBox3D11" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="7" unique_id=1300552207]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.5, 2.5, -2.6226832e-07)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D16" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="8" unique_id=2017581380]
+[node name="CSGBox3D16" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="8" unique_id=2017581380]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.5, 2.5, 5.9999995)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D17" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="9" unique_id=1342564710]
+[node name="CSGBox3D17" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="9" unique_id=1342564710]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.5, 2.5, 9)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D18" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="10" unique_id=1038154011]
+[node name="CSGBox3D18" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="10" unique_id=1038154011]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.5, 2.5, 12)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D86" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="11" unique_id=1231311691]
+[node name="CSGBox3D86" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="11" unique_id=1231311691]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 28.5, 2.5, 15)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D87" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="12" unique_id=1899262184]
+[node name="CSGBox3D87" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="12" unique_id=1899262184]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 25.5, 2.5, 12)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D94" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="13" unique_id=764603010]
+[node name="CSGBox3D94" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="13" unique_id=764603010]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 28.5, 2.5, 6)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D88" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="14" unique_id=2147396938]
+[node name="CSGBox3D88" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="14" unique_id=2147396938]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 16.5, 2.5, 9)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D82" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="15" unique_id=223989533]
+[node name="CSGBox3D82" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="15" unique_id=223989533]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 22.5, 2.5, 24)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D90" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="16" unique_id=395050391]
+[node name="CSGBox3D90" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="16" unique_id=395050391]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 25.5, 2.5, 27)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D19" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="17" unique_id=646207927]
+[node name="CSGBox3D19" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="17" unique_id=646207927]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.5, 2.5, 12)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D20" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="18" unique_id=711648088]
+[node name="CSGBox3D20" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="18" unique_id=711648088]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.5, 2.5, 12)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D65" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="19" unique_id=2061761216]
+[node name="CSGBox3D65" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="19" unique_id=2061761216]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.5, 2.5, 15)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D73" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="20" unique_id=1188849190]
+[node name="CSGBox3D73" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="20" unique_id=1188849190]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.5, 2.5, 24)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D74" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="21" unique_id=2072608986]
+[node name="CSGBox3D74" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="21" unique_id=2072608986]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.5, 2.5, 21)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D68" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="22" unique_id=64652945]
+[node name="CSGBox3D68" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="22" unique_id=64652945]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -25.5, 2.5, 27)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D22" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="23" unique_id=1438892202]
+[node name="CSGBox3D22" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="23" unique_id=1438892202]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16.5, 2.5, 9)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D23" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="24" unique_id=1101262128]
+[node name="CSGBox3D23" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="24" unique_id=1101262128]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -13.5, 2.5, 6)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D24" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="25" unique_id=1291326083]
+[node name="CSGBox3D24" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="25" unique_id=1291326083]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -22.5, 2.5, 3)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D29" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="26" unique_id=1413612857]
+[node name="CSGBox3D29" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="26" unique_id=1413612857]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.5, 2.5, -15)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D62" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="27" unique_id=1215908086]
+[node name="CSGBox3D62" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="27" unique_id=1215908086]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.5, 2.5, -9)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D91" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="28" unique_id=74755736]
+[node name="CSGBox3D91" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="28" unique_id=74755736]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16.5, 2.5, -12)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D30" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="29" unique_id=1165111736]
+[node name="CSGBox3D30" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="29" unique_id=1165111736]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -25.5, 2.5, -18)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D31" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="30" unique_id=1526044385]
+[node name="CSGBox3D31" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="30" unique_id=1526044385]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.5, 2.5, -24)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D34" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="31" unique_id=1608634026]
+[node name="CSGBox3D34" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="31" unique_id=1608634026]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.5, 2.5, -24)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D35" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="32" unique_id=325094749]
+[node name="CSGBox3D35" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="32" unique_id=325094749]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -13.5, 2.5, -21)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D36" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="33" unique_id=1413189606]
+[node name="CSGBox3D36" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="33" unique_id=1413189606]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16.5, 2.5, -18)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D37" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="34" unique_id=1191573885]
+[node name="CSGBox3D37" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="34" unique_id=1191573885]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.5, 2.5, -21)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D38" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="35" unique_id=2011260152]
+[node name="CSGBox3D38" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="35" unique_id=2011260152]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.5, 2.5, -24)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D39" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="36" unique_id=1499418620]
+[node name="CSGBox3D39" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="36" unique_id=1499418620]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.5, 2.5, -18)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D40" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="37" unique_id=1120986912]
+[node name="CSGBox3D40" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="37" unique_id=1120986912]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.5, 2.5, -21)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D43" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="38" unique_id=586244380]
+[node name="CSGBox3D43" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="38" unique_id=586244380]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.5, 2.5, -24)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D47" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="39" unique_id=1038879532]
+[node name="CSGBox3D47" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="39" unique_id=1038879532]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 16.5, 2.5, -27)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D48" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="40" unique_id=153305861]
+[node name="CSGBox3D48" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="40" unique_id=153305861]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 22.5, 2.5, -27)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D49" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="41" unique_id=655951147]
+[node name="CSGBox3D49" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="41" unique_id=655951147]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 25.5, 2.5, -21)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D50" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="42" unique_id=479183932]
+[node name="CSGBox3D50" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="42" unique_id=479183932]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 19.5, 2.5, -24)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D51" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="43" unique_id=649624287]
+[node name="CSGBox3D51" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="43" unique_id=649624287]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 22.5, 2.5, -18)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D54" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="44" unique_id=949374490]
+[node name="CSGBox3D54" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="44" unique_id=949374490]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 28.5, 2.5, -3)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D55" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="45" unique_id=913453957]
+[node name="CSGBox3D55" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="45" unique_id=913453957]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 19.5, 2.5, -3)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D58" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="46" unique_id=704277249]
+[node name="CSGBox3D58" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="46" unique_id=704277249]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.5, 2.5, -12)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D56" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="47" unique_id=1922203214]
+[node name="CSGBox3D56" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="47" unique_id=1922203214]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 25.5, 2.5, -9)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D57" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="48" unique_id=1782249520]
+[node name="CSGBox3D57" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="48" unique_id=1782249520]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13.5, 2.5, -6)
 size = Vector3(0.5, 6, 9.5)
 
-[node name="CSGBox3D59" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="49" unique_id=1608257894]
+[node name="CSGBox3D59" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="49" unique_id=1608257894]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12, 2.5, -3)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D60" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="50" unique_id=2065160198]
+[node name="CSGBox3D60" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="50" unique_id=2065160198]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 24, 2.5, -6)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D52" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="51" unique_id=542167647]
+[node name="CSGBox3D52" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="51" unique_id=542167647]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 24, 2.5, -15)
 size = Vector3(0.5, 6, 12.5)
 
-[node name="CSGBox3D53" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="52" unique_id=2057244568]
+[node name="CSGBox3D53" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="52" unique_id=2057244568]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 16.5, 2.5, -12)
 size = Vector3(0.5, 6, 15.5)
 
-[node name="CSGBox3D61" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="53" unique_id=1200962221]
+[node name="CSGBox3D61" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="53" unique_id=1200962221]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 22.5, 2.5, 0)
 size = Vector3(0.5, 6, 15.5)
 
-[node name="CSGBox3D92" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="54" unique_id=672950997]
+[node name="CSGBox3D92" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="54" unique_id=672950997]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 19.5, 2.5, 3)
 size = Vector3(0.5, 6, 15.5)
 
-[node name="CSGBox3D93" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="55" unique_id=1496672342]
+[node name="CSGBox3D93" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="55" unique_id=1496672342]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13.5, 2.5, 6)
 size = Vector3(0.5, 6, 15.5)
 
-[node name="CSGBox3D44" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="56" unique_id=1174464466]
+[node name="CSGBox3D44" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="56" unique_id=1174464466]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6, 2.5, -21)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D46" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="57" unique_id=1393046600]
+[node name="CSGBox3D46" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="57" unique_id=1393046600]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 2.5, -15)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D45" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="58" unique_id=1566333436]
+[node name="CSGBox3D45" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="58" unique_id=1566333436]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6, 2.5, -18)
 size = Vector3(0.5, 6, 12.5)
 
-[node name="CSGBox3D41" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="59" unique_id=377826796]
+[node name="CSGBox3D41" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="59" unique_id=377826796]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.5, 2.5, -27)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="CSGBox3D42" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="60" unique_id=1557849632]
+[node name="CSGBox3D42" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="60" unique_id=1557849632]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.5, 2.5, -15)
 size = Vector3(0.5, 6, 9.5)
 
-[node name="CSGBox3D32" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="61" unique_id=333047531]
+[node name="CSGBox3D32" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="61" unique_id=333047531]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -22.5, 2.5, -27)
 size = Vector3(0.5, 6, 9.5)
 
-[node name="CSGBox3D21" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="62" unique_id=133818720]
+[node name="CSGBox3D21" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="62" unique_id=133818720]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9, 2.5, 9)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D25" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="63" unique_id=52214275]
+[node name="CSGBox3D25" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="63" unique_id=52214275]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24, 2.5, 9)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D66" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="64" unique_id=1144587552]
+[node name="CSGBox3D66" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="64" unique_id=1144587552]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24, 2.5, 18)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D69" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="65" unique_id=1167417598]
+[node name="CSGBox3D69" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="65" unique_id=1167417598]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -18, 2.5, 21)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D70" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="66" unique_id=1709546759]
+[node name="CSGBox3D70" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="66" unique_id=1709546759]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9, 2.5, 21)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D77" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="67" unique_id=273997627]
+[node name="CSGBox3D77" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="67" unique_id=273997627]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3, 2.5, 24)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D78" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="68" unique_id=1473328466]
+[node name="CSGBox3D78" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="68" unique_id=1473328466]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, 2.5, 21)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D79" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="69" unique_id=313444941]
+[node name="CSGBox3D79" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="69" unique_id=313444941]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15, 2.5, 18)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D83" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="70" unique_id=1083933398]
+[node name="CSGBox3D83" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="70" unique_id=1083933398]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 18, 2.5, 15)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D84" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="71" unique_id=875918897]
+[node name="CSGBox3D84" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="71" unique_id=875918897]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 24, 2.5, 18)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D85" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="72" unique_id=1663599748]
+[node name="CSGBox3D85" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="72" unique_id=1663599748]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 25.5, 2.5, 21)
 size = Vector3(0.5, 6, 9.5)
 
-[node name="CSGBox3D80" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="73" unique_id=1610550974]
+[node name="CSGBox3D80" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="73" unique_id=1610550974]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12, 2.5, 12)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D89" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="74" unique_id=1085569143]
+[node name="CSGBox3D89" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="74" unique_id=1085569143]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, 2.5, 9)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D71" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="75" unique_id=53724635]
+[node name="CSGBox3D71" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="75" unique_id=53724635]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12, 2.5, 24)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D67" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="76" unique_id=738486863]
+[node name="CSGBox3D67" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="76" unique_id=738486863]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24, 2.5, 24)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D63" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="77" unique_id=1706017596]
+[node name="CSGBox3D63" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="77" unique_id=1706017596]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.5, 2.5, 15)
 size = Vector3(0.5, 6, 9.5)
 metadata/_edit_group_ = true
 
-[node name="CSGBox3D72" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="78" unique_id=990903879]
+[node name="CSGBox3D72" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="78" unique_id=990903879]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.5, 2.5, 27)
 size = Vector3(0.5, 6, 15.5)
 metadata/_edit_group_ = true
 
-[node name="CSGBox3D64" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="79" unique_id=230906070]
+[node name="CSGBox3D64" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="79" unique_id=230906070]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.5, 2.5, 18)
 size = Vector3(0.5, 6, 9.5)
 metadata/_edit_group_ = true
 
-[node name="CSGBox3D75" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="80" unique_id=1182369538]
+[node name="CSGBox3D75" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="80" unique_id=1182369538]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.5, 2.5, 18)
 size = Vector3(0.5, 6, 9.5)
 metadata/_edit_group_ = true
 
-[node name="CSGBox3D81" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="81" unique_id=350115582]
+[node name="CSGBox3D81" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="81" unique_id=350115582]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15, 2.5, 27)
 size = Vector3(0.5, 6, 12.5)
 metadata/_edit_group_ = true
 
-[node name="CSGBox3D76" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="82" unique_id=1366379671]
+[node name="CSGBox3D76" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="82" unique_id=1366379671]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.5, 2.5, 15)
 size = Vector3(0.5, 6, 9.5)
 metadata/_edit_group_ = true
 
-[node name="CSGBox3D26" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="83" unique_id=1825230051]
+[node name="CSGBox3D26" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="83" unique_id=1825230051]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -27, 2.5, 0)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D27" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="84" unique_id=161050888]
+[node name="CSGBox3D27" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="84" unique_id=161050888]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24, 2.5, -12)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D28" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="85" unique_id=1566681009]
+[node name="CSGBox3D28" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="85" unique_id=1566681009]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24, 2.5, -21)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D33" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="86" unique_id=1002141741]
+[node name="CSGBox3D33" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="86" unique_id=1002141741]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -18, 2.5, -24)
 size = Vector3(0.5, 6, 6.5)
 
-[node name="CSGBox3D14" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="87" unique_id=272893740]
+[node name="CSGBox3D14" type="CSGBox3D" parent="Labyrinth/Walls/HorizontalWalls" index="87" unique_id=272893740]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.5, 2.5, 2.9999998)
 size = Vector3(0.5, 6, 3.5)
 
-[node name="ExteriorWalls" type="CSGCombiner3D" parent="Labyrinthe" index="3" unique_id=1470689858]
+[node name="ExteriorWalls" type="CSGCombiner3D" parent="Labyrinth/Walls" index="2" unique_id=1470689858]
 material_override = ExtResource("2_hwde8")
 use_collision = true
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="Labyrinthe/ExteriorWalls" index="0" unique_id=1796550336]
+[node name="CSGBox3D3" type="CSGBox3D" parent="Labyrinth/Walls/ExteriorWalls" index="0" unique_id=1796550336]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 2.5, 0)
 size = Vector3(0.5, 6, 60.5)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="Labyrinthe/ExteriorWalls" index="1" unique_id=1391645627]
+[node name="CSGBox3D4" type="CSGBox3D" parent="Labyrinth/Walls/ExteriorWalls" index="1" unique_id=1391645627]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.5, 0)
 size = Vector3(0.5, 6, 60.5)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="Labyrinthe/ExteriorWalls" index="2" unique_id=1075678375]
+[node name="CSGBox3D5" type="CSGBox3D" parent="Labyrinth/Walls/ExteriorWalls" index="2" unique_id=1075678375]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 2.5, -30)
 size = Vector3(0.5, 6, 60.5)
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="Labyrinthe/ExteriorWalls" index="3" unique_id=923573170]
+[node name="CSGBox3D6" type="CSGBox3D" parent="Labyrinth/Walls/ExteriorWalls" index="3" unique_id=923573170]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 2.5, 30)
 size = Vector3(0.5, 6, 60.5)
 
-[node name="Floor" type="CSGBox3D" parent="Labyrinthe" index="4" unique_id=819758826]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+[node name="Floor" type="CSGBox3D" parent="Labyrinth/Walls" index="3" unique_id=819758826]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01924038, -0.25, 0)
 use_collision = true
 size = Vector3(60.75, 0.5, 60.75)
 material = ExtResource("9_tmdj6")
 
-[node name="Camera3D" type="Camera3D" parent="." index="7" unique_id=1078050331]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 22.499123, 0)
-environment = SubResource("Environment_c3kv3")
-projection = 1
-size = 20.0
-far = 200.0
+[node name="Objects" type="Node3D" parent="Labyrinth" index="1" unique_id=2090733191]
+
+[node name="Torch" parent="Labyrinth/Objects" index="0" unique_id=2008630134 instance=ExtResource("15_wyykx")]
+transform = Transform3D(1, 0, 0, 0, 0.87090516, -0.49145108, 0, 0.49145108, 0.87090516, -0.6604109, 1.2212569, -2.7168045)
+
+[node name="Torch2" parent="Labyrinth/Objects" index="1" unique_id=1234372212 instance=ExtResource("15_wyykx")]
+transform = Transform3D(1, 0, 0, 0, 0.87090516, -0.49145108, 0, 0.49145108, 0.87090516, -0.6604109, 1.2212569, -4.8787813)
+
+[node name="Doors" type="Node3D" parent="Labyrinth" index="2" unique_id=1913321194]
+
+[node name="Door" parent="Labyrinth/Doors" index="0" unique_id=167737930 instance=ExtResource("9_hwde8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.75, 2.5, -4.5)
 
 [editable path="XROrigin3D/LeftHand/LeftHand"]
 [editable path="XROrigin3D/LeftHand/LeftHand/Hand_Nails_low_L"]
 [editable path="XROrigin3D/RightHand/RightHand"]
 [editable path="XROrigin3D/RightHand/RightHand/Hand_Nails_low_R"]
+[editable path="PlayerMenu/MenuViewport"]
+[editable path="Labyrinth/Doors/Door"]

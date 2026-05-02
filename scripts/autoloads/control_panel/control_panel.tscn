@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d1dcbjlu1jmic" path="res://scripts/autoloads/control_panel/control_panel.gd" id="1_ohye5"]
 [ext_resource type="Script" uid="uid://dfiv7c61jj6lk" path="res://scripts/autoloads/control_panel/preview_camera.gd" id="2_fklet"]
 [ext_resource type="Script" uid="uid://1gv52w517875" path="res://scripts/autoloads/control_panel/camera_controller.gd" id="3_f8cgh"]
-[ext_resource type="FontFile" uid="uid://bvrl41n5vljgb" path="res://assets/fonts/Prompt/Prompt-Black.ttf" id="4_0qhtv"]
+[ext_resource type="FontFile" uid="uid://cnuh3n6ycdjpk" path="res://assets/fonts/prompt/Prompt-Black.ttf" id="4_0qhtv"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4mnaq"]
 
@@ -137,7 +137,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="ControlPanelWindow/ControlPanelSplit/RightSideContainer/PreviewCamera/ViewportContainer" unique_id=792980433]
 handle_input_locally = false
-size = Vector2i(1443, 1080)
+size = Vector2i(2, 2)
 render_target_update_mode = 0
 
 [node name="CameraController" type="CharacterBody3D" parent="ControlPanelWindow/ControlPanelSplit/RightSideContainer/PreviewCamera/ViewportContainer/SubViewport" unique_id=843333840]
@@ -151,7 +151,6 @@ shape = SubResource("SphereShape3D_4mnaq")
 
 [node name="CameraRotation" type="Node3D" parent="ControlPanelWindow/ControlPanelSplit/RightSideContainer/PreviewCamera/ViewportContainer/SubViewport/CameraController" unique_id=259952202]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.51817, 0)
 
 [node name="Camera3D" type="Camera3D" parent="ControlPanelWindow/ControlPanelSplit/RightSideContainer/PreviewCamera/ViewportContainer/SubViewport/CameraController/CameraRotation" unique_id=1676039565]
 unique_name_in_owner = true

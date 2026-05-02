@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b7tfo17qkr1lm"]
+
+[ext_resource type="Texture2D" uid="uid://b8shpxgremn07" path="res://assets/meshes/torch/torch_0.png" id="1_ryp4a"]
+[ext_resource type="Texture2D" uid="uid://di5va1ciradul" path="res://assets/meshes/torch/torch_1.png" id="2_apugu"]
+[ext_resource type="Texture2D" uid="uid://bwbrxgddefvwn" path="res://assets/meshes/torch/torch_2.png" id="3_dhotj"]
+
+[resource]
+resource_name = "Wood"
+albedo_texture = ExtResource("1_ryp4a")
+metallic = 1.0
+metallic_texture = ExtResource("2_apugu")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_apugu")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_dhotj")
+ao_enabled = true
+ao_texture = ExtResource("2_apugu")

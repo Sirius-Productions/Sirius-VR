@@ -37,6 +37,24 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"materials": {
+"Rope": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/meshes/torch/Rope.tres",
+"use_external/path": "uid://diu8tak44kciw"
+},
+"Wood": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/meshes/torch/Wood.tres",
+"use_external/path": "uid://b7tfo17qkr1lm"
+},
+"material": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/meshes/torch/material.tres",
+"use_external/path": "uid://bvftgmoriak28"
+}
+}
+}
 gltf/naming_version=2
 gltf/embedded_image_handling=1

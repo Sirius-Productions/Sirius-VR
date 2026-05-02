@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d3dr0js44dd1b"]
 
 [ext_resource type="Script" uid="uid://d0smcyeo8m7qg" path="res://scenes/waiting_room/waiting_room_control_menu.gd" id="1_f0tod"]
+[ext_resource type="Theme" uid="uid://dkxs3pgftnuqw" path="res://resources/themes/player_menu_theme.theme" id="1_ogc85"]
 
 [node name="WaitingRoomControlMenu" type="Control" unique_id=68605552]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_ogc85")
 script = ExtResource("1_f0tod")
 labyrinth_scene = "uid://c11d7np3m7dd6"
 labyrinth_v2_scene = "uid://dfuxjmijqf8w6"
@@ -24,9 +26,10 @@ grow_vertical = 2
 color = Color(0.14117648, 0.14117648, 0.14117648, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="BackgroundColor" unique_id=1724584702]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 

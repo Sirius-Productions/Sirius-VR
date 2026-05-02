@@ -7,7 +7,6 @@ extends Control
 @export var player_rotation: float
 
 
-@onready var player_positon_point: LabyrinthPlayerPositonPoint = %PlayerPositonPoint
 @onready var player_point: TextureRect = %PlayerPoint
 
 
@@ -25,7 +24,7 @@ func _information_recieved(info: Dictionary) -> void:
 	
 	if info.has("player_rotation"):
 		if info.player_rotation is float:
-			player_rotation = info.player_rotation
+			player_rotation = -info.player_rotation
 
 
 func _physics_process(delta: float) -> void:

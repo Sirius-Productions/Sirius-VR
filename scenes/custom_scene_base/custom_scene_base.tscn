@@ -84,6 +84,15 @@ node_connections = [&"output", 0, &"Grip", &"Grip", 0, &"Trigger", &"Grip", 1, &
 radius = 0.3
 height = 1.8
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_6rah2"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6rah2"]
+resource_local_to_scene = true
+transparency = 1
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_6rah2")
+
 [node name="CustomSceneBase" unique_id=311686013 groups=["scene_base"] instance=ExtResource("1_88xd2")]
 
 [node name="XRCamera3D" parent="XROrigin3D" parent_id_path=PackedInt32Array(272371564) index="0" unique_id=1506639826]
@@ -94,9 +103,9 @@ cull_mask = 1048573
 [node name="AudioListener3D" type="AudioListener3D" parent="XROrigin3D/XRCamera3D" index="1" unique_id=428611814]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8, 0)
 
-[node name="ShapeCast3D" type="ShapeCast3D" parent="XROrigin3D/XRCamera3D" index="2" unique_id=446017925]
+[node name="ShapeCast3D" type="SpringArm3D" parent="XROrigin3D/XRCamera3D" index="2" unique_id=1317097028]
 shape = SubResource("SphereShape3D_6rah2")
-target_position = Vector3(0, 0, -1.751)
+spring_length = -1.125
 
 [node name="DefaultMenuPosition" type="Marker3D" parent="XROrigin3D/XRCamera3D/ShapeCast3D" index="0" unique_id=1761605401]
 unique_name_in_owner = true
@@ -224,8 +233,10 @@ script = ExtResource("11_s8qml")
 [node name="MenuViewport" parent="PlayerMenu" index="0" unique_id=442761183 instance=ExtResource("12_s8qml")]
 unique_name_in_owner = true
 screen_size = Vector2(1.5, 1)
+collision_layer = 5242880
 scene = ExtResource("13_6rah2")
 viewport_size = Vector2(900, 600)
+material = SubResource("StandardMaterial3D_6rah2")
 transparent = 1
 scene_properties_keys = PackedStringArray("player_menu_ui.gd")
 

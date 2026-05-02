@@ -64,10 +64,20 @@ collision_layer = 4
 collision_mask = 196615
 freeze = true
 script = ExtResource("1_v445i")
+release_mode = 0
 metadata/_custom_type_script = "uid://dnptd8khncpc0"
 
-[node name="TorchModel" parent="." unique_id=1646335865 instance=ExtResource("1_38jqo")]
+[node name="TorchModel" parent="." unique_id=1820449730 instance=ExtResource("1_38jqo")]
 transform = Transform3D(0.569, 0, 0, 0, 0.569, 0, 0, 0, 0.569, 0, -0.09204647, 0)
+
+[node name="Object_2" parent="TorchModel/Sketchfab_model/270375cfc1374564952ae8d5aeecb9aa_obj_cleaner_materialmerger_gles" parent_id_path=PackedInt32Array(1820449730, 2143369467) index="0" unique_id=745949965]
+cast_shadow = 0
+
+[node name="Object_3" parent="TorchModel/Sketchfab_model/270375cfc1374564952ae8d5aeecb9aa_obj_cleaner_materialmerger_gles" parent_id_path=PackedInt32Array(1820449730, 2143369467) index="1" unique_id=461530660]
+cast_shadow = 0
+
+[node name="Object_4" parent="TorchModel/Sketchfab_model/270375cfc1374564952ae8d5aeecb9aa_obj_cleaner_materialmerger_gles" parent_id_path=PackedInt32Array(1820449730, 2143369467) index="2" unique_id=1582819244]
+cast_shadow = 0
 
 [node name="Flames" type="GPUParticles3D" parent="." unique_id=292202068]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26241198, 0)
@@ -97,6 +107,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26532137, 0)
 light_color = Color(0.6813695, 0.40110838, 0.33204767, 1)
 light_energy = 2.0
 light_size = 0.185
+shadow_enabled = true
 omni_range = 10.0
 omni_attenuation = 0.7
 
@@ -105,3 +116,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0029093921, 0)
 remote_path = NodePath("../../Flames")
 update_rotation = false
 update_scale = false
+
+[editable path="TorchModel"]

@@ -63,6 +63,9 @@ func physics_movement(delta: float, player_body: XRToolsPlayerBody, _disabled: b
 	# Skip if the controller isn't active
 	if not _controller or not _controller.get_is_active():
 		return
+	
+	# ligne que j'ai ajouté
+	if not enabled: return
 
 	var deadzone = 0.1
 	if _snap_turning():

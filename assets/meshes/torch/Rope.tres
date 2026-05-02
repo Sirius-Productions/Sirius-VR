@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://diu8tak44kciw"]
+
+[ext_resource type="Texture2D" uid="uid://b8shpxgremn07" path="res://assets/meshes/torch/torch_0.png" id="1_lpa8k"]
+[ext_resource type="Texture2D" uid="uid://di5va1ciradul" path="res://assets/meshes/torch/torch_1.png" id="2_s855g"]
+[ext_resource type="Texture2D" uid="uid://bwbrxgddefvwn" path="res://assets/meshes/torch/torch_2.png" id="3_erfn2"]
+
+[resource]
+resource_name = "Rope"
+albedo_texture = ExtResource("1_lpa8k")
+metallic = 1.0
+metallic_texture = ExtResource("2_s855g")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_s855g")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_erfn2")
+ao_enabled = true
+ao_texture = ExtResource("2_s855g")

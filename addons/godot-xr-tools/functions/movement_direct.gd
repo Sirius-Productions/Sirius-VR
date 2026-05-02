@@ -49,6 +49,9 @@ func physics_movement(_delta: float, player_body: XRToolsPlayerBody, _disabled: 
 	# Skip if the controller isn't active
 	if not _controller or not _controller.get_is_active():
 		return
+	
+	# ligne que j'ai ajouté
+	if not enabled: return
 
 	## get input action with deadzone correction applied
 	var dz_input_action = XRToolsUserSettings.get_adjusted_vector2(_controller, input_action)
