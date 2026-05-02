@@ -11,6 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f0tod")
 labyrinth_scene = "uid://c11d7np3m7dd6"
+labyrinth_v2_scene = "uid://dfuxjmijqf8w6"
 metadata/_custom_type_script = "uid://tsv4hf630tej"
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1724584702]
@@ -36,4 +37,9 @@ layout_mode = 2
 layout_mode = 2
 text = "Labyrinthe"
 
+[node name="LabyrintheV2Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1404632992]
+layout_mode = 2
+text = "Labyrinthe v2"
+
 [connection signal="pressed" from="CenterContainer/VBoxContainer/LabyrintheButton" to="." method="_on_labyrinthe_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/LabyrintheV2Button" to="." method="_on_labyrinthe_v_2_button_pressed"]

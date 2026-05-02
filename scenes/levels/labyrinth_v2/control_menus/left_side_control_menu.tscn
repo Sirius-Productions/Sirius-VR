@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c8xsmbobwcp8v"]
+
+[ext_resource type="Script" uid="uid://tsv4hf630tej" path="res://scripts/custom_nodes/control_panel_menu.gd" id="1_ckkm2"]
+
+[node name="LabyrinthLeftMenu" type="Control" unique_id=1942127197]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ckkm2")
+metadata/_custom_type_script = "uid://tsv4hf630tej"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1055249160]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.50980395, 1, 1, 1)

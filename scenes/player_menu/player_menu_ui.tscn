@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://v5h0aq7wmk6d"]
+
+[ext_resource type="Theme" uid="uid://dkxs3pgftnuqw" path="res://scenes/player_menu/player_menu_theme.theme" id="1_2wqla"]
+[ext_resource type="Script" uid="uid://dlkxptelwn1v7" path="res://scenes/player_menu/player_menu_ui.gd" id="2_7qw34"]
+[ext_resource type="Texture2D" uid="uid://dfgvwk0cxfn30" path="res://assets/textures/character_body.svg" id="2_h2rbo"]
+[ext_resource type="Texture2D" uid="uid://wd7pwnhq1qy" path="res://assets/textures/close_menu.svg" id="4_wn8o5"]
+
+[node name="PlayerMenuUi" type="Control" unique_id=19378500]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_2wqla")
+script = ExtResource("2_7qw34")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1262518466]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="MenuTabs" type="TabContainer" parent="MarginContainer" unique_id=994395352]
+unique_name_in_owner = true
+layout_mode = 2
+current_tab = 0
+tab_0/title = "Contrôles"
+tab_0/icon = ExtResource("2_h2rbo")
+tab_1/title = "Contrôles"
+tab_2/title = "Fermer le menu"
+tab_2/icon = ExtResource("4_wn8o5")
+
+[node name="Controls" type="MarginContainer" parent="MarginContainer/MenuTabs" unique_id=1152168520]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+metadata/_tab_index = 0
+metadata/_tab_name = "Contrôles"
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/MenuTabs/Controls" unique_id=361577908]
+layout_mode = 2
+
+[node name="ControlsSettingsList" type="VBoxContainer" parent="MarginContainer/MenuTabs/Controls/CenterContainer" unique_id=819017594]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+
+[node name="RotationMode" type="HBoxContainer" parent="MarginContainer/MenuTabs/Controls/CenterContainer/ControlsSettingsList" unique_id=1675399429]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/MenuTabs/Controls/CenterContainer/ControlsSettingsList/RotationMode" unique_id=2023516723]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mode de rotation"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/MenuTabs/Controls/CenterContainer/ControlsSettingsList/RotationMode" unique_id=1707629811]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RotationModeButton" type="OptionButton" parent="MarginContainer/MenuTabs/Controls/CenterContainer/ControlsSettingsList/RotationMode/PanelContainer" unique_id=1157321161]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 1
+item_count = 3
+popup/item_0/text = "Désactivé"
+popup/item_0/id = 0
+popup/item_1/text = "Fluide"
+popup/item_1/id = 1
+popup/item_2/text = "Sacadé"
+popup/item_2/id = 2
+
+[node name="RotationMode2" type="HBoxContainer" parent="MarginContainer/MenuTabs/Controls/CenterContainer/ControlsSettingsList" unique_id=2108891230]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/MenuTabs/Controls/CenterContainer/ControlsSettingsList/RotationMode2" unique_id=1959969400]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mode de déplacement"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/MenuTabs/Controls/CenterContainer/ControlsSettingsList/RotationMode2" unique_id=1399344446]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MovementModeButton" type="OptionButton" parent="MarginContainer/MenuTabs/Controls/CenterContainer/ControlsSettingsList/RotationMode2/PanelContainer" unique_id=771431728]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 1
+item_count = 3
+popup/item_0/text = "Marcher"
+popup/item_0/id = 0
+popup/item_1/text = "Téléportation"
+popup/item_1/id = 1
+popup/item_2/text = "Les Deux"
+popup/item_2/id = 2
+
+[node name="Controls2" type="MarginContainer" parent="MarginContainer/MenuTabs" unique_id=2124992011]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+metadata/_tab_index = 1
+metadata/_tab_name = "Contrôles"
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/MenuTabs/Controls2" unique_id=181694468]
+layout_mode = 2
+
+[node name="ControlsSettingsList" type="VBoxContainer" parent="MarginContainer/MenuTabs/Controls2/CenterContainer" unique_id=104731048]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+
+[node name="RotationMode" type="HBoxContainer" parent="MarginContainer/MenuTabs/Controls2/CenterContainer/ControlsSettingsList" unique_id=681985298]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/MenuTabs/Controls2/CenterContainer/ControlsSettingsList/RotationMode" unique_id=1843290255]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mode de rotation"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/MenuTabs/Controls2/CenterContainer/ControlsSettingsList/RotationMode" unique_id=2124184068]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/MenuTabs/Controls2/CenterContainer/ControlsSettingsList/RotationMode/PanelContainer" unique_id=1401733129]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CloseMenuControl" type="Control" parent="MarginContainer/MenuTabs" unique_id=709049919]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+metadata/_tab_name = "Fermer le menu"
+
+[connection signal="tab_selected" from="MarginContainer/MenuTabs" to="." method="_on_tab_container_tab_selected"]
+[connection signal="item_selected" from="MarginContainer/MenuTabs/Controls/CenterContainer/ControlsSettingsList/RotationMode/PanelContainer/RotationModeButton" to="." method="_on_rotation_mode_button_item_selected"]
+[connection signal="item_selected" from="MarginContainer/MenuTabs/Controls/CenterContainer/ControlsSettingsList/RotationMode2/PanelContainer/MovementModeButton" to="." method="_on_movement_mode_button_item_selected"]

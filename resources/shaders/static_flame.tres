@@ -1,0 +1,27 @@
+[gd_resource type="VisualShader" format=3 uid="uid://dbcc87drc7yg0"]
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_yr3ej"]
+default_input_values = [0, Quaternion(0, 0, 0, 0)]
+op_type = 2
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_blqof"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_hpoum"]
+input_name = "color"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_hpoum"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+operator = 2
+
+[resource]
+nodes/fragment/0/position = Vector2(480, 100)
+nodes/fragment/4/node = SubResource("VisualShaderNodeVectorDecompose_yr3ej")
+nodes/fragment/4/position = Vector2(160, 340)
+nodes/fragment/5/node = SubResource("VisualShaderNodeTexture_blqof")
+nodes/fragment/5/position = Vector2(-440, 160)
+nodes/fragment/6/node = SubResource("VisualShaderNodeInput_hpoum")
+nodes/fragment/6/position = Vector2(-440, 40)
+nodes/fragment/7/node = SubResource("VisualShaderNodeVectorOp_hpoum")
+nodes/fragment/7/position = Vector2(-100, 180)
+nodes/fragment/connections = PackedInt32Array(4, 3, 0, 1, 6, 0, 7, 0, 5, 0, 7, 1, 7, 0, 0, 0, 7, 0, 4, 0)

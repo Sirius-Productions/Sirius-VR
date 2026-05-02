@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://d1h07duoiopn4"]
+
+[ext_resource type="Script" uid="uid://coqxxn0mao5ig" path="res://scripts/custom_nodes/right_side_control_panel_menu.gd" id="1_2ontj"]
+[ext_resource type="Texture2D" uid="uid://dygc7rw883sho" path="res://assets/textures/ImageGenerator.svg" id="2_8it1i"]
+
+[node name="LabyrinthRightMenu" type="Control" unique_id=887836922]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2ontj")
+metadata/_custom_type_script = "uid://coqxxn0mao5ig"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=40808939]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=765461777]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8it1i")
+stretch_mode = 5

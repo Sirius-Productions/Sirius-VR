@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://b58eaehod7m06"]
+
+[ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_0r8w4"]
+[ext_resource type="PackedScene" uid="uid://cm08st5sk3poc" path="res://assets/meshes/torch/torch.glb" id="1_38jqo"]
+[ext_resource type="Texture2D" uid="uid://cjp4uabq4st8j" path="res://assets/textures/flame_spritesheet.png" id="2_2hovb"]
+[ext_resource type="Gradient" path="res://assets/textures/fire_gradient.tres" id="3_lgqut"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="5_b4wgy"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="5_v445i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_38jqo"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_2hovb")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 5
+particles_anim_loop = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0r8w4"]
+gradient = ExtResource("3_lgqut")
+
+[sub_resource type="Curve" id="Curve_38jqo"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_2hovb"]
+curve = SubResource("Curve_38jqo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_38jqo"]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 0.05
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 0.089999996
+initial_velocity_max = 0.59999996
+angular_velocity_min = 39.999985
+angular_velocity_max = 39.999985
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_2hovb")
+color = Color(4, 1.257, 0.594, 0.8)
+color_ramp = SubResource("GradientTexture1D_0r8w4")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = -2.2351742e-08
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+anim_offset_max = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_38jqo"]
+size = Vector2(0.3, 0.3)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b4wgy"]
+radius = 0.033203125
+height = 0.5003662
+
+[node name="Torch" type="RigidBody3D" unique_id=1480301387]
+collision_layer = 4
+collision_mask = 196615
+freeze = true
+script = ExtResource("1_0r8w4")
+release_mode = 0
+metadata/_custom_type_script = "uid://bfrlpbsqg5lqr"
+
+[node name="TorchModel" parent="." unique_id=1646335865 instance=ExtResource("1_38jqo")]
+transform = Transform3D(0.569, 0, 0, 0, 0.569, 0, 0, 0, 0.569, 0, -0.09204647, 0)
+
+[node name="Flames" type="GPUParticles3D" parent="." unique_id=292202068]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26241198, 0)
+top_level = true
+material_override = SubResource("StandardMaterial3D_38jqo")
+amount = 200
+lifetime = 2.0
+randomness = 1.0
+draw_order = 3
+process_material = SubResource("ParticleProcessMaterial_38jqo")
+draw_pass_1 = SubResource("QuadMesh_38jqo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1225734927]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04145813, 0)
+shape = SubResource("CapsuleShape3D_b4wgy")
+
+[node name="GrabPointHandLeft" parent="." unique_id=1440495461 instance=ExtResource("5_v445i")]
+transform = Transform3D(1, 0, 0, 0, 0.97556525, -0.21970999, 0, 0.21970999, 0.97556525, 0.0075002015, 0.013010776, -0.08273479)
+visible = true
+
+[node name="GrabPointHandRight" parent="." unique_id=1853261659 instance=ExtResource("5_b4wgy")]
+transform = Transform3D(1, 0, 0, 0, 0.96111727, -0.27614063, 0, 0.27614063, 0.96111727, -0.010695718, 0.013010776, -0.076869234)
+visible = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=58969882]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26532137, 0)
+light_color = Color(0.7160921, 0.3752422, 0.29521194, 1)
+light_energy = 2.0
+light_size = 0.185
+omni_range = 7.207542
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="OmniLight3D" unique_id=1614075425]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0029093921, 0)
+remote_path = NodePath("../../Flames")
+update_rotation = false
+update_scale = false

@@ -1,0 +1,1419 @@
+[gd_scene format=3 uid="uid://dfuxjmijqf8w6"]
+
+[ext_resource type="PackedScene" uid="uid://yxxn5vnnxth" path="res://scenes/custom_scene_base/custom_scene_base.tscn" id="1_sdhpa"]
+[ext_resource type="Material" uid="uid://dnwpcvepswf5j" path="res://resources/sky_materials/night_time_sky.tres" id="2_eccc5"]
+[ext_resource type="Material" uid="uid://doa1jko6igydq" path="res://scenes/levels/labyrinth_v1/materiel_mur/murs.tres" id="2_hwde8"]
+[ext_resource type="Texture2D" uid="uid://bobp5ykshg63g" path="res://scenes/levels/labyrinth_v1/materiel_mur/murs_alb.jpg" id="3_lix6p"]
+[ext_resource type="Texture2D" uid="uid://dy1fwx3s0b46r" path="res://scenes/levels/labyrinth_v1/materiel_mur/murs_ao.jpg" id="4_v4sj2"]
+[ext_resource type="Texture2D" uid="uid://bv2l260wpuwub" path="res://scenes/levels/labyrinth_v1/materiel_mur/murs_norm.jpg" id="5_jrbwi"]
+[ext_resource type="Texture2D" uid="uid://cay180swvut6c" path="res://scenes/levels/labyrinth_v1/materiel_mur/murs_rough.jpg" id="6_eccc5"]
+[ext_resource type="PackedScene" uid="uid://7b8luegcl46b" path="res://assets/meshes/treasure_chest/treasure_chest.glb" id="7_wyykx"]
+[ext_resource type="PackedScene" uid="uid://h0pv88uhu56s" path="res://assets/meshes/dancing_rig/Silly Dancing.fbx" id="8_i81g1"]
+[ext_resource type="PackedScene" uid="uid://cufb0mmsudgme" path="res://assets/meshes/toothless/toothless.glb" id="9_5wd6c"]
+[ext_resource type="AudioStream" uid="uid://cdtniscmup4ta" path="res://assets/sounds/toothless_meme_music.mp3" id="10_c3kv3"]
+[ext_resource type="PackedScene" uid="uid://c8xsmbobwcp8v" path="res://scenes/levels/labyrinth_v2/control_menus/left_side_control_menu.tscn" id="12_jrbwi"]
+[ext_resource type="Script" uid="uid://bv5rcfuldk0he" path="res://scenes/waiting_room/waiting_room_script.gd" id="12_v4sj2"]
+[ext_resource type="PackedScene" uid="uid://d1h07duoiopn4" path="res://scenes/levels/labyrinth_v2/control_menus/right_side_control_menu.tscn" id="13_eccc5"]
+[ext_resource type="PackedScene" uid="uid://b58eaehod7m06" path="res://assets/objects/torch/torch.tscn" id="15_wyykx"]
+
+[sub_resource type="Sky" id="Sky_jrbwi"]
+sky_material = ExtResource("2_eccc5")
+
+[sub_resource type="Environment" id="Environment_wyykx"]
+background_mode = 2
+sky = SubResource("Sky_jrbwi")
+ambient_light_source = 3
+tonemap_mode = 2
+glow_enabled = true
+glow_bloom = 0.07
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wyykx"]
+animation = &"Grip"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i81g1"]
+animation = &"Grip"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_5wd6c"]
+filter_enabled = true
+filters = ["Armature/Skeleton3D:Little_Distal_L", "Armature/Skeleton3D:Little_Intermediate_L", "Armature/Skeleton3D:Little_Metacarpal_L", "Armature/Skeleton3D:Little_Proximal_L", "Armature/Skeleton3D:Middle_Distal_L", "Armature/Skeleton3D:Middle_Intermediate_L", "Armature/Skeleton3D:Middle_Metacarpal_L", "Armature/Skeleton3D:Middle_Proximal_L", "Armature/Skeleton3D:Ring_Distal_L", "Armature/Skeleton3D:Ring_Intermediate_L", "Armature/Skeleton3D:Ring_Metacarpal_L", "Armature/Skeleton3D:Ring_Proximal_L", "Armature/Skeleton3D:Thumb_Distal_L", "Armature/Skeleton3D:Thumb_Metacarpal_L", "Armature/Skeleton3D:Thumb_Proximal_L", "Armature/Skeleton:Little_Distal_L", "Armature/Skeleton:Little_Intermediate_L", "Armature/Skeleton:Little_Proximal_L", "Armature/Skeleton:Middle_Distal_L", "Armature/Skeleton:Middle_Intermediate_L", "Armature/Skeleton:Middle_Proximal_L", "Armature/Skeleton:Ring_Distal_L", "Armature/Skeleton:Ring_Intermediate_L", "Armature/Skeleton:Ring_Proximal_L", "Armature/Skeleton:Thumb_Distal_L", "Armature/Skeleton:Thumb_Proximal_L"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c3kv3"]
+animation = &"Grip 5"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_n1tnp"]
+filter_enabled = true
+filters = ["Armature/Skeleton3D:Index_Distal_L", "Armature/Skeleton3D:Index_Intermediate_L", "Armature/Skeleton3D:Index_Metacarpal_L", "Armature/Skeleton3D:Index_Proximal_L", "Armature/Skeleton:Index_Distal_L", "Armature/Skeleton:Index_Intermediate_L", "Armature/Skeleton:Index_Proximal_L"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_o3w3j"]
+graph_offset = Vector2(-536, 11)
+nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_wyykx")
+nodes/ClosedHand1/position = Vector2(-600, 300)
+nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_i81g1")
+nodes/ClosedHand2/position = Vector2(-360, 300)
+nodes/Grip/node = SubResource("AnimationNodeBlend2_5wd6c")
+nodes/Grip/position = Vector2(0, 20)
+nodes/OpenHand/node = SubResource("AnimationNodeAnimation_c3kv3")
+nodes/OpenHand/position = Vector2(-600, 100)
+nodes/Trigger/node = SubResource("AnimationNodeBlend2_n1tnp")
+nodes/Trigger/position = Vector2(-360, 20)
+node_connections = [&"output", 0, &"Grip", &"Grip", 0, &"Trigger", &"Grip", 1, &"ClosedHand2", &"Trigger", 0, &"OpenHand", &"Trigger", 1, &"ClosedHand1"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qm5aj"]
+animation = &"Grip"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q2l6h"]
+animation = &"Grip"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_qfnjq"]
+filter_enabled = true
+filters = ["Armature/Skeleton3D:Little_Distal_R", "Armature/Skeleton3D:Little_Intermediate_R", "Armature/Skeleton3D:Little_Metacarpal_R", "Armature/Skeleton3D:Little_Proximal_R", "Armature/Skeleton3D:Middle_Distal_R", "Armature/Skeleton3D:Middle_Intermediate_R", "Armature/Skeleton3D:Middle_Metacarpal_R", "Armature/Skeleton3D:Middle_Proximal_R", "Armature/Skeleton3D:Ring_Distal_R", "Armature/Skeleton3D:Ring_Intermediate_R", "Armature/Skeleton3D:Ring_Metacarpal_R", "Armature/Skeleton3D:Ring_Proximal_R", "Armature/Skeleton3D:Thumb_Distal_R", "Armature/Skeleton3D:Thumb_Metacarpal_R", "Armature/Skeleton3D:Thumb_Proximal_R", "Armature/Skeleton:Little_Distal_R", "Armature/Skeleton:Little_Intermediate_R", "Armature/Skeleton:Little_Proximal_R", "Armature/Skeleton:Middle_Distal_R", "Armature/Skeleton:Middle_Intermediate_R", "Armature/Skeleton:Middle_Proximal_R", "Armature/Skeleton:Ring_Distal_R", "Armature/Skeleton:Ring_Intermediate_R", "Armature/Skeleton:Ring_Proximal_R", "Armature/Skeleton:Thumb_Distal_R", "Armature/Skeleton:Thumb_Proximal_R"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3tmf7"]
+animation = &"Grip 5"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_rttci"]
+filter_enabled = true
+filters = ["Armature/Skeleton3D:Index_Distal_R", "Armature/Skeleton3D:Index_Intermediate_R", "Armature/Skeleton3D:Index_Metacarpal_R", "Armature/Skeleton3D:Index_Proximal_R", "Armature/Skeleton:Index_Distal_R", "Armature/Skeleton:Index_Intermediate_R", "Armature/Skeleton:Index_Proximal_R"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_bwkdr"]
+graph_offset = Vector2(-552.664, 107.301)
+nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_qm5aj")
+nodes/ClosedHand1/position = Vector2(-600, 300)
+nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_q2l6h")
+nodes/ClosedHand2/position = Vector2(-360, 300)
+nodes/Grip/node = SubResource("AnimationNodeBlend2_qfnjq")
+nodes/Grip/position = Vector2(0, 40)
+nodes/OpenHand/node = SubResource("AnimationNodeAnimation_3tmf7")
+nodes/OpenHand/position = Vector2(-600, 100)
+nodes/Trigger/node = SubResource("AnimationNodeBlend2_rttci")
+nodes/Trigger/position = Vector2(-360, 40)
+node_connections = [&"output", 0, &"Grip", &"Grip", 0, &"Trigger", &"Grip", 1, &"ClosedHand2", &"Trigger", 0, &"OpenHand", &"Trigger", 1, &"ClosedHand1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eccc5"]
+shading_mode = 0
+albedo_color = Color(0.99, 0.25013998, 0.23760001, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n1tnp"]
+albedo_texture = ExtResource("3_lix6p")
+metallic = 1.0
+roughness_texture = ExtResource("6_eccc5")
+normal_enabled = true
+normal_texture = ExtResource("5_jrbwi")
+ao_enabled = true
+ao_texture = ExtResource("4_v4sj2")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wyykx"]
+albedo_color = Color(0.18533158, 0.25204286, 0.105808236, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jrbwi"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+disable_receive_shadows = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_jrbwi"]
+material = SubResource("StandardMaterial3D_jrbwi")
+size = Vector2(1000, 1000)
+
+[node name="LabyrinthLevelV2" unique_id=311686013 instance=ExtResource("1_sdhpa")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0" unique_id=1299066497]
+environment = SubResource("Environment_wyykx")
+
+[node name="Sun" type="DirectionalLight3D" parent="." index="1" unique_id=225390464]
+transform = Transform3D(0.8528783, 0.25882444, 0.453441, 0.1245015, 0.74260575, -0.6580549, -0.5070485, 0.61769474, 0.6011281, 0, 2.763462, 0)
+light_energy = 0.0
+
+[node name="Moon" type="DirectionalLight3D" parent="Sun" index="0" unique_id=841126726]
+transform = Transform3D(-1, 2.9802322e-08, 8.940697e-08, 0, 1, -2.9802322e-08, -5.9604645e-08, 2.9802322e-08, -1, 0, 0, 0)
+light_color = Color(0.60118496, 0.7379556, 0.9028571, 1)
+light_energy = 0.05
+shadow_enabled = true
+shadow_blur = 10.0
+
+[node name="XROrigin3D" parent="." index="2" unique_id=272371564]
+metadata/_edit_lock_ = true
+
+[node name="AnimationTree" parent="XROrigin3D/LeftHand/LeftHand" parent_id_path=PackedInt32Array(1696142797) index="1"]
+tree_root = SubResource("AnimationNodeBlendTree_o3w3j")
+
+[node name="AnimationTree" parent="XROrigin3D/RightHand/RightHand" parent_id_path=PackedInt32Array(657636777) index="1"]
+tree_root = SubResource("AnimationNodeBlendTree_bwkdr")
+
+[node name="MeshInstance3D" parent="XROrigin3D/PlayerBody" parent_id_path=PackedInt32Array(1246795368) index="0" unique_id=569727159]
+surface_material_override/0 = SubResource("StandardMaterial3D_eccc5")
+
+[node name="PlayerMenu" parent="." index="3" unique_id=78160560]
+metadata/_edit_lock_ = true
+
+[node name="LabyrintheStructure" type="CSGCombiner3D" parent="." index="4" unique_id=1922100421]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.25, 0, -5.5)
+visible = false
+use_collision = true
+
+[node name="Sol" type="CSGBox3D" parent="LabyrintheStructure" index="0" unique_id=564558280]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 4.25)
+use_collision = true
+size = Vector3(20.5, 0.5, 29)
+material = ExtResource("2_hwde8")
+
+[node name="Sol2" type="CSGBox3D" parent="LabyrintheStructure" index="1" unique_id=366107004]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 4.75, 13.5)
+use_collision = true
+size = Vector3(6.5, 0.5, 7.5)
+material = ExtResource("2_hwde8")
+
+[node name="CSGBox57" type="CSGBox3D" parent="LabyrintheStructure" index="2" unique_id=1754841883]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -2.0000002, 2.5, 13.5)
+size = Vector3(0.5, 5, 6.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox58" type="CSGBox3D" parent="LabyrintheStructure" index="3" unique_id=961937732]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 3.9999998, 2.5, 13.5)
+size = Vector3(0.5, 5, 6.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox59" type="CSGBox3D" parent="LabyrintheStructure" index="4" unique_id=495955144]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 1, 2.5, 16.75)
+size = Vector3(0.5, 5, 6.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="Murs" type="CSGCombiner3D" parent="LabyrintheStructure" index="5" unique_id=253735462]
+use_collision = true
+
+[node name="CSGBox2" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="0" unique_id=1265871921]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -3)
+size = Vector3(0.5, 5, 2.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox28" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="1" unique_id=894324915]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.5, -3)
+size = Vector3(0.5, 5, 2.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox31" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="2" unique_id=1377815082]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2.5, 1)
+size = Vector3(0.5, 5, 2.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox18" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="3" unique_id=962453252]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2.5, -9)
+size = Vector3(0.5, 5, 2.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox20" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="4" unique_id=921271973]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -7)
+size = Vector3(0.5, 5, 2.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox21" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="5" unique_id=1580485649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.5, -9)
+size = Vector3(0.5, 5, 2.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox23" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="6" unique_id=903815064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.5, -8)
+size = Vector3(0.5, 5, 4.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox38" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="7" unique_id=1814985211]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2.5, 8)
+size = Vector3(0.5, 5, 4.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox24" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="8" unique_id=2098100072]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 0)
+size = Vector3(0.5, 5, 20.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox3" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="9" unique_id=489846913]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 2.5, -4)
+size = Vector3(0.5, 5, 4.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox10" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="10" unique_id=1438316045]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 2.5, 0)
+size = Vector3(0.5, 5, 4.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox55" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="11" unique_id=445668030]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2, 2.5, 6)
+size = Vector3(0.5, 5, 4.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox49" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="12" unique_id=1951339363]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 2.5, 4)
+size = Vector3(0.5, 5, 12.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox4" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="13" unique_id=11134692]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2, 2.5, -2)
+size = Vector3(0.5, 5, 4.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox17" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="14" unique_id=923120400]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4, 2.5, -8)
+size = Vector3(0.5, 5, 4.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox47" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="15" unique_id=1653226061]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8, 2.5, 8)
+size = Vector3(0.5, 5, 4.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox29" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="16" unique_id=19481149]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8, 2.5, -2)
+size = Vector3(0.5, 5, 4.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox30" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="17" unique_id=1426301722]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6, 2.5, 0)
+size = Vector3(0.5, 5, 4.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox37" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="18" unique_id=1638487951]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6, 2.5, 6)
+size = Vector3(0.5, 5, 4.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox19" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="19" unique_id=241583713]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 2.5, -10)
+size = Vector3(0.5, 5, 20.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox39" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="20" unique_id=1154237777]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6, 2.5, 10)
+size = Vector3(0.5, 5, 8.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox40" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="21" unique_id=764507410]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5, 2.5, 10)
+size = Vector3(0.5, 5, 10.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox6" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="22" unique_id=1162689719]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 2.5, -6)
+size = Vector3(0.5, 5, 8.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox32" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="23" unique_id=1732722346]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 2.5, 2)
+size = Vector3(0.5, 5, 6.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox8" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="24" unique_id=650093253]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3, 2.5, -1.9999999)
+size = Vector3(0.5, 5, 2.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox13" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="25" unique_id=1892311262]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5, 2.5, 1.1920929e-07)
+size = Vector3(0.5, 5, 2.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox25" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="26" unique_id=1774532140]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7, 2.5, -8)
+size = Vector3(0.5, 5, 2.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox26" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="27" unique_id=824224979]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, 2.5, -6)
+size = Vector3(0.5, 5, 2.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox27" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="28" unique_id=789399824]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7, 2.5, -4)
+size = Vector3(0.5, 5, 2.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox33" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="29" unique_id=394000325]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, 2.5, 4)
+size = Vector3(0.5, 5, 2.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox36" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="30" unique_id=1561882865]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7, 2.5, 8)
+size = Vector3(0.5, 5, 2.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox53" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="31" unique_id=867354977]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1, 2.5, 8)
+size = Vector3(0.5, 5, 2.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox34" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="32" unique_id=1670457832]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 8, 2.5, 3)
+size = Vector3(0.5, 5, 2.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox35" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="33" unique_id=1783749823]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 8, 2.5, 7)
+size = Vector3(0.5, 5, 2.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox52" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="34" unique_id=1017940214]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 2.5, 9)
+size = Vector3(0.5, 5, 2.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox54" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="35" unique_id=438792857]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -2, 2.5, 7)
+size = Vector3(0.5, 5, 2.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox15" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="36" unique_id=1307867789]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7, 2.5, -6)
+size = Vector3(0.5, 5, 2.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox42" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="37" unique_id=582921186]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9, 2.5, -4)
+size = Vector3(0.5, 5, 2.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox44" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="38" unique_id=1303196510]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9, 2.5, 0)
+size = Vector3(0.5, 5, 2.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox43" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="39" unique_id=2090876910]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7, 2.5, -2)
+size = Vector3(0.5, 5, 2.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox45" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="40" unique_id=270667102]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7, 2.5, 2)
+size = Vector3(0.5, 5, 2.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox9" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="41" unique_id=1572413394]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2, 2.5, -0.9999999)
+size = Vector3(0.5, 5, 2.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox11" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="42" unique_id=1539089640]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -2, 2.5, 1.0000001)
+size = Vector3(0.5, 5, 2.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox50" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="43" unique_id=486453990]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -8.742278e-08, 2.5, 2)
+size = Vector3(0.5, 5, 4.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox12" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="44" unique_id=67091189]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -4, 2.5, 1.0000001)
+size = Vector3(0.5, 5, 2.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox48" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="45" unique_id=427172000]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -6, 2.5, 5)
+size = Vector3(0.5, 5, 2.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox51" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="46" unique_id=204588776]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 1.9999999, 2.5, 6)
+size = Vector3(0.5, 5, 4.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox56" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="47" unique_id=2138336947]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -4, 2.5, 8)
+size = Vector3(0.5, 5, 4.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox5" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="48" unique_id=1231874297]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2.5, -4)
+size = Vector3(0.5, 5, 4.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox46" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="49" unique_id=1284339239]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2.5, 4)
+size = Vector3(0.5, 5, 4.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox7" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="50" unique_id=422806778]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2.5, -5)
+size = Vector3(0.5, 5, 6.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox16" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="51" unique_id=407905055]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2.5, -8)
+size = Vector3(0.5, 5, 4.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox41" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="52" unique_id=1683349889]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2.5, 0)
+size = Vector3(0.5, 5, 20.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="CSGBox14" type="CSGBox3D" parent="LabyrintheStructure/Murs" index="53" unique_id=1165273098]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2.5, -2)
+size = Vector3(0.5, 5, 8.5)
+material = SubResource("StandardMaterial3D_n1tnp")
+
+[node name="Sortie" type="Node3D" parent="LabyrintheStructure" index="6" unique_id=388675769]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16.148867)
+
+[node name="Label3D" type="Label3D" parent="LabyrintheStructure/Sortie" index="0" unique_id=1700500581]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.8970196, 2.0965557, 0.29522324)
+pixel_size = 0.0085
+text = "Bravo !!!"
+font_size = 142
+outline_size = 43
+
+[node name="SpotLight3D" type="SpotLight3D" parent="LabyrintheStructure/Sortie" index="1" unique_id=1802298259]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.6338638, 4.247663, -2.386259)
+light_color = Color(0.99888986, 0.65304285, 0.62484396, 1)
+light_energy = 50.0
+shadow_enabled = true
+spot_range = 7.131
+spot_attenuation = 1.98
+spot_angle = 51.59
+
+[node name="Sketchfab_Scene" parent="LabyrintheStructure/Sortie" index="2" unique_id=1336208476 instance=ExtResource("7_wyykx")]
+transform = Transform3D(-0.93338645, 0, 0.35887292, 0, 1, 0, -0.35887292, 0, -0.93338645, -0.5508166, 0.021249566, -1.4188728)
+
+[node name="Sketchfab_Scene2" parent="LabyrintheStructure/Sortie" index="3" unique_id=112160935 instance=ExtResource("7_wyykx")]
+transform = Transform3D(-0.8259901, 0, -0.56368476, 0, 1, 0, 0.56368476, 0, -0.8259901, 1.9546971, 0.021249328, -1.583209)
+
+[node name="Silly Dancing" parent="LabyrintheStructure/Sortie" index="4" unique_id=179681511 instance=ExtResource("8_i81g1")]
+transform = Transform3D(-0.94253665, 0, 0.33410308, 0, 1.0000004, 0, -0.33410308, 0, -0.94253665, -1.1911538, 0.00010188669, -0.45448112)
+
+[node name="Skeleton3D" parent="LabyrintheStructure/Sortie/Silly Dancing" index="0" unique_id=1147183619]
+bones/0/position = Vector3(-0.044957384, 0.8016102, -0.17601553)
+bones/0/rotation = Quaternion(-0.024130115, -0.16135557, -0.026339728, 0.9862496)
+bones/1/rotation = Quaternion(-0.01610722, -0.0052776616, 0.0003461275, 0.99985635)
+bones/2/position = Vector3(0, 0.11731978, 2.7755576e-17)
+bones/2/rotation = Quaternion(0.08963787, -0.007855352, 0.0077091646, 0.9959137)
+bones/3/position = Vector3(1.931492e-13, 0.13458836, 6.3143935e-15)
+bones/3/rotation = Quaternion(0.14680852, -0.0076996973, 0.0068908753, 0.989111)
+bones/4/rotation = Quaternion(0.058202688, -0.0165223, 0.0025015075, 0.998165)
+bones/5/rotation = Quaternion(-0.013900781, -0.0884354, 0.020865673, 0.99576634)
+bones/7/rotation = Quaternion(-0.4667666, -0.53675944, 0.56560916, -0.4172586)
+bones/8/position = Vector3(7.632783e-17, 0.12922287, 4.440892e-16)
+bones/8/rotation = Quaternion(0.3189692, 0.065901875, 0.035458505, 0.944806)
+bones/8/scale = Vector3(1, 0.99999994, 1)
+bones/9/position = Vector3(1.3859948e-07, 0.2740468, -4.440892e-16)
+bones/9/rotation = Quaternion(-2.5429422e-08, -2.876195e-08, 0.8425069, 0.53868556)
+bones/10/position = Vector3(1.1425444e-08, 0.27614462, 2.3361073e-09)
+bones/10/rotation = Quaternion(-0.2326996, -0.2602855, -0.07307459, 0.93421763)
+bones/11/position = Vector3(-0.03002973, 0.037888106, 0.02167149)
+bones/11/rotation = Quaternion(0.32901195, -0.018051649, 0.12200163, 0.9362377)
+bones/11/scale = Vector3(0.99999994, 0.99999994, 1)
+bones/12/position = Vector3(5.7245875e-17, 0.047449704, 1.110223e-15)
+bones/12/rotation = Quaternion(-0.044106178, -0.0025471416, -0.12844676, 0.99073184)
+bones/13/position = Vector3(-5.946632e-15, 0.043821286, 5.0848215e-14)
+bones/13/rotation = Quaternion(-0.04142644, -0.0016003436, -0.035587378, 0.9985063)
+bones/15/position = Vector3(-0.028220378, 0.12266619, 0.0023182519)
+bones/15/rotation = Quaternion(0.111996114, -1.3321305e-07, -0.013516053, 0.9936167)
+bones/16/position = Vector3(0, 0.038919676, 5.491163e-13)
+bones/16/rotation = Quaternion(0.081443004, 7.608629e-08, -0.009828716, 0.99662954)
+bones/17/position = Vector3(4.0712572e-13, 0.03415161, -1.5618618e-12)
+bones/17/rotation = Quaternion(0.040755775, -9.1236245e-08, -0.0049183955, 0.99915713)
+bones/19/position = Vector3(-1.18843445e-07, 0.12775528, -1.0320899e-08)
+bones/19/rotation = Quaternion(0.11185759, -1.976903e-07, -0.013498886, 0.99363256)
+bones/20/position = Vector3(3.1238623e-12, 0.03613968, 0)
+bones/20/rotation = Quaternion(0.0815818, 1.5791792e-07, -0.009845317, 0.99661803)
+bones/21/position = Vector3(2.8508796e-07, 0.034597624, -2.4424907e-15)
+bones/21/rotation = Quaternion(0.04075581, -1.8338662e-08, -0.004918459, 0.99915713)
+bones/23/position = Vector3(0.022166368, 0.121470094, -9.996238e-05)
+bones/23/rotation = Quaternion(0.111996114, -4.591608e-08, -0.013515279, 0.99361676)
+bones/24/position = Vector3(-5.551115e-17, 0.036011886, 5.186962e-13)
+bones/24/rotation = Quaternion(0.08144331, 7.01131e-08, -0.009828826, 0.99662954)
+bones/25/position = Vector3(-7.119305e-15, 0.03307312, -6.461498e-13)
+bones/25/rotation = Quaternion(0.040755775, -9.1236245e-08, -0.0049183955, 0.99915713)
+bones/27/position = Vector3(0.04725837, 0.10908192, 0.0022613215)
+bones/27/rotation = Quaternion(0.10750249, 0.0040217224, -0.04865474, 0.9930055)
+bones/28/position = Vector3(-9.7144515e-17, 0.04136657, 1.9984014e-14)
+bones/28/rotation = Quaternion(0.08582784, 0.0029246751, 0.02543188, 0.99598104)
+bones/29/position = Vector3(4.385381e-15, 0.025948344, -8.21565e-15)
+bones/29/rotation = Quaternion(0.040755972, -7.328459e-08, -0.0049181045, 0.9991571)
+bones/31/rotation = Quaternion(0.4562443, -0.5339275, 0.6127731, 0.36231428)
+bones/32/position = Vector3(2.7755576e-17, 0.12922287, -1.110223e-15)
+bones/32/rotation = Quaternion(0.25968835, 0.01056822, -0.16320921, 0.9517422)
+bones/33/position = Vector3(4.1642474e-11, 0.2740468, 0)
+bones/33/rotation = Quaternion(6.6769736e-08, -4.2071914e-08, -0.7243067, 0.6894779)
+bones/34/position = Vector3(1.2838647e-07, 0.27614462, 1.54924e-07)
+bones/34/rotation = Quaternion(-0.32187456, 0.2906202, 0.12952827, 0.89171696)
+bones/35/position = Vector3(0.030029746, 0.037888087, 0.02167149)
+bones/35/rotation = Quaternion(0.3659823, 0.10855438, -0.2501169, 0.8897834)
+bones/35/scale = Vector3(1, 1, 1)
+bones/36/position = Vector3(-1.2143064e-17, 0.047449704, -8.881784e-16)
+bones/36/rotation = Quaternion(-0.038437918, -0.022271456, 0.20011877, 0.978764)
+bones/37/position = Vector3(-1.9498292e-15, 0.043821353, -4.0634163e-14)
+bones/37/rotation = Quaternion(-0.036187124, -0.011321475, 0.05164955, 0.9979453)
+bones/39/position = Vector3(0.028220424, 0.12266617, 0.0023182519)
+bones/39/rotation = Quaternion(0.12332508, 4.7528953e-08, 0.015028948, 0.9922525)
+bones/40/position = Vector3(-6.938894e-18, 0.038919676, 5.1691984e-13)
+bones/40/rotation = Quaternion(0.11948382, 2.1000444e-07, 0.014561103, 0.99272937)
+bones/41/position = Vector3(-1.2821384e-07, 0.03415161, 1.3322676e-15)
+bones/41/rotation = Quaternion(0.05985068, -3.269467e-08, 0.0072939484, 0.9981807)
+bones/43/position = Vector3(1.6630214e-07, 0.12775528, -1.0320896e-08)
+bones/43/rotation = Quaternion(0.12332508, 4.9147314e-08, 0.015028962, 0.9922525)
+bones/44/position = Vector3(-2.657763e-12, 0.03613968, 0)
+bones/44/rotation = Quaternion(0.11948382, 2.1984444e-07, 0.014561184, 0.99272937)
+bones/45/position = Vector3(-2.9421733e-07, 0.034597624, 5.9952043e-15)
+bones/45/rotation = Quaternion(0.05985068, -3.269467e-08, 0.0072939484, 0.9981807)
+bones/47/position = Vector3(-0.022166323, 0.12147003, -9.996238e-05)
+bones/47/rotation = Quaternion(0.12332508, 1.4780146e-07, 0.0150297545, 0.9922525)
+bones/48/position = Vector3(-2.7755576e-17, 0.036011964, 4.718448e-13)
+bones/48/rotation = Quaternion(0.11948382, 2.458775e-07, 0.014561401, 0.99272937)
+bones/49/position = Vector3(-6.054879e-14, 0.03307312, -7.660539e-13)
+bones/49/rotation = Quaternion(0.05985068, -3.269467e-08, 0.0072939484, 0.9981807)
+bones/51/position = Vector3(-0.047258332, 0.10908195, 0.0022613215)
+bones/51/rotation = Quaternion(0.12332508, 1.383706e-07, 0.015029682, 0.9922525)
+bones/52/position = Vector3(-1.3877788e-17, 0.041366503, 8.0269125e-13)
+bones/52/rotation = Quaternion(0.11948382, 2.106133e-07, 0.014561107, 0.99272937)
+bones/53/position = Vector3(-3.9496184e-14, 0.02594841, -2.533529e-13)
+bones/53/rotation = Quaternion(0.05985068, -3.0111103e-08, 0.0072939917, 0.9981807)
+bones/55/rotation = Quaternion(0.06475966, 0.20925395, 0.95694023, -0.19048461)
+bones/56/position = Vector3(-5.689893e-16, 0.40599436, 1.1657342e-15)
+bones/56/rotation = Quaternion(-0.5810538, 0.02550281, 0.046937753, 0.8121101)
+bones/57/position = Vector3(-5.551115e-17, 0.42099026, 2.220446e-16)
+bones/57/rotation = Quaternion(0.77121025, -0.11300437, -0.1399584, 0.6106362)
+bones/58/position = Vector3(-6.938894e-17, 0.1572156, -1.6653345e-16)
+bones/58/rotation = Quaternion(0.233925, -0.03250356, -0.015252112, 0.9715915)
+bones/60/rotation = Quaternion(0.007888087, 0.32971972, 0.94213885, 0.059975736)
+bones/61/position = Vector3(9.7144515e-17, 0.4059944, 2.6714742e-16)
+bones/61/rotation = Quaternion(-0.61590976, -0.09058017, -0.022411112, 0.7822712)
+bones/62/position = Vector3(-2.9143354e-16, 0.42099023, -6.2450045e-16)
+bones/62/rotation = Quaternion(0.75068724, -0.089239106, 0.10179815, 0.6466392)
+bones/63/position = Vector3(1.3877788e-17, 0.1572156, 1.3877788e-17)
+bones/63/rotation = Quaternion(0.28824735, 0.03189458, 0.014096098, 0.95692086)
+
+[node name="AnimationPlayer" parent="LabyrintheStructure/Sortie/Silly Dancing" index="1" unique_id=903941247]
+autoplay = &"mixamo_com"
+
+[node name="toothless" parent="LabyrintheStructure/Sortie" index="5" unique_id=221122462 instance=ExtResource("9_5wd6c")]
+transform = Transform3D(-0.6249719, 0, 0.005923068, 0, 0.625, 0, -0.005923068, 0, -0.6249719, 0.8621931, 0.02469256, -1.1747284)
+
+[node name="Skeleton3D" parent="LabyrintheStructure/Sortie/toothless/Sketchfab_model/6de9701d952d46fb82b3ebeb952802b9_fbx/Object_2/RootNode/Object_4" parent_id_path=PackedInt32Array(221122462, 1862721649) index="26" unique_id=427073289]
+bones/1/position = Vector3(-0.0073867054, 0.35201293, -0.032217827)
+bones/1/rotation = Quaternion(-0.035688765, 0.30075535, 0.0026547906, 0.95302963)
+bones/2/rotation = Quaternion(0.08490814, 0.10444775, 0.03968223, 0.9901043)
+bones/3/rotation = Quaternion(0.008070383, 0.015137383, -0.070237815, 0.9973828)
+bones/4/rotation = Quaternion(0.00994732, 0.014211949, -0.070190504, 0.9973828)
+bones/5/rotation = Quaternion(-0.058864027, -0.05725499, -0.06225214, 0.9946767)
+bones/6/rotation = Quaternion(-0.07187743, -0.35543904, 0.16388476, 0.9174086)
+bones/7/position = Vector3(9.313226e-09, 0.30635405, 0.06254671)
+bones/8/rotation = Quaternion(-0.5456649, -0.44135708, 0.57614505, -0.41893995)
+bones/9/rotation = Quaternion(0.14427535, 0.4750915, 0.127065, 0.85867757)
+bones/10/rotation = Quaternion(0.4415483, -0.5327868, 0.46873662, 0.5490533)
+bones/11/rotation = Quaternion(-0.20347223, 0.9661784, 0.14025095, 0.07367539)
+bones/12/rotation = Quaternion(0.0041219364, 0.51816607, -0.098848835, 0.84953856)
+bones/13/rotation = Quaternion(0.7867322, 3.5205799e-06, 0.61190337, 0.081405215)
+bones/14/rotation = Quaternion(-0.5738251, -0.030755924, -0.15992458, 0.80262256)
+bones/15/position = Vector3(0.0014417171, -0.00071030855, -0.005064115)
+bones/15/rotation = Quaternion(-1.7881396e-07, 1.3411046e-07, 1.1175872e-07, 1)
+bones/16/rotation = Quaternion(0.5426724, -0.47364095, 0.45198244, 0.5261965)
+bones/17/rotation = Quaternion(-0.015871022, -0.09209194, -0.12682788, 0.98751295)
+bones/18/rotation = Quaternion(0.08906466, 0.66528326, -0.10245736, 0.7341445)
+bones/19/rotation = Quaternion(-0.29115793, 0.6952522, -0.017202944, 0.65692896)
+bones/20/position = Vector3(-8.34465e-07, 0.03332317, 9.536743e-07)
+bones/20/rotation = Quaternion(0.17792761, 0.25525305, 0.12586959, -0.9419896)
+bones/21/position = Vector3(1.7881393e-07, 0.0016573668, 1.6298145e-07)
+bones/21/rotation = Quaternion(-0.17622584, 0.004002708, -0.042235274, 0.9834351)
+bones/22/rotation = Quaternion(-0.11250609, 0.04034158, 0.16456033, 0.9790991)
+bones/23/position = Vector3(0.00050520897, 0.0008841753, -6.2048435e-05)
+bones/23/rotation = Quaternion(-1.1175871e-08, -1.8626451e-09, 0, 1)
+bones/24/rotation = Quaternion(-0.03294853, 0.30250287, 0.91581887, -0.26207274)
+bones/25/rotation = Quaternion(-0.13465348, 0.51501805, -0.68328047, 0.4997527)
+bones/26/rotation = Quaternion(0.7562627, -0.28216943, 0.40505314, 0.42939377)
+bones/27/rotation = Quaternion(0.5494207, -0.37664017, 0.29212683, 0.68625134)
+bones/28/position = Vector3(-9.010546e-08, 0.022409916, -6.565824e-08)
+bones/28/rotation = Quaternion(7.0780516e-08, 1.937151e-07, -1.1920929e-07, -1)
+bones/29/rotation = Quaternion(-0.04053382, -0.25710383, 0.94601136, 0.19317615)
+bones/30/rotation = Quaternion(-0.5531376, 0.37407118, 0.17388132, 0.7237921)
+bones/31/rotation = Quaternion(0.7462572, 0.012574693, 0.6549727, 0.11812276)
+bones/32/rotation = Quaternion(0.070927195, -0.009842141, -0.13709405, 0.9879665)
+bones/33/position = Vector3(-1.4901161e-08, 0.068740904, -6.7055225e-08)
+bones/33/rotation = Quaternion(-8.940697e-08, -1.7881393e-07, 1.6391277e-07, 1)
+
+[node name="AnimationPlayer" parent="LabyrintheStructure/Sortie/toothless" index="1" unique_id=2067370280]
+autoplay = &"mixamo_com"
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="LabyrintheStructure/Sortie/toothless" index="2" unique_id=1885841429]
+stream = ExtResource("10_c3kv3")
+volume_db = 80.0
+autoplay = true
+max_distance = 5.0
+
+[node name="Labyrinthe" type="Node3D" parent="." index="5" unique_id=1345889245]
+
+[node name="Torch" parent="Labyrinthe" index="0" unique_id=1758411067 instance=ExtResource("15_wyykx")]
+transform = Transform3D(1, 0, 0, 0, 0.87090516, -0.49145108, 0, 0.49145108, 0.87090516, -0.6604109, 1.2212569, -2.7168045)
+
+[node name="VerticalWalls" type="CSGCombiner3D" parent="Labyrinthe" index="1" unique_id=1865715161]
+material_override = ExtResource("2_hwde8")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="0" unique_id=464747400]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2.5, 4.5)
+size = Vector3(0.5, 6, 15.5)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="1" unique_id=385838938]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 2.5, -28.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="2" unique_id=953860973]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 2.5, -24)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="3" unique_id=398196047]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 2.5, -6)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="4" unique_id=1343679650]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 2.5, -16.5)
+size = Vector3(0.5, 6, 9.5)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="5" unique_id=814392781]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 2.5, -13.5)
+size = Vector3(0.5, 6, 9.5)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="6" unique_id=455321466]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2.5, -25.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="7" unique_id=1400663562]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2.5, -19.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="8" unique_id=1796432313]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2.5, -28.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="9" unique_id=685826158]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.5, -16.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D33" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="10" unique_id=1354246728]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -10.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D34" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="11" unique_id=560027415]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2.5, -10.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D35" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="12" unique_id=201601138]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2.5, -13.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D31" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="13" unique_id=1096956327]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.5, -13.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="14" unique_id=1159683854]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -19.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="15" unique_id=1433283592]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.5, -16.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="16" unique_id=805750353]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 2.5, -28.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="17" unique_id=1736275829]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 2.5, -25.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="18" unique_id=621739500]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 2.5, -16.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D28" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="19" unique_id=598529564]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2.5, -13.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D42" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="20" unique_id=1708396496]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, -10.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D43" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="21" unique_id=1278584553]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2.5, -7.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D56" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="22" unique_id=1050483940]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 2.5, 10.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D57" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="23" unique_id=153984854]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 2.5, 25.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D58" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="24" unique_id=1145615314]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 2.5, 25.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D59" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="25" unique_id=1046151485]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 2.5, 28.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D60" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="26" unique_id=703034644]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 2.5, 19.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D61" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="27" unique_id=219413933]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.5, 16.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D62" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="28" unique_id=1992310656]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.5, 10.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D63" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="29" unique_id=55361134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2.5, 7.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D64" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="30" unique_id=407636195]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2.5, 16.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D65" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="31" unique_id=1825367054]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.5, 22.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D66" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="32" unique_id=1150046550]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.5, 28.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D67" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="33" unique_id=1712802106]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2.5, 13.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D68" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="34" unique_id=1589707828]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2.5, 13.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D69" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="35" unique_id=641406854]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 2.5, 16.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D70" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="36" unique_id=624524350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2.5, 22.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D71" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="37" unique_id=430409263]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 2.5, 28.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D72" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="38" unique_id=1311093381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2.5, 25.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D73" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="39" unique_id=683362060]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 2.5, 22.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D74" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="40" unique_id=1515400014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 2.5, 19.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D75" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="41" unique_id=841313908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 2.5, 13.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D76" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="42" unique_id=1364008607]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 2.5, -1.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D46" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="43" unique_id=1976738051]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.5, -4.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D47" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="44" unique_id=1363182574]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2.5, 7.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D44" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="45" unique_id=997781383]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 2.5, -7.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D45" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="46" unique_id=183598502]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 2.5, -4.5)
+size = Vector3(0.5, 6, 9.5)
+
+[node name="CSGBox3D27" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="47" unique_id=942240615]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 2.5, -12)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D38" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="48" unique_id=1707890893]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 2.5, -3)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D39" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="49" unique_id=260254714]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.5, -9)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D40" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="50" unique_id=1545893401]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.5, -3)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D48" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="51" unique_id=252842778]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.5, 3)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D49" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="52" unique_id=1113697963]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2.5, 6)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D77" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="53" unique_id=17757181]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.5, 9)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D89" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="54" unique_id=808546288]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 12)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D78" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="55" unique_id=1695678933]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 2.5, 10.5)
+size = Vector3(0.5, 6, 9.5)
+
+[node name="CSGBox3D85" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="56" unique_id=436425655]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2.5, 18)
+size = Vector3(0.5, 6, 12.5)
+
+[node name="CSGBox3D79" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="57" unique_id=882717836]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2.5, 16.5)
+size = Vector3(0.5, 6, 9.5)
+
+[node name="CSGBox3D84" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="58" unique_id=1660405701]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 2.5, 24)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D80" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="59" unique_id=69986266]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 2.5, 25.5)
+size = Vector3(0.5, 6, 9.5)
+
+[node name="CSGBox3D81" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="60" unique_id=109412725]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 2.5, 7.5)
+size = Vector3(0.5, 6, 9.5)
+
+[node name="CSGBox3D82" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="61" unique_id=1916324323]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 2.5, 0)
+size = Vector3(0.5, 6, 12.5)
+
+[node name="CSGBox3D83" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="62" unique_id=2111344255]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 2.5, 10.5)
+size = Vector3(0.5, 6, 15.5)
+
+[node name="CSGBox3D50" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="63" unique_id=1234924512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2.5, 3)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D51" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="64" unique_id=1448886064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2.5, 3)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D52" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="65" unique_id=273261842]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, 24)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D53" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="66" unique_id=2042559342]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.5, 27)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D54" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="67" unique_id=518900520]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.5, 24)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D86" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="68" unique_id=671383844]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 27)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D55" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="69" unique_id=255234200]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 2.5, 10.5)
+size = Vector3(0.5, 6, 15.5)
+
+[node name="CSGBox3D87" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="70" unique_id=1980965512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 2.5, 16.5)
+size = Vector3(0.5, 6, 15.5)
+
+[node name="CSGBox3D88" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="71" unique_id=1357718518]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2.5, 18)
+size = Vector3(0.5, 6, 12.5)
+
+[node name="CSGBox3D41" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="72" unique_id=540834525]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2.5, 0)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="73" unique_id=1639696557]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 2.5, -22.5)
+size = Vector3(0.5, 6, 9.5)
+
+[node name="CSGBox3D30" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="74" unique_id=1770648186]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2.5, -25.5)
+size = Vector3(0.5, 6, 9.5)
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="75" unique_id=482792409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 2.5, -24)
+size = Vector3(0.5, 6, 12.5)
+
+[node name="CSGBox3D29" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="76" unique_id=457694749]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, -21)
+size = Vector3(0.5, 6, 12.5)
+
+[node name="CSGBox3D32" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="77" unique_id=1134723563]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2.5, -16.5)
+size = Vector3(0.5, 6, 15.5)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="78" unique_id=59479973]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.5, -24)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="79" unique_id=654314329]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -27)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="80" unique_id=151774770]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.5, -27)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="81" unique_id=553242663]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.5, -24)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="82" unique_id=1193618627]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 2.5, -21)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="83" unique_id=1504160640]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2.5, -25.5)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="84" unique_id=1219891032]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2.5, -21)
+size = Vector3(0.5, 6, 12.5)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="85" unique_id=954064076]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 2.5, -15)
+size = Vector3(0.5, 6, 18.5)
+
+[node name="CSGBox3D36" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="86" unique_id=1472242120]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2.5, -12)
+size = Vector3(0.5, 6, 12.5)
+
+[node name="CSGBox3D37" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="87" unique_id=2039377943]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2.5, -7.5)
+size = Vector3(0.5, 6, 9.5)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Labyrinthe/VerticalWalls" index="88" unique_id=895758126]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 2.5, 4.5)
+size = Vector3(0.5, 6, 15.5)
+
+[node name="HorizontalWalls" type="CSGCombiner3D" parent="Labyrinthe" index="2" unique_id=772361298]
+material_override = ExtResource("2_hwde8")
+use_collision = true
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="0" unique_id=1101773684]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.5, 2.5, -3)
+size = Vector3(0.5, 6, 15.5)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="1" unique_id=1408933586]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15, 2.5, -6.556708e-08)
+size = Vector3(0.5, 6, 12.5)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="2" unique_id=713337018]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -22.5, 2.5, -6)
+size = Vector3(0.5, 6, 9.5)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="3" unique_id=1090543578]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3, 2.5, -6)
+size = Vector3(0.5, 6, 18.5)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="4" unique_id=82211590]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 2.5, -9)
+size = Vector3(0.5, 6, 18.5)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="5" unique_id=181904653]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6, 2.5, -1.9670125e-07)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="6" unique_id=1723441493]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.5, 2.5, 2.9999998)
+size = Vector3(0.5, 6, 9.5)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="7" unique_id=1300552207]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.5, 2.5, -2.6226832e-07)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="8" unique_id=2017581380]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.5, 2.5, 5.9999995)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="9" unique_id=1342564710]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.5, 2.5, 9)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="10" unique_id=1038154011]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.5, 2.5, 12)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D86" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="11" unique_id=1231311691]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 28.5, 2.5, 15)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D87" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="12" unique_id=1899262184]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 25.5, 2.5, 12)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D94" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="13" unique_id=764603010]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 28.5, 2.5, 6)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D88" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="14" unique_id=2147396938]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 16.5, 2.5, 9)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D82" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="15" unique_id=223989533]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 22.5, 2.5, 24)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D90" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="16" unique_id=395050391]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 25.5, 2.5, 27)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="17" unique_id=646207927]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.5, 2.5, 12)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="18" unique_id=711648088]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.5, 2.5, 12)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D65" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="19" unique_id=2061761216]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.5, 2.5, 15)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D73" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="20" unique_id=1188849190]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.5, 2.5, 24)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D74" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="21" unique_id=2072608986]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.5, 2.5, 21)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D68" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="22" unique_id=64652945]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -25.5, 2.5, 27)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="23" unique_id=1438892202]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16.5, 2.5, 9)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="24" unique_id=1101262128]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -13.5, 2.5, 6)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="25" unique_id=1291326083]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -22.5, 2.5, 3)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D29" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="26" unique_id=1413612857]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.5, 2.5, -15)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D62" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="27" unique_id=1215908086]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.5, 2.5, -9)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D91" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="28" unique_id=74755736]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16.5, 2.5, -12)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D30" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="29" unique_id=1165111736]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -25.5, 2.5, -18)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D31" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="30" unique_id=1526044385]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.5, 2.5, -24)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D34" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="31" unique_id=1608634026]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.5, 2.5, -24)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D35" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="32" unique_id=325094749]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -13.5, 2.5, -21)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D36" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="33" unique_id=1413189606]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16.5, 2.5, -18)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D37" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="34" unique_id=1191573885]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.5, 2.5, -21)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D38" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="35" unique_id=2011260152]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.5, 2.5, -24)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D39" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="36" unique_id=1499418620]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.5, 2.5, -18)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D40" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="37" unique_id=1120986912]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.5, 2.5, -21)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D43" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="38" unique_id=586244380]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.5, 2.5, -24)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D47" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="39" unique_id=1038879532]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 16.5, 2.5, -27)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D48" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="40" unique_id=153305861]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 22.5, 2.5, -27)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D49" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="41" unique_id=655951147]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 25.5, 2.5, -21)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D50" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="42" unique_id=479183932]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 19.5, 2.5, -24)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D51" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="43" unique_id=649624287]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 22.5, 2.5, -18)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D54" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="44" unique_id=949374490]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 28.5, 2.5, -3)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D55" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="45" unique_id=913453957]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 19.5, 2.5, -3)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D58" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="46" unique_id=704277249]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.5, 2.5, -12)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D56" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="47" unique_id=1922203214]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 25.5, 2.5, -9)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D57" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="48" unique_id=1782249520]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13.5, 2.5, -6)
+size = Vector3(0.5, 6, 9.5)
+
+[node name="CSGBox3D59" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="49" unique_id=1608257894]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12, 2.5, -3)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D60" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="50" unique_id=2065160198]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 24, 2.5, -6)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D52" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="51" unique_id=542167647]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 24, 2.5, -15)
+size = Vector3(0.5, 6, 12.5)
+
+[node name="CSGBox3D53" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="52" unique_id=2057244568]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 16.5, 2.5, -12)
+size = Vector3(0.5, 6, 15.5)
+
+[node name="CSGBox3D61" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="53" unique_id=1200962221]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 22.5, 2.5, 0)
+size = Vector3(0.5, 6, 15.5)
+
+[node name="CSGBox3D92" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="54" unique_id=672950997]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 19.5, 2.5, 3)
+size = Vector3(0.5, 6, 15.5)
+
+[node name="CSGBox3D93" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="55" unique_id=1496672342]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13.5, 2.5, 6)
+size = Vector3(0.5, 6, 15.5)
+
+[node name="CSGBox3D44" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="56" unique_id=1174464466]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6, 2.5, -21)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D46" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="57" unique_id=1393046600]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 2.5, -15)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D45" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="58" unique_id=1566333436]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6, 2.5, -18)
+size = Vector3(0.5, 6, 12.5)
+
+[node name="CSGBox3D41" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="59" unique_id=377826796]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.5, 2.5, -27)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="CSGBox3D42" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="60" unique_id=1557849632]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.5, 2.5, -15)
+size = Vector3(0.5, 6, 9.5)
+
+[node name="CSGBox3D32" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="61" unique_id=333047531]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -22.5, 2.5, -27)
+size = Vector3(0.5, 6, 9.5)
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="62" unique_id=133818720]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9, 2.5, 9)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="63" unique_id=52214275]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24, 2.5, 9)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D66" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="64" unique_id=1144587552]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24, 2.5, 18)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D69" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="65" unique_id=1167417598]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -18, 2.5, 21)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D70" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="66" unique_id=1709546759]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9, 2.5, 21)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D77" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="67" unique_id=273997627]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3, 2.5, 24)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D78" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="68" unique_id=1473328466]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, 2.5, 21)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D79" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="69" unique_id=313444941]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15, 2.5, 18)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D83" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="70" unique_id=1083933398]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 18, 2.5, 15)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D84" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="71" unique_id=875918897]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 24, 2.5, 18)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D85" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="72" unique_id=1663599748]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 25.5, 2.5, 21)
+size = Vector3(0.5, 6, 9.5)
+
+[node name="CSGBox3D80" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="73" unique_id=1610550974]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12, 2.5, 12)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D89" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="74" unique_id=1085569143]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, 2.5, 9)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D71" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="75" unique_id=53724635]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12, 2.5, 24)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D67" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="76" unique_id=738486863]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24, 2.5, 24)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D63" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="77" unique_id=1706017596]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.5, 2.5, 15)
+size = Vector3(0.5, 6, 9.5)
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D72" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="78" unique_id=990903879]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.5, 2.5, 27)
+size = Vector3(0.5, 6, 15.5)
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D64" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="79" unique_id=230906070]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.5, 2.5, 18)
+size = Vector3(0.5, 6, 9.5)
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D75" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="80" unique_id=1182369538]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.5, 2.5, 18)
+size = Vector3(0.5, 6, 9.5)
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D81" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="81" unique_id=350115582]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15, 2.5, 27)
+size = Vector3(0.5, 6, 12.5)
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D76" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="82" unique_id=1366379671]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.5, 2.5, 15)
+size = Vector3(0.5, 6, 9.5)
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="83" unique_id=1825230051]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -27, 2.5, 0)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D27" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="84" unique_id=161050888]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24, 2.5, -12)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D28" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="85" unique_id=1566681009]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24, 2.5, -21)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D33" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="86" unique_id=1002141741]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -18, 2.5, -24)
+size = Vector3(0.5, 6, 6.5)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Labyrinthe/HorizontalWalls" index="87" unique_id=272893740]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.5, 2.5, 2.9999998)
+size = Vector3(0.5, 6, 3.5)
+
+[node name="ExteriorWalls" type="CSGCombiner3D" parent="Labyrinthe" index="3" unique_id=1470689858]
+material_override = ExtResource("2_hwde8")
+use_collision = true
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Labyrinthe/ExteriorWalls" index="0" unique_id=1796550336]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 2.5, 0)
+size = Vector3(0.5, 6, 60.5)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Labyrinthe/ExteriorWalls" index="1" unique_id=1391645627]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.5, 0)
+size = Vector3(0.5, 6, 60.5)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Labyrinthe/ExteriorWalls" index="2" unique_id=1075678375]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 2.5, -30)
+size = Vector3(0.5, 6, 60.5)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Labyrinthe/ExteriorWalls" index="3" unique_id=923573170]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 2.5, 30)
+size = Vector3(0.5, 6, 60.5)
+
+[node name="Floor" type="CSGBox3D" parent="Labyrinthe" index="4" unique_id=819758826]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+use_collision = true
+size = Vector3(60.75, 0.5, 60.75)
+material = SubResource("StandardMaterial3D_wyykx")
+
+[node name="ControlPanelMenuLoader" type="Node" parent="." index="6" unique_id=90925847]
+script = ExtResource("12_v4sj2")
+control_menu = ExtResource("12_jrbwi")
+camera_position = Vector3(0, 20, 0)
+camera_projection = 1
+controller_can_rotate_view = false
+right_side_scene = ExtResource("13_eccc5")
+metadata/_custom_type_script = "uid://bv5rcfuldk0he"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="7" unique_id=1823049459]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -6, 0)
+visible = false
+mesh = SubResource("QuadMesh_jrbwi")
+
+[node name="Camera3D" type="Camera3D" parent="." index="8" unique_id=1078050331]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 22.499123, 0)
+projection = 1
+size = 20.0
+far = 200.0
+
+[editable path="XROrigin3D/LeftHand/LeftHand"]
+[editable path="XROrigin3D/LeftHand/LeftHand/Hand_Nails_low_L"]
+[editable path="XROrigin3D/RightHand/RightHand"]
+[editable path="XROrigin3D/RightHand/RightHand/Hand_Nails_low_R"]
+[editable path="LabyrintheStructure/Sortie/Silly Dancing"]
+[editable path="LabyrintheStructure/Sortie/toothless"]
