@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bobp5ykshg63g"
-path.s3tc="res://.godot/imported/murs_alb.jpg-b0899fd4f6b32e96baa0c3091b4dbeab.s3tc.ctex"
-path.etc2="res://.godot/imported/murs_alb.jpg-b0899fd4f6b32e96baa0c3091b4dbeab.etc2.ctex"
+uid="uid://l0c0ln33vgfd"
+path.s3tc="res://.godot/imported/Concrete036_1K-JPG_Roughness.jpg-6cfb5e864bc664de2b3c19043b90119d.s3tc.ctex"
+path.etc2="res://.godot/imported/Concrete036_1K-JPG_Roughness.jpg-6cfb5e864bc664de2b3c19043b90119d.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://scenes/levels/labyrinth_v1/materiel_mur/murs_alb.jpg"
-dest_files=["res://.godot/imported/murs_alb.jpg-b0899fd4f6b32e96baa0c3091b4dbeab.s3tc.ctex", "res://.godot/imported/murs_alb.jpg-b0899fd4f6b32e96baa0c3091b4dbeab.etc2.ctex"]
+source_file="res://resources/materiels/concrete/Concrete036_1K-JPG_Roughness.jpg"
+dest_files=["res://.godot/imported/Concrete036_1K-JPG_Roughness.jpg-6cfb5e864bc664de2b3c19043b90119d.s3tc.ctex", "res://.godot/imported/Concrete036_1K-JPG_Roughness.jpg-6cfb5e864bc664de2b3c19043b90119d.etc2.ctex"]
 
 [params]
 

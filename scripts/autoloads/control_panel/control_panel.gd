@@ -1,4 +1,8 @@
+# ControlPanel
 extends Node
+
+
+signal information_sent(info: Dictionary[String, Variant])
 
 
 @onready var control_panel_menu: Control = %ControlPanelMenu
@@ -39,6 +43,10 @@ func change_control_panel_menu(new_menu: Control) -> void:
 		new_menu.reparent(control_panel_menu, false)
 	else:
 		control_panel_menu.add_child(new_menu)
+
+
+func send_information(info: Dictionary[String, Variant]) -> void:
+	information_sent.emit(info)
 
 
 ## If [param enable] is set to false, the secondary menu will be changed but the

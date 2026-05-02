@@ -13,6 +13,10 @@ func _ready() -> void:
 	for mov_mode in PlayerManager.get_movement_modes():
 		movement_mode_button.add_item(mov_mode.name, mov_mode.id)
 	movement_mode_button.select(PlayerManager.movement_mode)
+	
+	# Initialize with default setting
+	XRToolsUserSettings.snap_turning = false
+	PlayerManager.controller_rotation = true
 
 
 func _on_tab_container_tab_selected(tab: int) -> void:

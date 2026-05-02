@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b58eaehod7m06"]
 
-[ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_0r8w4"]
 [ext_resource type="PackedScene" uid="uid://cm08st5sk3poc" path="res://assets/meshes/torch/torch.glb" id="1_38jqo"]
+[ext_resource type="Script" uid="uid://dnptd8khncpc0" path="res://scripts/custom_nodes/labyrinth_v2_pickable_object.gd" id="1_v445i"]
 [ext_resource type="Texture2D" uid="uid://cjp4uabq4st8j" path="res://assets/textures/flame_spritesheet.png" id="2_2hovb"]
 [ext_resource type="Gradient" path="res://assets/textures/fire_gradient.tres" id="3_lgqut"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="5_b4wgy"]
@@ -59,13 +59,12 @@ size = Vector2(0.3, 0.3)
 radius = 0.033203125
 height = 0.5003662
 
-[node name="Torch" type="RigidBody3D" unique_id=1480301387]
+[node name="Torch" type="RigidBody3D" unique_id=2008630134 groups=["labyrinth_v2_objects"]]
 collision_layer = 4
 collision_mask = 196615
 freeze = true
-script = ExtResource("1_0r8w4")
-release_mode = 0
-metadata/_custom_type_script = "uid://bfrlpbsqg5lqr"
+script = ExtResource("1_v445i")
+metadata/_custom_type_script = "uid://dnptd8khncpc0"
 
 [node name="TorchModel" parent="." unique_id=1646335865 instance=ExtResource("1_38jqo")]
 transform = Transform3D(0.569, 0, 0, 0, 0.569, 0, 0, 0, 0.569, 0, -0.09204647, 0)
@@ -95,10 +94,11 @@ visible = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=58969882]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26532137, 0)
-light_color = Color(0.7160921, 0.3752422, 0.29521194, 1)
+light_color = Color(0.6813695, 0.40110838, 0.33204767, 1)
 light_energy = 2.0
 light_size = 0.185
-omni_range = 7.207542
+omni_range = 10.0
+omni_attenuation = 0.7
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="OmniLight3D" unique_id=1614075425]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0029093921, 0)

@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cay180swvut6c"
-path.s3tc="res://.godot/imported/murs_rough.jpg-b3bcbfc27dd0815fbf9b6bc0aae0ec47.s3tc.ctex"
-path.etc2="res://.godot/imported/murs_rough.jpg-b3bcbfc27dd0815fbf9b6bc0aae0ec47.etc2.ctex"
+uid="uid://bobp5ykshg63g"
+path.s3tc="res://.godot/imported/murs_alb.jpg-82ebd738c0edbe68fc7b6032c8dbfa7a.s3tc.ctex"
+path.etc2="res://.godot/imported/murs_alb.jpg-82ebd738c0edbe68fc7b6032c8dbfa7a.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://scenes/levels/labyrinth_v1/materiel_mur/murs_rough.jpg"
-dest_files=["res://.godot/imported/murs_rough.jpg-b3bcbfc27dd0815fbf9b6bc0aae0ec47.s3tc.ctex", "res://.godot/imported/murs_rough.jpg-b3bcbfc27dd0815fbf9b6bc0aae0ec47.etc2.ctex"]
+source_file="res://resources/materiels/materiel_mur/murs_alb.jpg"
+dest_files=["res://.godot/imported/murs_alb.jpg-82ebd738c0edbe68fc7b6032c8dbfa7a.s3tc.ctex", "res://.godot/imported/murs_alb.jpg-82ebd738c0edbe68fc7b6032c8dbfa7a.etc2.ctex"]
 
 [params]
 

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cqg4ewfjs2xc1"
-path="res://.godot/imported/Prompt-ExtraBold.ttf-f929b1d628fed09b4251eea2e9ed6033.fontdata"
+uid="uid://chvavywynr3wj"
+path="res://.godot/imported/Prompt-ExtraBold.ttf-f49937ba62e37e695ecc70e11156103b.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/Prompt/Prompt-ExtraBold.ttf"
-dest_files=["res://.godot/imported/Prompt-ExtraBold.ttf-f929b1d628fed09b4251eea2e9ed6033.fontdata"]
+source_file="res://assets/fonts/prompt/Prompt-ExtraBold.ttf"
+dest_files=["res://.godot/imported/Prompt-ExtraBold.ttf-f49937ba62e37e695ecc70e11156103b.fontdata"]
 
 [params]
 

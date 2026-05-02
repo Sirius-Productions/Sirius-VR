@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bv2l260wpuwub"
-path.s3tc="res://.godot/imported/murs_norm.jpg-6ae72481c7df1ed6c1975b546d73f63c.s3tc.ctex"
-path.etc2="res://.godot/imported/murs_norm.jpg-6ae72481c7df1ed6c1975b546d73f63c.etc2.ctex"
+path.s3tc="res://.godot/imported/murs_norm.jpg-b7fbfdce6ea1c5c5b89defbd5b0d1b92.s3tc.ctex"
+path.etc2="res://.godot/imported/murs_norm.jpg-b7fbfdce6ea1c5c5b89defbd5b0d1b92.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://scenes/levels/labyrinth_v1/materiel_mur/murs_norm.jpg"
-dest_files=["res://.godot/imported/murs_norm.jpg-6ae72481c7df1ed6c1975b546d73f63c.s3tc.ctex", "res://.godot/imported/murs_norm.jpg-6ae72481c7df1ed6c1975b546d73f63c.etc2.ctex"]
+source_file="res://resources/materiels/materiel_mur/murs_norm.jpg"
+dest_files=["res://.godot/imported/murs_norm.jpg-b7fbfdce6ea1c5c5b89defbd5b0d1b92.s3tc.ctex", "res://.godot/imported/murs_norm.jpg-b7fbfdce6ea1c5c5b89defbd5b0d1b92.etc2.ctex"]
 
 [params]
 

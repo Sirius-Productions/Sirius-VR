@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dygc7rw883sho"
-path.s3tc="res://.godot/imported/ImageGenerator.svg-bd25201fc9e2f7eca75a0e9ff3cac3ba.s3tc.ctex"
-path.etc2="res://.godot/imported/ImageGenerator.svg-bd25201fc9e2f7eca75a0e9ff3cac3ba.etc2.ctex"
+uid="uid://dy1fwx3s0b46r"
+path.s3tc="res://.godot/imported/murs_ao.jpg-9d54be8f084df1a52732e463984b9121.s3tc.ctex"
+path.etc2="res://.godot/imported/murs_ao.jpg-9d54be8f084df1a52732e463984b9121.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/ImageGenerator.svg"
-dest_files=["res://.godot/imported/ImageGenerator.svg-bd25201fc9e2f7eca75a0e9ff3cac3ba.s3tc.ctex", "res://.godot/imported/ImageGenerator.svg-bd25201fc9e2f7eca75a0e9ff3cac3ba.etc2.ctex"]
+source_file="res://resources/materiels/materiel_mur/murs_ao.jpg"
+dest_files=["res://.godot/imported/murs_ao.jpg-9d54be8f084df1a52732e463984b9121.s3tc.ctex", "res://.godot/imported/murs_ao.jpg-9d54be8f084df1a52732e463984b9121.etc2.ctex"]
 
 [params]
 
@@ -40,6 +40,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=0
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

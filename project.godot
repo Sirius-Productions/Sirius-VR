@@ -48,6 +48,10 @@ folder_colors={
 "res://scripts/autoloads/": "purple"
 }
 
+[global_group]
+
+labyrinth_v2_objects=""
+
 [input]
 
 control_movement_left={

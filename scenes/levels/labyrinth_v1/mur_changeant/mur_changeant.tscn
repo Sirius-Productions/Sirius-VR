@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cu1ft2t8kq43t"]
 
 [ext_resource type="Script" uid="uid://dry6a3jhcht2j" path="res://scenes/levels/labyrinth_v1/mur_changeant/mur_changeant.gd" id="1_afx6d"]
-[ext_resource type="Material" uid="uid://doa1jko6igydq" path="res://scenes/levels/labyrinth_v1/materiel_mur/murs.tres" id="1_gmsmq"]
+[ext_resource type="Material" uid="uid://doa1jko6igydq" path="res://resources/materiels/materiel_mur/murs.tres" id="1_gmsmq"]
 
 [sub_resource type="Animation" id="Animation_afx6d"]
 length = 0.001

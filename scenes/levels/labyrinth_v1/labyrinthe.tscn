@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://c11d7np3m7dd6"]
 
 [ext_resource type="PackedScene" uid="uid://yxxn5vnnxth" path="res://scenes/custom_scene_base/custom_scene_base.tscn" id="1_x0oo5"]
-[ext_resource type="Material" uid="uid://doa1jko6igydq" path="res://scenes/levels/labyrinth_v1/materiel_mur/murs.tres" id="2_qp57t"]
-[ext_resource type="Texture2D" uid="uid://bobp5ykshg63g" path="res://scenes/levels/labyrinth_v1/materiel_mur/murs_alb.jpg" id="3_jt1a8"]
-[ext_resource type="Texture2D" uid="uid://dy1fwx3s0b46r" path="res://scenes/levels/labyrinth_v1/materiel_mur/murs_ao.jpg" id="4_vi2im"]
-[ext_resource type="Texture2D" uid="uid://bv2l260wpuwub" path="res://scenes/levels/labyrinth_v1/materiel_mur/murs_norm.jpg" id="5_qft5v"]
-[ext_resource type="Texture2D" uid="uid://cay180swvut6c" path="res://scenes/levels/labyrinth_v1/materiel_mur/murs_rough.jpg" id="6_ftmkk"]
+[ext_resource type="Material" uid="uid://doa1jko6igydq" path="res://resources/materiels/materiel_mur/murs.tres" id="2_qp57t"]
+[ext_resource type="Texture2D" uid="uid://bobp5ykshg63g" path="res://resources/materiels/materiel_mur/murs_alb.jpg" id="3_jt1a8"]
+[ext_resource type="Texture2D" uid="uid://dy1fwx3s0b46r" path="res://resources/materiels/materiel_mur/murs_ao.jpg" id="4_vi2im"]
+[ext_resource type="Texture2D" uid="uid://bv2l260wpuwub" path="res://resources/materiels/materiel_mur/murs_norm.jpg" id="5_qft5v"]
+[ext_resource type="Texture2D" uid="uid://cay180swvut6c" path="res://resources/materiels/materiel_mur/murs_rough.jpg" id="6_ftmkk"]
 [ext_resource type="PackedScene" uid="uid://cu1ft2t8kq43t" path="res://scenes/levels/labyrinth_v1/mur_changeant/mur_changeant.tscn" id="7_vi2im"]
 [ext_resource type="Script" uid="uid://bv5rcfuldk0he" path="res://scenes/waiting_room/waiting_room_script.gd" id="8_disbp"]
 [ext_resource type="PackedScene" uid="uid://b68ltqrxac7iu" path="res://scenes/levels/labyrinth_v1/labyrinthe_control_menu.tscn" id="9_disbp"]
@@ -648,7 +648,7 @@ groupe = 1
 
 [node name="ControlPanelLoader" type="Node" parent="." index="6" unique_id=1776117250]
 script = ExtResource("8_disbp")
-control_menu = ExtResource("9_disbp")
+left_side_control_menu = ExtResource("9_disbp")
 metadata/_custom_type_script = "uid://bv5rcfuldk0he"
 
 [editable path="XROrigin3D/LeftHand/LeftHand"]

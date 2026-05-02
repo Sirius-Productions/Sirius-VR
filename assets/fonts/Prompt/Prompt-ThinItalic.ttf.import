@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dsno1hmcxkmfc"
-path="res://.godot/imported/Prompt-ThinItalic.ttf-4e0925bf5b2d6d63bdd32fa7a7d36e57.fontdata"
+uid="uid://yvb68nnxegdw"
+path="res://.godot/imported/Prompt-ThinItalic.ttf-f619adbd8489023b2fd642d3511e8fef.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/Prompt/Prompt-ThinItalic.ttf"
-dest_files=["res://.godot/imported/Prompt-ThinItalic.ttf-4e0925bf5b2d6d63bdd32fa7a7d36e57.fontdata"]
+source_file="res://assets/fonts/prompt/Prompt-ThinItalic.ttf"
+dest_files=["res://.godot/imported/Prompt-ThinItalic.ttf-f619adbd8489023b2fd642d3511e8fef.fontdata"]
 
 [params]
 

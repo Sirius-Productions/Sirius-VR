@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dy1fwx3s0b46r"
-path.s3tc="res://.godot/imported/murs_ao.jpg-e1d88b1399a423c97b877b56f0b86ba0.s3tc.ctex"
-path.etc2="res://.godot/imported/murs_ao.jpg-e1d88b1399a423c97b877b56f0b86ba0.etc2.ctex"
+uid="uid://c3c2by4u4b80c"
+path.s3tc="res://.godot/imported/Concrete036_1K-JPG_NormalGL.jpg-f0e2a39ff1d8d3b9e0bd02723bdb40ff.s3tc.ctex"
+path.etc2="res://.godot/imported/Concrete036_1K-JPG_NormalGL.jpg-f0e2a39ff1d8d3b9e0bd02723bdb40ff.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://scenes/levels/labyrinth_v1/materiel_mur/murs_ao.jpg"
-dest_files=["res://.godot/imported/murs_ao.jpg-e1d88b1399a423c97b877b56f0b86ba0.s3tc.ctex", "res://.godot/imported/murs_ao.jpg-e1d88b1399a423c97b877b56f0b86ba0.etc2.ctex"]
+source_file="res://resources/materiels/concrete/Concrete036_1K-JPG_NormalGL.jpg"
+dest_files=["res://.godot/imported/Concrete036_1K-JPG_NormalGL.jpg-f0e2a39ff1d8d3b9e0bd02723bdb40ff.s3tc.ctex", "res://.godot/imported/Concrete036_1K-JPG_NormalGL.jpg-f0e2a39ff1d8d3b9e0bd02723bdb40ff.etc2.ctex"]
 
 [params]
 
@@ -23,12 +23,12 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://resources/materiels/concrete/Concrete036_1K-JPG_NormalGL.jpg"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

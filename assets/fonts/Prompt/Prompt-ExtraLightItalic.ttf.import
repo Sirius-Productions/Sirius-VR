@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dvkddm3i4tyxp"
-path="res://.godot/imported/Prompt-ExtraLightItalic.ttf-fd4e057c7430194341e5e09ded0f37e9.fontdata"
+uid="uid://dbi70i6q1d0jf"
+path="res://.godot/imported/Prompt-ExtraLightItalic.ttf-d49957459480903f5591945af2b4b09d.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/Prompt/Prompt-ExtraLightItalic.ttf"
-dest_files=["res://.godot/imported/Prompt-ExtraLightItalic.ttf-fd4e057c7430194341e5e09ded0f37e9.fontdata"]
+source_file="res://assets/fonts/prompt/Prompt-ExtraLightItalic.ttf"
+dest_files=["res://.godot/imported/Prompt-ExtraLightItalic.ttf-d49957459480903f5591945af2b4b09d.fontdata"]
 
 [params]
 

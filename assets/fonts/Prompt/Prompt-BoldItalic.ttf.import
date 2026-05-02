@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://hktl1u67of8w"
-path="res://.godot/imported/Prompt-BoldItalic.ttf-8d5701b435b2850b1696fa631d13a64e.fontdata"
+uid="uid://b8jwp6ucfukwr"
+path="res://.godot/imported/Prompt-BoldItalic.ttf-b2b95fad1d660804bb2f6b0414362ab5.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/Prompt/Prompt-BoldItalic.ttf"
-dest_files=["res://.godot/imported/Prompt-BoldItalic.ttf-8d5701b435b2850b1696fa631d13a64e.fontdata"]
+source_file="res://assets/fonts/prompt/Prompt-BoldItalic.ttf"
+dest_files=["res://.godot/imported/Prompt-BoldItalic.ttf-b2b95fad1d660804bb2f6b0414362ab5.fontdata"]
 
 [params]
 

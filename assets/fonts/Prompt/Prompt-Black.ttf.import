@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bvrl41n5vljgb"
-path="res://.godot/imported/Prompt-Black.ttf-95329375e45f2ca7890ec00566ef14a7.fontdata"
+uid="uid://cnuh3n6ycdjpk"
+path="res://.godot/imported/Prompt-Black.ttf-46397adc73c462ec94e6d9505e939f1e.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/Prompt/Prompt-Black.ttf"
-dest_files=["res://.godot/imported/Prompt-Black.ttf-95329375e45f2ca7890ec00566ef14a7.fontdata"]
+source_file="res://assets/fonts/prompt/Prompt-Black.ttf"
+dest_files=["res://.godot/imported/Prompt-Black.ttf-46397adc73c462ec94e6d9505e939f1e.fontdata"]
 
 [params]
 

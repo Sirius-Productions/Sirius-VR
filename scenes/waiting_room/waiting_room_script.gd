@@ -3,7 +3,7 @@ class_name ControlPanelMenuLoader
 extends Node
 
 
-@export var control_menu: PackedScene
+@export var left_side_control_menu: PackedScene
 
 @export_group("Camera Controller Settings")
 ## The [param position] of the [b]ControlPanel[/b]'s [Camera3D].
@@ -11,6 +11,11 @@ extends Node
 	set(value):
 		camera_position = value
 		ControlPanel.set_camera_controller_position(value)
+## The [param rotation] of the [b]ControlPanel[/b]'s [Camera3D].
+@export_custom(PROPERTY_HINT_NONE, "radians_as_degrees") var camera_rotation: Vector3 = Vector3(-PI/2.0, 0, 0):
+	set(value):
+		camera_rotation = value
+		ControlPanel.set_camera_controller_rotation(value)
 ## The [param fov] of the [b]ControlPanel[/b]'s [Camera3D].
 @export_range(1, 179, 1.0, "degrees") var camera_fov: float = 75:
 	set(value):
@@ -51,12 +56,14 @@ extends Node
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	
-	if control_menu:
-		var new_control_menu: LeftSideControlPanelMenu = control_menu.instantiate()
+	if left_side_control_menu:
+		var new_control_menu: LeftSideControlPanelMenu = left_side_control_menu.instantiate()
 		new_control_menu.xr_scene = owner
 		ControlPanel.change_control_panel_menu(new_control_menu)
 	
-	if use_custom_right_side_panel and right_side_scene:
+	if not use_custom_right_side_panel:
+		ControlPanel.custom_right_side_panel = false
+	elif right_side_scene:
 		var new_right_side_menu: RightSideControlPanelMenu = right_side_scene.instantiate()
 		new_right_side_menu.xr_scene = owner
 		ControlPanel.change_secondary_panel_menu(new_right_side_menu)

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d1dcbjlu1jmic" path="res://scripts/autoloads/control_panel/control_panel.gd" id="1_ohye5"]
 [ext_resource type="Script" uid="uid://dfiv7c61jj6lk" path="res://scripts/autoloads/control_panel/preview_camera.gd" id="2_fklet"]
 [ext_resource type="Script" uid="uid://1gv52w517875" path="res://scripts/autoloads/control_panel/camera_controller.gd" id="3_f8cgh"]
+[ext_resource type="FontFile" uid="uid://bvrl41n5vljgb" path="res://assets/fonts/Prompt/Prompt-Black.ttf" id="4_0qhtv"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4mnaq"]
 
@@ -76,6 +77,10 @@ font_color = Color(0.28235295, 0.36862746, 0.627451, 1)
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_2pf5m"]
+font = ExtResource("4_0qhtv")
+font_size = 50
+
 [node name="ControlPanel" type="Node" unique_id=1102085332]
 script = ExtResource("1_ohye5")
 
@@ -106,50 +111,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Labyrinthe" type="Button" parent="ControlPanelWindow/ControlPanelSplit/ControlPanelMenu/ColorRect" unique_id=230940485]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 68.0
-offset_top = 124.0
-offset_right = 235.0
-offset_bottom = 155.0
-text = "Aller Labyrinthe"
-
-[node name="Bleues" type="Button" parent="ControlPanelWindow/ControlPanelSplit/ControlPanelMenu/ColorRect" unique_id=675105972]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 68.0
-offset_top = 200.0
-offset_right = 235.0
-offset_bottom = 231.0
-text = "Ouvrir portes bleues"
-
-[node name="Rouges" type="Button" parent="ControlPanelWindow/ControlPanelSplit/ControlPanelMenu/ColorRect" unique_id=1269574535]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 64.0
-offset_top = 288.0
-offset_right = 231.0
-offset_bottom = 319.0
-text = "Ouvrir portes rouges"
-
-[node name="Vertes" type="Button" parent="ControlPanelWindow/ControlPanelSplit/ControlPanelMenu/ColorRect" unique_id=322476123]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 68.0
-offset_top = 404.0
-offset_right = 235.0
-offset_bottom = 435.0
-text = "Ouvrir portes vertes"
+color = Color(0.18039216, 0.18039216, 0.18039216, 1)
 
 [node name="RightSideContainer" type="TabContainer" parent="ControlPanelWindow/ControlPanelSplit" unique_id=1844516415]
 unique_name_in_owner = true
 layout_mode = 2
-current_tab = 0
+current_tab = 1
 tabs_visible = false
 
 [node name="PreviewCamera" type="Control" parent="ControlPanelWindow/ControlPanelSplit/RightSideContainer" unique_id=12986334]
+visible = false
 layout_mode = 2
 script = ExtResource("2_fklet")
 metadata/_tab_index = 0
@@ -167,7 +138,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="ControlPanelWindow/ControlPanelSplit/RightSideContainer/PreviewCamera/ViewportContainer" unique_id=792980433]
 handle_input_locally = false
 size = Vector2i(1443, 1080)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="CameraController" type="CharacterBody3D" parent="ControlPanelWindow/ControlPanelSplit/RightSideContainer/PreviewCamera/ViewportContainer/SubViewport" unique_id=843333840]
 unique_name_in_owner = true
@@ -277,9 +248,21 @@ horizontal_alignment = 2
 
 [node name="SecondaryControlPanelMenu" type="Control" parent="ControlPanelWindow/ControlPanelSplit/RightSideContainer" unique_id=46064002]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="ControlPanelWindow/ControlPanelSplit/RightSideContainer/SecondaryControlPanelMenu" unique_id=1214151905]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ControlPanelWindow/ControlPanelSplit/RightSideContainer/SecondaryControlPanelMenu/CenterContainer" unique_id=1235132755]
+layout_mode = 2
+text = "CHARGEMENT"
+label_settings = SubResource("LabelSettings_2pf5m")
 
 [connection signal="gui_input" from="ControlPanelWindow/ControlPanelSplit/RightSideContainer/PreviewCamera" to="ControlPanelWindow/ControlPanelSplit/RightSideContainer/PreviewCamera" method="_on_gui_input"]
 [connection signal="mouse_entered" from="ControlPanelWindow/ControlPanelSplit/RightSideContainer/PreviewCamera" to="ControlPanelWindow/ControlPanelSplit/RightSideContainer/PreviewCamera" method="_on_mouse_entered"]

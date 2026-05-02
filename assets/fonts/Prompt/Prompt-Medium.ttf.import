@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dwi5pp3a5h3ne"
-path="res://.godot/imported/Prompt-Medium.ttf-855d50ebdd51eec9ed19d48e2bdc1953.fontdata"
+uid="uid://dlw3r21lagkeq"
+path="res://.godot/imported/Prompt-Medium.ttf-41ce212b79840f186ec29c9664d6cf7a.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/Prompt/Prompt-Medium.ttf"
-dest_files=["res://.godot/imported/Prompt-Medium.ttf-855d50ebdd51eec9ed19d48e2bdc1953.fontdata"]
+source_file="res://assets/fonts/prompt/Prompt-Medium.ttf"
+dest_files=["res://.godot/imported/Prompt-Medium.ttf-41ce212b79840f186ec29c9664d6cf7a.fontdata"]
 
 [params]
 

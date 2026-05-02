@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c8xsmbobwcp8v"]
 
-[ext_resource type="Script" uid="uid://tsv4hf630tej" path="res://scripts/custom_nodes/control_panel_menu.gd" id="1_ckkm2"]
+[ext_resource type="Script" uid="uid://tsv4hf630tej" path="res://scripts/custom_nodes/left_side_control_panel_menu.gd" id="1_ckkm2"]
 
 [node name="LabyrinthLeftMenu" type="Control" unique_id=1942127197]
 layout_mode = 3
@@ -19,4 +19,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.50980395, 1, 1, 1)
+color = Color(0.14, 0.14, 0.14, 1)
