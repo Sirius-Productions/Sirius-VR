@@ -88,3 +88,7 @@ func set_camerra_controller_size(new_size: float = 20) -> void:
 
 func set_camera_controller_projection(projection_type := Camera3D.ProjectionType.PROJECTION_PERSPECTIVE)  -> void:
 	camera_3d.projection = projection_type
+
+func set_camera_near_far(near: float, far: float)  -> void:
+	camera_3d.near = near
+	camera_3d.far = far

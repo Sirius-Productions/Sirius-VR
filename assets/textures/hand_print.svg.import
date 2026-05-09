@@ -1,0 +1,20 @@
+[remap]
+
+importer="svg"
+type="DPITexture"
+uid="uid://c6kpkh1nies5g"
+path="res://.godot/imported/hand_print.svg-9414d58cc262cab25957cfd2a2c4ee4d.dpitex"
+
+[deps]
+
+source_file="res://assets/textures/hand_print.svg"
+dest_files=["res://.godot/imported/hand_print.svg-9414d58cc262cab25957cfd2a2c4ee4d.dpitex"]
+
+[params]
+
+base_scale=1.0
+saturation=1.0
+color_map={
+Color(0, 0, 0, 1): Color(1, 1, 1, 1)
+}
+compress=true

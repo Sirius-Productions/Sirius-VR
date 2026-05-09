@@ -98,6 +98,15 @@ ao_enabled = true
 ao_texture = ExtResource("4_vi2im")
 uv1_triplanar = true
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_5e7fx"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g8odg"]
+resource_local_to_scene = true
+transparency = 1
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_5e7fx")
+
 [node name="Labyrinthe" unique_id=311686013 instance=ExtResource("1_x0oo5")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0" unique_id=586744390]
@@ -649,7 +658,22 @@ groupe = 1
 [node name="ControlPanelLoader" type="Node" parent="." index="6" unique_id=1776117250]
 script = ExtResource("8_disbp")
 left_side_control_menu = ExtResource("9_disbp")
+camera_position = Vector3(0, 9.476595, 0.986279)
+camera_size = 21.0
+camera_projection = 1
+camera_near_far = Vector2(0.001, 200)
+controller_can_move = false
+controller_can_rotate_view = false
 metadata/_custom_type_script = "uid://bv5rcfuldk0he"
+
+[node name="MenuViewport" parent="PlayerMenu" parent_id_path=PackedInt32Array(78160560) index="0" unique_id=442761183]
+material = SubResource("StandardMaterial3D_g8odg")
+
+[node name="Camera3D" type="Camera3D" parent="." index="8" unique_id=685057362]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 9.476595, 0.986279)
+projection = 1
+size = 21.0
+far = 200.0
 
 [editable path="XROrigin3D/LeftHand/LeftHand"]
 [editable path="XROrigin3D/LeftHand/LeftHand/Hand_Nails_low_L"]

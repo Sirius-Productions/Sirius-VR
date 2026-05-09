@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="9_eg6sc"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="10_1kdlb"]
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="10_6rah2"]
+[ext_resource type="PackedScene" uid="uid://bft3xyxs31ci3" path="res://addons/godot-xr-tools/functions/function_pose_detector.tscn" id="11_06wwu"]
 [ext_resource type="Script" uid="uid://di0imd0xfp6ij" path="res://scenes/player_menu/player_menu.gd" id="11_s8qml"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="12_s8qml"]
 [ext_resource type="PackedScene" uid="uid://v5h0aq7wmk6d" path="res://scenes/player_menu/player_menu_ui.tscn" id="13_6rah2"]
@@ -49,6 +50,10 @@ nodes/Trigger/node = SubResource("AnimationNodeBlend2_6mr7s")
 nodes/Trigger/position = Vector2(-360, 20)
 node_connections = [&"output", 0, &"Grip", &"Grip", 0, &"Trigger", &"Grip", 1, &"ClosedHand2", &"Trigger", 0, &"OpenHand", &"Trigger", 1, &"ClosedHand1"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6rah2"]
+radius = 0.04638672
+height = 0.15332031
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1kdlb"]
 animation = &"Grip"
 
@@ -84,14 +89,15 @@ node_connections = [&"output", 0, &"Grip", &"Grip", 0, &"Trigger", &"Grip", 1, &
 radius = 0.3
 height = 1.8
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_6rah2"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_5gvv0"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6rah2"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vkxum"]
 resource_local_to_scene = true
 transparency = 1
+cull_mode = 2
 emission_enabled = true
-emission_texture = SubResource("ViewportTexture_6rah2")
+emission_texture = SubResource("ViewportTexture_5gvv0")
 
 [node name="CustomSceneBase" unique_id=311686013 groups=["scene_base"] instance=ExtResource("1_88xd2")]
 
@@ -164,6 +170,13 @@ enabled = false
 show_laser = 0
 laser_length = 1
 
+[node name="LeftHandArea" type="Area3D" parent="XROrigin3D/LeftHand" index="4" unique_id=224720394]
+collision_layer = 131073
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/LeftHand/LeftHandArea" index="0" unique_id=1428878461]
+transform = Transform3D(1, 0, 0, 0, 0.72893274, -0.6845853, 0, 0.6845853, 0.72893274, 0, 0.00039553642, 0.0027689636)
+shape = SubResource("CapsuleShape3D_6rah2")
+
 [node name="RightHand" parent="XROrigin3D" parent_id_path=PackedInt32Array(272371564) index="2" unique_id=142894257]
 pose = &"grip"
 
@@ -219,6 +232,16 @@ enabled = false
 show_laser = 0
 laser_length = 1
 
+[node name="FunctionPoseDetector" parent="XROrigin3D/RightHand" index="5" unique_id=1066708898 instance=ExtResource("11_06wwu")]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
+
+[node name="RightHandArea" type="Area3D" parent="XROrigin3D/RightHand" index="6" unique_id=523077034]
+collision_layer = 131073
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/RightHand/RightHandArea" index="0" unique_id=499928822]
+transform = Transform3D(1, 0, 0, 0, 0.72893274, -0.6845853, 0, 0.6845853, 0.72893274, 0, 0.00039553642, 0.0027689636)
+shape = SubResource("CapsuleShape3D_6rah2")
+
 [node name="PlayerBody" parent="XROrigin3D" parent_id_path=PackedInt32Array(272371564) index="3" unique_id=1246795368 instance=ExtResource("10_1kdlb")]
 player_calibrate_height = false
 
@@ -236,7 +259,7 @@ screen_size = Vector2(1.5, 1)
 collision_layer = 5242880
 scene = ExtResource("13_6rah2")
 viewport_size = Vector2(900, 600)
-material = SubResource("StandardMaterial3D_6rah2")
+material = SubResource("StandardMaterial3D_vkxum")
 transparent = 1
 scene_properties_keys = PackedStringArray("player_menu_ui.gd")
 

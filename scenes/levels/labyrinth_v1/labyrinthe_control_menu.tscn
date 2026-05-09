@@ -12,49 +12,67 @@ grow_vertical = 2
 script = ExtResource("1_ld4hr")
 metadata/_custom_type_script = "uid://tsv4hf630tej"
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1605180905]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=559861640]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 50
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=633236125]
-custom_minimum_size = Vector2(300, 0)
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=804081910]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1434282746]
+[node name="CheckButton" type="CheckButton" parent="MarginContainer/VBoxContainer" unique_id=52085075]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Couleur des portes"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=633236125]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1434282746]
 layout_mode = 2
 text = "Actions"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=1274405969]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1274405969]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=485489878]
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=485489878]
 layout_mode = 2
 text = "Portes ouvertes: "
 
-[node name="OpenedDoors" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=291112510]
+[node name="OpenedDoors" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=291112510]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Rouges"
 
-[node name="HSeparator" type="HSeparator" parent="CenterContainer/VBoxContainer" unique_id=1149171586]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1149171586]
 layout_mode = 2
 
-[node name="OuvrirPortesVertes" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1225755059]
+[node name="OuvrirPortesVertes" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1225755059]
 visible = false
 layout_mode = 2
 text = "Fermer toutes les portes"
 
-[node name="OuvrirPortesBleues" type="Button" parent="CenterContainer/VBoxContainer" unique_id=39273700]
+[node name="OuvrirPortesBleues" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=39273700]
 layout_mode = 2
 text = "Ouvrir portes Bleues"
 
-[node name="OuvrirPortesRouges" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1026857068]
+[node name="OuvrirPortesRouges" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1026857068]
 layout_mode = 2
 text = "Ouvrir portes Rouges"
+
+[node name="BackToWaitRoom" type="Button" parent="MarginContainer/VBoxContainer" unique_id=309162037]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Retourner au menu"
 
 [node name="Timer" type="Timer" parent="." unique_id=330237415]
 unique_name_in_owner = true
@@ -62,7 +80,9 @@ wait_time = 5.0
 one_shot = true
 autostart = true
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/OuvrirPortesVertes" to="." method="_on_ouvrir_portes_vertes_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/OuvrirPortesBleues" to="." method="_on_ouvrir_portes_bleues_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/OuvrirPortesRouges" to="." method="_on_ouvrir_portes_rouges_pressed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/OuvrirPortesVertes" to="." method="_on_ouvrir_portes_vertes_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/OuvrirPortesBleues" to="." method="_on_ouvrir_portes_bleues_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/OuvrirPortesRouges" to="." method="_on_ouvrir_portes_rouges_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BackToWaitRoom" to="." method="_on_back_to_wait_room_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

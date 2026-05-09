@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dfiv7c61jj6lk" path="res://scripts/autoloads/control_panel/preview_camera.gd" id="2_fklet"]
 [ext_resource type="Script" uid="uid://1gv52w517875" path="res://scripts/autoloads/control_panel/camera_controller.gd" id="3_f8cgh"]
 [ext_resource type="FontFile" uid="uid://cnuh3n6ycdjpk" path="res://assets/fonts/prompt/Prompt-Black.ttf" id="4_0qhtv"]
+[ext_resource type="Script" uid="uid://dgrqb7aajg4nj" path="res://scripts/autoloads/control_panel/fps_counter.gd" id="5_2pf5m"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4mnaq"]
 
@@ -262,6 +263,14 @@ grow_vertical = 2
 layout_mode = 2
 text = "CHARGEMENT"
 label_settings = SubResource("LabelSettings_2pf5m")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="ControlPanelWindow" unique_id=1069861481]
+
+[node name="FpsCounter" type="Label" parent="ControlPanelWindow/CanvasLayer" unique_id=482310099]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "FPS: "
+script = ExtResource("5_2pf5m")
 
 [connection signal="gui_input" from="ControlPanelWindow/ControlPanelSplit/RightSideContainer/PreviewCamera" to="ControlPanelWindow/ControlPanelSplit/RightSideContainer/PreviewCamera" method="_on_gui_input"]
 [connection signal="mouse_entered" from="ControlPanelWindow/ControlPanelSplit/RightSideContainer/PreviewCamera" to="ControlPanelWindow/ControlPanelSplit/RightSideContainer/PreviewCamera" method="_on_mouse_entered"]

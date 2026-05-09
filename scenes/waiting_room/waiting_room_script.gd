@@ -47,6 +47,11 @@ extends Node
 		camera_projection = value
 		if not Engine.is_editor_hint():
 			ControlPanel.set_camera_controller_projection(value)
+@export var camera_near_far := Vector2(0.001, 4000):
+	set(value):
+		camera_near_far = value
+		if not Engine.is_editor_hint():
+			ControlPanel.set_camera_near_far(value.x, value.y)
 ## Wether the [b]ControlPanel[/b]'s CameraController can move in its 3D Space.
 @export var controller_can_move := true:
 	set(value):
@@ -74,13 +79,16 @@ extends Node
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	
+	ControlPanel.set_camera_controller_position(camera_position)
+	ControlPanel.set_camera_controller_rotation(camera_rotation)
+	
 	if left_side_control_menu:
 		var new_control_menu: LeftSideControlPanelMenu = left_side_control_menu.instantiate()
 		new_control_menu.xr_scene = owner
 		ControlPanel.change_control_panel_menu(new_control_menu)
 	
 	if fullscreen_menu:
-		pass
+		ControlPanel.fullscreen_left_side_menu()
 	
 	if not use_custom_right_side_panel:
 		ControlPanel.custom_right_side_panel = false

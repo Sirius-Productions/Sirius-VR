@@ -84,6 +84,11 @@ text = "Cadza"
 layout_mode = 2
 text = "Cadza"
 
+[node name="BackToWaitRoom" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1334885506]
+layout_mode = 2
+size_flags_vertical = 10
+text = "Retourner au menu"
+
 [node name="LabyrinthMap" type="MarginContainer" parent="MarginContainer/HBoxContainer" unique_id=1960100659]
 unique_name_in_owner = true
 layout_mode = 2
@@ -123,7 +128,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1398658981]
 layout_mode = 2
 size_flags_vertical = 0
-text = "Radar"
+text = "Carte"
 label_settings = SubResource("LabelSettings_hkjou")
 uppercase = true
 
@@ -158,3 +163,5 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_hkjou")
 layout_mode = 2
 text = "Objets"
 label_settings = SubResource("LabelSettings_5xy6a")
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/BackToWaitRoom" to="." method="_on_back_to_wait_room_pressed"]

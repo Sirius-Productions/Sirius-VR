@@ -6,6 +6,7 @@
 [ext_resource type="Gradient" path="res://assets/textures/fire_gradient.tres" id="3_lgqut"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="5_b4wgy"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="5_v445i"]
+[ext_resource type="Script" uid="uid://cee6r5of4xjo4" path="res://scripts/custom_nodes/flickering_omni_light_3d.gd" id="7_8pifd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_38jqo"]
 transparency = 1
@@ -102,16 +103,20 @@ visible = true
 transform = Transform3D(1, 0, 0, 0, 0.96111727, -0.27614063, 0, 0.27614063, 0.96111727, -0.010695718, 0.013010776, -0.076869234)
 visible = true
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=58969882]
+[node name="FlickeringOmniLight3D" type="OmniLight3D" parent="." unique_id=58969882]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26532137, 0)
-light_color = Color(0.6813695, 0.40110838, 0.33204767, 1)
-light_energy = 2.0
+light_color = Color(0.67058825, 0.45882353, 0, 1)
+light_energy = 1.12502
 light_size = 0.185
 shadow_enabled = true
 omni_range = 10.0
 omni_attenuation = 0.7
+script = ExtResource("7_8pifd")
+min_energy = 0.8
+max_energy = 1.3
+flickering_lerp_weight = 0.141
 
-[node name="RemoteTransform3D" type="RemoteTransform3D" parent="OmniLight3D" unique_id=1614075425]
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="FlickeringOmniLight3D" unique_id=1614075425]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0029093921, 0)
 remote_path = NodePath("../../Flames")
 update_rotation = false

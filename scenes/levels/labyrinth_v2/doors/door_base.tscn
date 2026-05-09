@@ -102,8 +102,9 @@ _data = {
 &"opening": SubResource("Animation_u0n6h")
 }
 
-[node name="DoorBase" type="Node3D" unique_id=431615062]
+[node name="DoorBase" type="Node3D" unique_id=1091367641]
 script = ExtResource("1_hptlf")
+metadata/_custom_type_script = "uid://c214gpdgdi68b"
 
 [node name="CSGBox3D46" type="CSGBox3D" parent="." unique_id=605465682]
 size = Vector3(0.5, 6, 2.5)

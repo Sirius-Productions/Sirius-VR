@@ -4,7 +4,7 @@
 [ext_resource type="Material" uid="uid://dnwpcvepswf5j" path="res://resources/sky_materials/night_time_sky.tres" id="2_eccc5"]
 [ext_resource type="Material" uid="uid://doa1jko6igydq" path="res://resources/materiels/materiel_mur/murs.tres" id="2_hwde8"]
 [ext_resource type="Script" uid="uid://cg505yk8i210u" path="res://scenes/levels/labyrinth_v2/labyrinth_v2.gd" id="2_i81g1"]
-[ext_resource type="PackedScene" uid="uid://by1ahikc0fxe2" path="res://scenes/levels/labyrinth_v2/doors/door_base.tscn" id="9_hwde8"]
+[ext_resource type="PackedScene" uid="uid://dbib7fybud10o" path="res://scenes/levels/labyrinth_v2/doors/triangle_door/triangle_door.tscn" id="9_hwde8"]
 [ext_resource type="Material" uid="uid://b60ncxecqhht5" path="res://resources/materiels/concrete/concrete.tres" id="9_tmdj6"]
 [ext_resource type="Script" uid="uid://bv5rcfuldk0he" path="res://scenes/waiting_room/waiting_room_script.gd" id="12_v4sj2"]
 [ext_resource type="PackedScene" uid="uid://d1h07duoiopn4" path="res://scenes/levels/labyrinth_v2/control_menus/right_side_control_menu.tscn" id="13_eccc5"]
@@ -120,7 +120,7 @@ size = Vector3(1.5, 1, 0.02)
 environment = SubResource("Environment_wyykx")
 
 [node name="Sun" type="DirectionalLight3D" parent="." index="1" unique_id=225390464]
-transform = Transform3D(0.8528783, 0.25882432, 0.45344096, 0.1245015, 0.7426057, -0.6580548, -0.5070485, 0.61769474, 0.6011282, 0, 2.763462, 0)
+transform = Transform3D(0.8528783, 0.25882435, 0.45344096, 0.1245015, 0.7426057, -0.6580549, -0.5070485, 0.61769474, 0.60112816, 0, 2.763462, 0)
 light_energy = 0.0
 
 [node name="Moon" type="DirectionalLight3D" parent="Sun" index="0" unique_id=841126726]
@@ -135,12 +135,12 @@ script = ExtResource("2_i81g1")
 
 [node name="DebugSun" type="DirectionalLight3D" parent="LevelScript" index="0" unique_id=1327946553]
 transform = Transform3D(0.8660254, -0.35355344, 0.35355344, 0, 0.7071068, 0.7071068, -0.50000006, -0.61237246, 0.61237246, 0, 12.726381, 0)
-visible = false
 
 [node name="ControlPanelMenuLoader" type="Node" parent="." index="3" unique_id=90925847]
 unique_name_in_owner = true
 script = ExtResource("12_v4sj2")
 left_side_control_menu = ExtResource("13_eccc5")
+fullscreen_menu = true
 camera_position = Vector3(0, 20, 0)
 camera_projection = 1
 controller_can_rotate_view = false
@@ -936,12 +936,9 @@ material = ExtResource("9_tmdj6")
 [node name="Torch" parent="Labyrinth/Objects" index="0" unique_id=2008630134 instance=ExtResource("15_wyykx")]
 transform = Transform3D(1, 0, 0, 0, 0.87090516, -0.49145108, 0, 0.49145108, 0.87090516, -0.6604109, 1.2212569, -2.7168045)
 
-[node name="Torch2" parent="Labyrinth/Objects" index="1" unique_id=1234372212 instance=ExtResource("15_wyykx")]
-transform = Transform3D(1, 0, 0, 0, 0.87090516, -0.49145108, 0, 0.49145108, 0.87090516, -0.6604109, 1.2212569, -4.8787813)
-
 [node name="Doors" type="Node3D" parent="Labyrinth" index="2" unique_id=1913321194]
 
-[node name="Door" parent="Labyrinth/Doors" index="0" unique_id=167737930 instance=ExtResource("9_hwde8")]
+[node name="TriangleDoor" parent="Labyrinth/Doors" index="0" unique_id=1097825016 instance=ExtResource("9_hwde8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.75, 2.5, -4.5)
 
 [editable path="XROrigin3D/LeftHand/LeftHand"]
@@ -949,4 +946,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.75, 2.5, -4.5)
 [editable path="XROrigin3D/RightHand/RightHand"]
 [editable path="XROrigin3D/RightHand/RightHand/Hand_Nails_low_R"]
 [editable path="PlayerMenu/MenuViewport"]
-[editable path="Labyrinth/Doors/Door"]
