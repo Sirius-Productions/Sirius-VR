@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cecdabafccmcj"
-path="res://.godot/imported/Prompt-Italic.ttf-9d08b0e998f9d933310db016686de18e.fontdata"
+path="res://.godot/imported/Prompt-Italic.ttf-8652c375dda7abc99466f45cdc33efac.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/prompt/Prompt-Italic.ttf"
-dest_files=["res://.godot/imported/Prompt-Italic.ttf-9d08b0e998f9d933310db016686de18e.fontdata"]
+source_file="res://assets/fonts/Prompt/Prompt-Italic.ttf"
+dest_files=["res://.godot/imported/Prompt-Italic.ttf-8652c375dda7abc99466f45cdc33efac.fontdata"]
 
 [params]
 

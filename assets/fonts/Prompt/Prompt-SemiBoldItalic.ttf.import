@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://b2drxouyqw0rp"
-path="res://.godot/imported/Prompt-SemiBoldItalic.ttf-3bb60b7ea6f2fe8e0761199b7582dd12.fontdata"
+path="res://.godot/imported/Prompt-SemiBoldItalic.ttf-beebab135801512ad2a3433e8fddde7d.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/prompt/Prompt-SemiBoldItalic.ttf"
-dest_files=["res://.godot/imported/Prompt-SemiBoldItalic.ttf-3bb60b7ea6f2fe8e0761199b7582dd12.fontdata"]
+source_file="res://assets/fonts/Prompt/Prompt-SemiBoldItalic.ttf"
+dest_files=["res://.godot/imported/Prompt-SemiBoldItalic.ttf-beebab135801512ad2a3433e8fddde7d.fontdata"]
 
 [params]
 

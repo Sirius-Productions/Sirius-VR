@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dk81ggjhvcmn6"
-path="res://.godot/imported/Prompt-ExtraBoldItalic.ttf-951d8a595dc5b8a32125af2b7b723d59.fontdata"
+path="res://.godot/imported/Prompt-ExtraBoldItalic.ttf-fc12755b5cb97eb9867ca200d859eb0c.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/prompt/Prompt-ExtraBoldItalic.ttf"
-dest_files=["res://.godot/imported/Prompt-ExtraBoldItalic.ttf-951d8a595dc5b8a32125af2b7b723d59.fontdata"]
+source_file="res://assets/fonts/Prompt/Prompt-ExtraBoldItalic.ttf"
+dest_files=["res://.godot/imported/Prompt-ExtraBoldItalic.ttf-fc12755b5cb97eb9867ca200d859eb0c.fontdata"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bty4em4twr3od"
-path="res://.godot/imported/Prompt-SemiBold.ttf-0b6cea4fdae4629fa52922f304b8b1de.fontdata"
+path="res://.godot/imported/Prompt-SemiBold.ttf-1112e3731a4fcc06040f6cd3e23862ca.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/prompt/Prompt-SemiBold.ttf"
-dest_files=["res://.godot/imported/Prompt-SemiBold.ttf-0b6cea4fdae4629fa52922f304b8b1de.fontdata"]
+source_file="res://assets/fonts/Prompt/Prompt-SemiBold.ttf"
+dest_files=["res://.godot/imported/Prompt-SemiBold.ttf-1112e3731a4fcc06040f6cd3e23862ca.fontdata"]
 
 [params]
 

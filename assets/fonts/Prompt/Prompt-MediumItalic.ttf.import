@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://epo5d1untwig"
-path="res://.godot/imported/Prompt-MediumItalic.ttf-ad444bcc8481e99e5845414c4f6b7c9c.fontdata"
+path="res://.godot/imported/Prompt-MediumItalic.ttf-a91c4ccd84bb58da8b91d4000b054e45.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/prompt/Prompt-MediumItalic.ttf"
-dest_files=["res://.godot/imported/Prompt-MediumItalic.ttf-ad444bcc8481e99e5845414c4f6b7c9c.fontdata"]
+source_file="res://assets/fonts/Prompt/Prompt-MediumItalic.ttf"
+dest_files=["res://.godot/imported/Prompt-MediumItalic.ttf-a91c4ccd84bb58da8b91d4000b054e45.fontdata"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://b3tocdowmosse"
-path="res://.godot/imported/Prompt-LightItalic.ttf-c79a17f03476ad6790de0ce19bca863b.fontdata"
+path="res://.godot/imported/Prompt-LightItalic.ttf-b3c17f992c3f7b166006adc4b9de66e0.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/prompt/Prompt-LightItalic.ttf"
-dest_files=["res://.godot/imported/Prompt-LightItalic.ttf-c79a17f03476ad6790de0ce19bca863b.fontdata"]
+source_file="res://assets/fonts/Prompt/Prompt-LightItalic.ttf"
+dest_files=["res://.godot/imported/Prompt-LightItalic.ttf-b3c17f992c3f7b166006adc4b9de66e0.fontdata"]
 
 [params]
 

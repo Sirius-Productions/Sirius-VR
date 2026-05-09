@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://ch2powden3sqx"
-path="res://.godot/imported/Prompt-Light.ttf-ef8388737705a19aaee481301c474450.fontdata"
+path="res://.godot/imported/Prompt-Light.ttf-6fa3e34c6399b88ed490062e2a05b1a8.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/prompt/Prompt-Light.ttf"
-dest_files=["res://.godot/imported/Prompt-Light.ttf-ef8388737705a19aaee481301c474450.fontdata"]
+source_file="res://assets/fonts/Prompt/Prompt-Light.ttf"
+dest_files=["res://.godot/imported/Prompt-Light.ttf-6fa3e34c6399b88ed490062e2a05b1a8.fontdata"]
 
 [params]
 

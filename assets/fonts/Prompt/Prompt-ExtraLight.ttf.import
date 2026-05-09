@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bbohbx4lc8v2f"
-path="res://.godot/imported/Prompt-ExtraLight.ttf-63d5b53c780a67a021d9f0da03028412.fontdata"
+path="res://.godot/imported/Prompt-ExtraLight.ttf-44b75b7af7962ffb69f4b0c9d95f3aff.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/prompt/Prompt-ExtraLight.ttf"
-dest_files=["res://.godot/imported/Prompt-ExtraLight.ttf-63d5b53c780a67a021d9f0da03028412.fontdata"]
+source_file="res://assets/fonts/Prompt/Prompt-ExtraLight.ttf"
+dest_files=["res://.godot/imported/Prompt-ExtraLight.ttf-44b75b7af7962ffb69f4b0c9d95f3aff.fontdata"]
 
 [params]
 

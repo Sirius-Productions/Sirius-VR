@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c4obc7q7kp6pk"
-path="res://.godot/imported/waiting_room.blend-c285046229652ee1ee9863cd28001a1c.scn"
+valid=false
 
 [deps]
 
 source_file="res://assets/meshes/waiting_room/waiting_room.blend"
-dest_files=["res://.godot/imported/waiting_room.blend-c285046229652ee1ee9863cd28001a1c.scn"]
 
 [params]
 
