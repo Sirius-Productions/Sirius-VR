@@ -1,0 +1,20 @@
+[remap]
+
+importer="svg"
+type="DPITexture"
+uid="uid://lv557rtvdsm8"
+path="res://.godot/imported/wifi.svg-1da768776a98033a40a0ea32a31da978.dpitex"
+
+[deps]
+
+source_file="res://assets/textures/wifi.svg"
+dest_files=["res://.godot/imported/wifi.svg-1da768776a98033a40a0ea32a31da978.dpitex"]
+
+[params]
+
+base_scale=1.0
+saturation=1.0
+color_map={
+Color(0, 0, 0, 1): Color(1, 1, 1, 1)
+}
+compress=true

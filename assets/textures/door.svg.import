@@ -1,0 +1,20 @@
+[remap]
+
+importer="svg"
+type="DPITexture"
+uid="uid://bh7d504bapcwm"
+path="res://.godot/imported/door.svg-2707ee317935ade9b91cd785db15d15e.dpitex"
+
+[deps]
+
+source_file="res://assets/textures/door.svg"
+dest_files=["res://.godot/imported/door.svg-2707ee317935ade9b91cd785db15d15e.dpitex"]
+
+[params]
+
+base_scale=1.0
+saturation=1.0
+color_map={
+Color(0, 0, 0, 1): Color(1, 1, 1, 1)
+}
+compress=true

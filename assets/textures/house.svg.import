@@ -1,0 +1,20 @@
+[remap]
+
+importer="svg"
+type="DPITexture"
+uid="uid://nd0c5i1tl6gt"
+path="res://.godot/imported/house.svg-13411727a414ca9dfb056e220a7768aa.dpitex"
+
+[deps]
+
+source_file="res://assets/textures/house.svg"
+dest_files=["res://.godot/imported/house.svg-13411727a414ca9dfb056e220a7768aa.dpitex"]
+
+[params]
+
+base_scale=1.0
+saturation=1.0
+color_map={
+Color(0, 0, 0, 1): Color(1, 1, 1, 1)
+}
+compress=true

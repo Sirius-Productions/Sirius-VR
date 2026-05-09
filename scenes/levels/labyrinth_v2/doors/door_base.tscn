@@ -153,6 +153,9 @@ _data = {
 &"opening": SubResource("Animation_u0n6h")
 }
 
+[sub_resource type="BoxOccluder3D" id="BoxOccluder3D_rmk0x"]
+size = Vector3(0.45965084, 5.933777, 2.4300742)
+
 [node name="DoorBase" type="Node3D" unique_id=1091367641]
 script = ExtResource("1_hptlf")
 metadata/_custom_type_script = "uid://c214gpdgdi68b"
@@ -176,3 +179,6 @@ stream = ExtResource("4_rmk0x")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1102315301]
 libraries/ = SubResource("AnimationLibrary_rmk0x")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=677633169]
+occluder = SubResource("BoxOccluder3D_rmk0x")

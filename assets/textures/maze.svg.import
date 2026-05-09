@@ -1,0 +1,20 @@
+[remap]
+
+importer="svg"
+type="DPITexture"
+uid="uid://dmeoes2yu3aed"
+path="res://.godot/imported/maze.svg-7d007099b0d8a5198be11d6950473c56.dpitex"
+
+[deps]
+
+source_file="res://assets/textures/maze.svg"
+dest_files=["res://.godot/imported/maze.svg-7d007099b0d8a5198be11d6950473c56.dpitex"]
+
+[params]
+
+base_scale=1.0
+saturation=1.0
+color_map={
+Color(0, 0, 0, 1): Color(1, 1, 1, 1)
+}
+compress=true

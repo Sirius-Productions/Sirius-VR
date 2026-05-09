@@ -1,0 +1,20 @@
+[remap]
+
+importer="svg"
+type="DPITexture"
+uid="uid://bj34hvixmqd3c"
+path="res://.godot/imported/torch.svg-ae6718e1c968c9b086c78a1d53cd7f6a.dpitex"
+
+[deps]
+
+source_file="res://assets/textures/torch.svg"
+dest_files=["res://.godot/imported/torch.svg-ae6718e1c968c9b086c78a1d53cd7f6a.dpitex"]
+
+[params]
+
+base_scale=1.0
+saturation=1.0
+color_map={
+Color(0, 0, 0, 1): Color(1, 1, 1, 1)
+}
+compress=true
