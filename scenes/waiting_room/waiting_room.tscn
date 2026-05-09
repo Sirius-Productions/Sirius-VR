@@ -80,6 +80,16 @@ sky = SubResource("Sky_qax70")
 ambient_light_source = 3
 tonemap_mode = 2
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_djl40"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0qqte"]
+resource_local_to_scene = true
+transparency = 1
+cull_mode = 2
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_djl40")
+
 [node name="WaitingRoomLevel" unique_id=311686013 instance=ExtResource("1_1yeck")]
 
 [node name="AnimationTree" parent="XROrigin3D/LeftHand/LeftHand" parent_id_path=PackedInt32Array(1696142797) index="1"]
@@ -91,8 +101,8 @@ tree_root = SubResource("AnimationNodeBlendTree_hnrk4")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="1" unique_id=315474683]
 environment = SubResource("Environment_qax70")
 
-[node name="waiting_room" parent="." index="2" unique_id=2135418354 instance=ExtResource("2_676s3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.602)
+[node name="waiting_room2" parent="." index="2" unique_id=1152164784 instance=ExtResource("2_676s3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5149622)
 
 [node name="ControlPanelLoader" type="Node" parent="." index="3" unique_id=1277366807]
 script = ExtResource("3_qax70")
@@ -100,6 +110,9 @@ left_side_control_menu = ExtResource("4_wy88x")
 camera_position = Vector3(2.948474, 2.693554, -3.9130902)
 camera_rotation = Vector3(-0.51427865, 2.4209464, -4.5946752e-08)
 metadata/_custom_type_script = "uid://bv5rcfuldk0he"
+
+[node name="MenuViewport" parent="PlayerMenu" parent_id_path=PackedInt32Array(78160560) index="0" unique_id=442761183]
+material = SubResource("StandardMaterial3D_0qqte")
 
 [node name="Camera3D" type="Camera3D" parent="." index="5" unique_id=1697532162]
 transform = Transform3D(-0.7513793, -0.32459491, 0.57451475, -4.0003435e-08, 0.8706477, 0.491907, -0.65987045, 0.36960864, -0.65418667, 2.948474, 2.693554, -3.9130902)

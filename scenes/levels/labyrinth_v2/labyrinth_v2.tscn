@@ -135,6 +135,7 @@ script = ExtResource("2_i81g1")
 
 [node name="DebugSun" type="DirectionalLight3D" parent="LevelScript" index="0" unique_id=1327946553]
 transform = Transform3D(0.8660254, -0.35355344, 0.35355344, 0, 0.7071068, 0.7071068, -0.50000006, -0.61237246, 0.61237246, 0, 12.726381, 0)
+visible = false
 
 [node name="ControlPanelMenuLoader" type="Node" parent="." index="3" unique_id=90925847]
 unique_name_in_owner = true
@@ -939,7 +940,7 @@ transform = Transform3D(1, 0, 0, 0, 0.87090516, -0.49145108, 0, 0.49145108, 0.87
 [node name="Doors" type="Node3D" parent="Labyrinth" index="2" unique_id=1913321194]
 
 [node name="TriangleDoor" parent="Labyrinth/Doors" index="0" unique_id=1097825016 instance=ExtResource("9_hwde8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.75, 2.5, -4.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.75, 0, -4.5)
 
 [editable path="XROrigin3D/LeftHand/LeftHand"]
 [editable path="XROrigin3D/LeftHand/LeftHand/Hand_Nails_low_L"]

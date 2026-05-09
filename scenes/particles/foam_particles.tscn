@@ -36,7 +36,7 @@ color = Color(1, 1, 1, 0.2509804)
 color_ramp = SubResource("GradientTexture1D_003qp")
 
 [sub_resource type="QuadMesh" id="QuadMesh_vqptv"]
-size = Vector2(0.2, 0.2)
+size = Vector2(0.1, 0.1)
 
 [node name="FoamParticles" type="GPUParticles3D" unique_id=1056915693]
 material_override = SubResource("StandardMaterial3D_vqptv")

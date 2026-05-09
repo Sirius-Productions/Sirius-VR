@@ -3,6 +3,7 @@
 [ext_resource type="Material" uid="uid://doa1jko6igydq" path="res://resources/materiels/materiel_mur/murs.tres" id="1_bwglf"]
 [ext_resource type="Script" uid="uid://c214gpdgdi68b" path="res://scenes/levels/labyrinth_v2/doors/door_base.gd" id="1_hptlf"]
 [ext_resource type="PackedScene" uid="uid://w2doaetlmlaq" path="res://scenes/particles/foam_particles.tscn" id="3_u0n6h"]
+[ext_resource type="AudioStream" uid="uid://c5dvr4a7kfc5q" path="res://assets/sounds/tectonic_rumbling.mp3" id="4_rmk0x"]
 
 [sub_resource type="Gradient" id="Gradient_vqptv"]
 interpolation_mode = 2
@@ -20,12 +21,14 @@ point_count = 2
 curve = SubResource("Curve_u0n6h")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rmk0x"]
-emission_shape_scale = Vector3(0.645, 1, 1)
+emission_shape_scale = Vector3(0.365, 1, 1)
 emission_shape = 3
 emission_box_extents = Vector3(1.38, 0.035, 1.31)
-gravity = Vector3(0, 0.2, 0)
-scale_min = 0.5
-scale_max = 2.0
+gravity = Vector3(0, 0.1, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = 0.09999776
+scale_min = 0.099999994
+scale_max = 0.099999994
 scale_curve = SubResource("CurveTexture_rmk0x")
 color_ramp = SubResource("GradientTexture1D_003qp")
 
@@ -67,6 +70,30 @@ tracks/2/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer3D:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer3D:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_u0n6h"]
 resource_name = "opening"
@@ -95,6 +122,30 @@ tracks/1/keys = {
 "points": PackedFloat32Array(0, -0.21620801, 0.013916349, 0.3, -0.019309668, -0.0029954962, -0.5, -0.012235628, 4.7333336, 0.26133788, -5.7, -1.256, 0, 0, 0),
 "times": PackedFloat32Array(0, 1.4, 6.866667)
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer3D:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.032203197),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer3D:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(6.733333, 6.866667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -80.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rmk0x"]
 _data = {
@@ -107,6 +158,7 @@ script = ExtResource("1_hptlf")
 metadata/_custom_type_script = "uid://c214gpdgdi68b"
 
 [node name="CSGBox3D46" type="CSGBox3D" parent="." unique_id=605465682]
+use_collision = true
 size = Vector3(0.5, 6, 2.5)
 material = ExtResource("1_bwglf")
 
@@ -117,6 +169,10 @@ amount = 2000
 lifetime = 4.0
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_rmk0x")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1118280254]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0190697, 0)
+stream = ExtResource("4_rmk0x")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1102315301]
 libraries/ = SubResource("AnimationLibrary_rmk0x")

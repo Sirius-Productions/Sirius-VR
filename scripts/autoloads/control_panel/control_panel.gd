@@ -11,6 +11,7 @@ signal information_sent(info: Dictionary[String, Variant])
 @onready var right_side_container: TabContainer = %RightSideContainer
 @onready var secondary_control_panel_menu: Control = %SecondaryControlPanelMenu
 @onready var camera_rotation: Node3D = %CameraRotation
+@onready var control_panel_window: Window = %ControlPanelWindow
 
 
 var custom_right_side_panel: bool = false:
@@ -63,6 +64,15 @@ func change_secondary_panel_menu(new_menu: Control, enable: bool = true) -> void
 	
 	if enable:
 		custom_right_side_panel = true
+
+
+func add_popup(popup: Window) -> void:
+	if popup.get_parent():
+		popup.reparent(secondary_control_panel_menu, false)
+	else:
+		secondary_control_panel_menu.add_child(popup)
+	
+	popup.popup_centered()
 
 
 func fullscreen_left_side_menu() -> void:

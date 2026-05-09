@@ -2,8 +2,8 @@
 
 [ext_resource type="Theme" uid="uid://dkxs3pgftnuqw" path="res://resources/themes/player_menu_theme.theme" id="1_mwkqh"]
 [ext_resource type="Script" uid="uid://tsv4hf630tej" path="res://scripts/custom_nodes/left_side_control_panel_menu.gd" id="1_njqds"]
-[ext_resource type="FontFile" uid="uid://cnuh3n6ycdjpk" path="res://assets/fonts/prompt/Prompt-Black.ttf" id="2_0g87f"]
-[ext_resource type="FontFile" uid="uid://dlw3r21lagkeq" path="res://assets/fonts/prompt/Prompt-Medium.ttf" id="3_hkjou"]
+[ext_resource type="FontFile" uid="uid://cnuh3n6ycdjpk" path="res://assets/fonts/Prompt/Prompt-Black.ttf" id="2_0g87f"]
+[ext_resource type="FontFile" uid="uid://dlw3r21lagkeq" path="res://assets/fonts/Prompt/Prompt-Medium.ttf" id="3_hkjou"]
 [ext_resource type="Script" uid="uid://cicxjntyb7pjh" path="res://scenes/levels/labyrinth_v2/control_menus/player_position_map.gd" id="3_sw2m2"]
 [ext_resource type="Texture2D" uid="uid://cedrrkm0bcklh" path="res://assets/textures/labyrinth_texture.svg" id="5_p1nsd"]
 [ext_resource type="Script" uid="uid://dm5vyy0tt3er5" path="res://scenes/levels/labyrinth_v2/control_menus/objects_position_points.gd" id="6_p1nsd"]
